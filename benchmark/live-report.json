@@ -1,0 +1,1106 @@
+{
+  "schema_version": "1",
+  "synthetic": false,
+  "metadata": {
+    "captured_at": "2026-10-20T05:40:04+00:00",
+    "candidate_count": 2164,
+    "candidate_snapshot_sha256": "0ea55a36a4b084630296877bba9c2d2e357ff8e402aca43e1b40437747806f1c",
+    "ranking_module_sha256": "1a569a211f4859c109e2a8c01888a0c209f388602a1b08a352dc31e232a794ac",
+    "selection_method": "Eight manually chosen natural-language task requests and known positive skill declarations, authored before examining these rankings. This subset focuses on longer requests, not representative keyword-search traffic. Not a random or exhaustive sample.",
+    "judgments_complete": false,
+    "scope": "One-time observed search sample using public stored declarations. Not a task test, independent assessment, competitor comparison, or exhaustive relevance assessment.",
+    "replay_limit": "Ranked ID captures and scoring can be replayed offline. Full candidate text is not redistributed; exact live reranking requires the original snapshot. Current listings can change.",
+    "rights": "Publisher names and card URLs are public source references; no license to third-party content is granted. Full descriptions and Agent Cards are omitted."
+  },
+  "public_listing_references": [
+    {
+      "id": 4,
+      "name": "Claix",
+      "card_url": "https://www.claix.dev/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/4"
+    },
+    {
+      "id": 190,
+      "name": "Ni Biashara Shelves",
+      "card_url": "https://agents.nibiashara.biz/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/190"
+    },
+    {
+      "id": 195,
+      "name": "agentsvc.io",
+      "card_url": "https://agentsvc.io/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/195"
+    },
+    {
+      "id": 490,
+      "name": "Macaroon Network",
+      "card_url": "https://api.macaroonnetwork.com/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/490"
+    },
+    {
+      "id": 491,
+      "name": "SendSets Outbound Agent",
+      "card_url": "https://api.sendsetsapi.com/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/491"
+    },
+    {
+      "id": 628,
+      "name": "Attestly",
+      "card_url": "https://attestly.co/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/628"
+    },
+    {
+      "id": 2091,
+      "name": "AI Hub",
+      "card_url": "https://gpt55.558686.xyz/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/2091"
+    },
+    {
+      "id": 3146,
+      "name": "Paperknife PDF Extraction Agent",
+      "card_url": "https://paperknife-api.davidgoparkid369.chatgpt.site/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/3146"
+    },
+    {
+      "id": 4632,
+      "name": "Anokha Web Tools",
+      "card_url": "https://tools.anokha.space/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/4632"
+    },
+    {
+      "id": 8793,
+      "name": "Cooper Email",
+      "card_url": "https://cooperemail.com/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/8793"
+    },
+    {
+      "id": 8820,
+      "name": "BlindOracle",
+      "card_url": "https://craigmbrown.com/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/8820"
+    },
+    {
+      "id": 8868,
+      "name": "Nausika",
+      "card_url": "https://mcp.nausika.app/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/8868"
+    },
+    {
+      "id": 9022,
+      "name": "StudioMeyer GEO",
+      "card_url": "https://geo.studiomeyer.io/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/9022"
+    },
+    {
+      "id": 9128,
+      "name": "Afterwren by CyberMax",
+      "card_url": "https://afterwren.cybermaxtools.com/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/9128"
+    },
+    {
+      "id": 9142,
+      "name": "agent-web",
+      "card_url": "https://agent-web.foomworks.workers.dev/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/9142"
+    },
+    {
+      "id": 9147,
+      "name": "MAD Synapse",
+      "card_url": "https://agent.maddegen.art/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/9147"
+    },
+    {
+      "id": 10928,
+      "name": "EUCompliance.tools — Agent Decision & Evidence Layer",
+      "card_url": "https://eucompliance.tools/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/10928"
+    },
+    {
+      "id": 11258,
+      "name": "thinair-geo",
+      "card_url": "https://geo.thinair.co/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/11258"
+    },
+    {
+      "id": 11260,
+      "name": "Emboss",
+      "card_url": "https://getemboss.ai/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/11260"
+    },
+    {
+      "id": 11261,
+      "name": "Magnus - Super intelligence",
+      "card_url": "https://getmagnus.co/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/11261"
+    },
+    {
+      "id": 11350,
+      "name": "Mailvett by CyberMax",
+      "card_url": "https://mailvett.cybermaxtools.com/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/11350"
+    },
+    {
+      "id": 11426,
+      "name": "Pinloft by CyberMax",
+      "card_url": "https://pinloft.cybermaxtools.com/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/11426"
+    },
+    {
+      "id": 11438,
+      "name": "Postari",
+      "card_url": "https://postari.io/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/11438"
+    },
+    {
+      "id": 11463,
+      "name": "Re:port Flow",
+      "card_url": "https://re-port-flow.com/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/11463"
+    },
+    {
+      "id": 11495,
+      "name": "Sendmux A2A",
+      "card_url": "https://sendmux.ai/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/11495"
+    },
+    {
+      "id": 11805,
+      "name": "TravelPulse",
+      "card_url": "https://travelpulse.theaslangroupllc.com/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/11805"
+    },
+    {
+      "id": 11834,
+      "name": "BizIntel API",
+      "card_url": "https://bizintel-api.hahavoid0.workers.dev/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/11834"
+    },
+    {
+      "id": 11909,
+      "name": "AgentReader",
+      "card_url": "https://agent-reader.agent-reader.workers.dev/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/11909"
+    },
+    {
+      "id": 11919,
+      "name": "Tollmint",
+      "card_url": "https://api.tollmint.com/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/11919"
+    },
+    {
+      "id": 11949,
+      "name": "HALOWERK medwerk",
+      "card_url": "https://med.halowerk.com/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/11949"
+    },
+    {
+      "id": 11963,
+      "name": "Busker",
+      "card_url": "https://workbot1.oddsys.org/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/11963"
+    },
+    {
+      "id": 11988,
+      "name": "TariffMonkee",
+      "card_url": "https://tariffmonkee.com/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/11988"
+    },
+    {
+      "id": 12008,
+      "name": "Document Extraction Hub",
+      "card_url": "https://doc.halowerk.com/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/12008"
+    },
+    {
+      "id": 12011,
+      "name": "HubVibe",
+      "card_url": "https://hubvibe-io.com/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/12011"
+    },
+    {
+      "id": 12129,
+      "name": "x402-farm",
+      "card_url": "https://api.x-402.online/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/12129"
+    },
+    {
+      "id": 12150,
+      "name": "FiatDock",
+      "card_url": "https://fiatdock.com/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/12150"
+    },
+    {
+      "id": 12212,
+      "name": "Routavo",
+      "card_url": "https://routavo.com/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/12212"
+    },
+    {
+      "id": 46179,
+      "name": "Virohana Agora Labor",
+      "card_url": "https://labor.virohanalife.com/.well-known/agent.json",
+      "profile_url": "https://localmark.ai/agents/46179"
+    },
+    {
+      "id": 46188,
+      "name": "AmanChain Agent Marketplace",
+      "card_url": "https://amanchain-relay.gitajhd.workers.dev/.well-known/agent.json",
+      "profile_url": "https://localmark.ai/agents/46188"
+    },
+    {
+      "id": 46252,
+      "name": "Korean Public Data Agent",
+      "card_url": "https://publicdata-agent.songt50.us/.well-known/agent.json",
+      "profile_url": "https://localmark.ai/agents/46252"
+    },
+    {
+      "id": 46399,
+      "name": "AgentFeed",
+      "card_url": "https://x402.ochinimus.app/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/46399"
+    },
+    {
+      "id": 83760,
+      "name": "x402 Agent Data API",
+      "card_url": "https://x402-trends-server.onrender.com/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/83760"
+    },
+    {
+      "id": 147699,
+      "name": "Microlink",
+      "card_url": "https://microlink-io.vercel.app/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/147699"
+    },
+    {
+      "id": 181429,
+      "name": "broke2built Data & Intelligence Skills",
+      "card_url": "https://broke2builtai.com/.well-known/agent.json",
+      "profile_url": "https://localmark.ai/agents/181429"
+    },
+    {
+      "id": 188394,
+      "name": "Waltsoft DataPulse",
+      "card_url": "https://datapulse.waltsoft.net/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/188394"
+    },
+    {
+      "id": 188652,
+      "name": "MeshMarket",
+      "card_url": "https://market.meshtool.ai/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/188652"
+    },
+    {
+      "id": 216023,
+      "name": "SYNTHORA Translate",
+      "card_url": "https://translate.hergertsynthora.com/.well-known/agent.json",
+      "profile_url": "https://localmark.ai/agents/216023"
+    },
+    {
+      "id": 240762,
+      "name": "Sendmux A2A",
+      "card_url": "https://a2a.sendmux.ai/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/240762"
+    }
+  ],
+  "k": 5,
+  "judgments_complete": false,
+  "summaries": {
+    "baseline": {
+      "query_count": 8,
+      "known_positive_hit_at_5": 0.0,
+      "known_positive_mrr_at_5": 0.0,
+      "top_5_judged_distractors": 0
+    },
+    "recommendation": {
+      "query_count": 8,
+      "known_positive_hit_at_5": 1.0,
+      "known_positive_mrr_at_5": 0.775,
+      "top_5_judged_distractors": 0
+    }
+  },
+  "metrics_scope": "Only known-positive hit rate and reciprocal rank; no precision or recall because live judgments are incomplete. An unjudged result is not classified as irrelevant.",
+  "queries": [
+    {
+      "id": "live-pdf-create",
+      "q": "generate PDF documents",
+      "requirements": {},
+      "judgments": {
+        "relevant_ids": [
+          195,
+          4632,
+          9022,
+          9142,
+          11261,
+          11463,
+          46188,
+          147699
+        ],
+        "unacceptable_ids": [
+          3146
+        ],
+        "rationale": "Known positive cards declare PDF creation or rendering. Paperknife declares extraction, not document creation.",
+        "constraint_ineligible_ids": [],
+        "no_match_expected": false,
+        "complete": false
+      },
+      "baseline": {
+        "ranked_ids": [],
+        "top_5_ids": [],
+        "known_positive_returned_ids": [],
+        "known_positive_hit_at_5": false,
+        "known_positive_reciprocal_rank_at_5": 0.0,
+        "judged_distractor_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "recommendation": {
+        "ranked_ids": [
+          11463,
+          195,
+          11260,
+          4632,
+          46188,
+          11445,
+          9142,
+          11947,
+          147699,
+          11341,
+          9022,
+          12129,
+          11988,
+          109096,
+          11923,
+          35,
+          11338,
+          11261,
+          3174,
+          1196,
+          12182,
+          12036,
+          11446,
+          147706,
+          11345,
+          10928,
+          10921,
+          12245,
+          12242,
+          12195,
+          122078,
+          12374,
+          11934,
+          3156,
+          195679,
+          12252,
+          12183,
+          246692,
+          11461,
+          11456,
+          9147,
+          9073,
+          9070,
+          10975,
+          10824,
+          188401,
+          190,
+          12315,
+          147691,
+          187
+        ],
+        "top_5_ids": [
+          11463,
+          195,
+          11260,
+          4632,
+          46188
+        ],
+        "known_positive_returned_ids": [
+          11463,
+          195,
+          4632,
+          46188
+        ],
+        "known_positive_hit_at_5": true,
+        "known_positive_reciprocal_rank_at_5": 1.0,
+        "judged_distractor_ids": [],
+        "unjudged_returned_ids": [
+          11260
+        ]
+      }
+    },
+    {
+      "id": "live-pdf-fill",
+      "q": "fill the fields in an existing PDF form",
+      "requirements": {},
+      "judgments": {
+        "relevant_ids": [
+          11260
+        ],
+        "unacceptable_ids": [
+          3146,
+          147699
+        ],
+        "rationale": "Emboss explicitly declares filling a PDF form from supplied data. Extraction and page rendering do not establish form filling.",
+        "constraint_ineligible_ids": [],
+        "no_match_expected": false,
+        "complete": false
+      },
+      "baseline": {
+        "ranked_ids": [],
+        "top_5_ids": [],
+        "known_positive_returned_ids": [],
+        "known_positive_hit_at_5": false,
+        "known_positive_reciprocal_rank_at_5": 0.0,
+        "judged_distractor_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "recommendation": {
+        "ranked_ids": [
+          11260,
+          12129,
+          10928,
+          11988,
+          190,
+          12182,
+          3156,
+          11923,
+          109096,
+          35,
+          122078,
+          12374,
+          11934,
+          187,
+          195679,
+          12252,
+          12183,
+          147706,
+          246692,
+          11461,
+          11456,
+          11446,
+          11345,
+          11338,
+          11261,
+          9147,
+          9073,
+          9070,
+          10975,
+          10921,
+          10824,
+          3174,
+          1196,
+          188401,
+          12315,
+          12245,
+          12242,
+          12195,
+          12036,
+          147691
+        ],
+        "top_5_ids": [
+          11260,
+          12129,
+          10928,
+          11988,
+          190
+        ],
+        "known_positive_returned_ids": [
+          11260
+        ],
+        "known_positive_hit_at_5": true,
+        "known_positive_reciprocal_rank_at_5": 1.0,
+        "judged_distractor_ids": [],
+        "unjudged_returned_ids": [
+          12129,
+          10928,
+          11988,
+          190
+        ]
+      }
+    },
+    {
+      "id": "live-pdf-extract",
+      "q": "extract text from a PDF document",
+      "requirements": {},
+      "judgments": {
+        "relevant_ids": [
+          4,
+          3146,
+          11909,
+          11963,
+          46399
+        ],
+        "unacceptable_ids": [
+          11463
+        ],
+        "rationale": "Known positives declare PDF extraction or PDF-to-text/Markdown. Template-based PDF generation is a different operation.",
+        "constraint_ineligible_ids": [],
+        "no_match_expected": false,
+        "complete": false
+      },
+      "baseline": {
+        "ranked_ids": [],
+        "top_5_ids": [],
+        "known_positive_returned_ids": [],
+        "known_positive_hit_at_5": false,
+        "known_positive_reciprocal_rank_at_5": 0.0,
+        "judged_distractor_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "recommendation": {
+        "ranked_ids": [
+          195,
+          4,
+          12008,
+          11963,
+          46179,
+          11632,
+          3146,
+          46399,
+          11841,
+          46191,
+          188652,
+          11260,
+          12273,
+          46215,
+          4632,
+          12086,
+          228317,
+          11561,
+          11909,
+          11439,
+          147699,
+          12157,
+          147690,
+          11741,
+          192,
+          109101,
+          77492,
+          12316,
+          11761,
+          12215,
+          12129,
+          11988,
+          11923,
+          12182,
+          11934,
+          12242,
+          35,
+          11338,
+          11261,
+          3174,
+          1196,
+          11446,
+          147706,
+          11345,
+          10928,
+          10921,
+          12245,
+          12195,
+          122078,
+          12374,
+          3156,
+          195679,
+          12252,
+          12183,
+          246692,
+          11461,
+          11456,
+          9147,
+          9073,
+          9070,
+          10975,
+          10824,
+          188401,
+          190,
+          12315,
+          12036,
+          147691,
+          187
+        ],
+        "top_5_ids": [
+          195,
+          4,
+          12008,
+          11963,
+          46179
+        ],
+        "known_positive_returned_ids": [
+          4,
+          11963
+        ],
+        "known_positive_hit_at_5": true,
+        "known_positive_reciprocal_rank_at_5": 0.5,
+        "judged_distractor_ids": [],
+        "unjudged_returned_ids": [
+          195,
+          12008,
+          46179
+        ]
+      }
+    },
+    {
+      "id": "live-weather",
+      "q": "weather forecast for tomorrow",
+      "requirements": {},
+      "judgments": {
+        "relevant_ids": [
+          195,
+          490,
+          8868,
+          11805,
+          11834,
+          12011,
+          12150,
+          46252
+        ],
+        "unacceptable_ids": [],
+        "rationale": "Known positives declare forecasts. Some have geographic or marine limits; no particular location is required by this query.",
+        "constraint_ineligible_ids": [],
+        "no_match_expected": false,
+        "complete": false
+      },
+      "baseline": {
+        "ranked_ids": [],
+        "top_5_ids": [],
+        "known_positive_returned_ids": [],
+        "known_positive_hit_at_5": false,
+        "known_positive_reciprocal_rank_at_5": 0.0,
+        "judged_distractor_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "recommendation": {
+        "ranked_ids": [
+          46252,
+          83760,
+          11834,
+          11805,
+          188394,
+          649,
+          490,
+          12150,
+          12011,
+          83756,
+          128442,
+          8868,
+          499,
+          83759,
+          12022,
+          195,
+          77492,
+          46407,
+          11856,
+          46188,
+          9147,
+          12212,
+          12073,
+          12346,
+          109100,
+          11923,
+          11511,
+          11258,
+          11988,
+          12157,
+          11997,
+          46240,
+          154539,
+          46215,
+          246718,
+          11863,
+          11826,
+          11801,
+          11626,
+          11512,
+          11478,
+          33556,
+          9138,
+          9207,
+          10997,
+          4666,
+          1180,
+          861,
+          102536,
+          37,
+          21,
+          18,
+          5,
+          38542,
+          12324,
+          12320,
+          12306,
+          12297,
+          109102,
+          228308,
+          46399,
+          11913,
+          46193,
+          7015,
+          10928,
+          6997,
+          4665,
+          626,
+          389,
+          12295,
+          46437,
+          46255,
+          46238,
+          246689,
+          11745,
+          11737,
+          11571,
+          9413,
+          8825,
+          8818,
+          135149,
+          7154,
+          3147,
+          71301,
+          38530,
+          109096,
+          228299,
+          228293,
+          12223,
+          4636,
+          987,
+          12208,
+          11986,
+          11937,
+          11588,
+          9360,
+          1031,
+          155
+        ],
+        "top_5_ids": [
+          46252,
+          83760,
+          11834,
+          11805,
+          188394
+        ],
+        "known_positive_returned_ids": [
+          46252,
+          11834,
+          11805
+        ],
+        "known_positive_hit_at_5": true,
+        "known_positive_reciprocal_rank_at_5": 1.0,
+        "judged_distractor_ids": [],
+        "unjudged_returned_ids": [
+          83760,
+          188394
+        ]
+      }
+    },
+    {
+      "id": "live-email-verify",
+      "q": "validate an email address without sending email",
+      "requirements": {},
+      "judgments": {
+        "relevant_ids": [
+          195,
+          628,
+          9147,
+          11350,
+          12011
+        ],
+        "unacceptable_ids": [
+          491,
+          8793,
+          11495,
+          240762
+        ],
+        "rationale": "Known positives declare address validation. A mail-sending skill is not sufficient for this request, and the request excludes sending a message.",
+        "constraint_ineligible_ids": [],
+        "no_match_expected": false,
+        "complete": false
+      },
+      "baseline": {
+        "ranked_ids": [],
+        "top_5_ids": [],
+        "known_positive_returned_ids": [],
+        "known_positive_hit_at_5": false,
+        "known_positive_reciprocal_rank_at_5": 0.0,
+        "judged_distractor_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "recommendation": {
+        "ranked_ids": [
+          46188,
+          195,
+          628,
+          181429,
+          12011,
+          246705,
+          216004,
+          46399,
+          11890,
+          11914,
+          11988,
+          11425,
+          8084,
+          12150,
+          46269,
+          246718,
+          12301,
+          12019,
+          490,
+          11350,
+          77492,
+          11307,
+          10847,
+          973,
+          11563,
+          109096,
+          246697,
+          12324
+        ],
+        "top_5_ids": [
+          46188,
+          195,
+          628,
+          181429,
+          12011
+        ],
+        "known_positive_returned_ids": [
+          195,
+          628,
+          12011
+        ],
+        "known_positive_hit_at_5": true,
+        "known_positive_reciprocal_rank_at_5": 0.5,
+        "judged_distractor_ids": [],
+        "unjudged_returned_ids": [
+          46188,
+          181429
+        ]
+      }
+    },
+    {
+      "id": "live-email-send",
+      "q": "send an email message",
+      "requirements": {},
+      "judgments": {
+        "relevant_ids": [
+          491,
+          8793,
+          11495,
+          240762,
+          46188
+        ],
+        "unacceptable_ids": [
+          628,
+          11350
+        ],
+        "rationale": "Known positives declare sending mail; address-checking-only services are different.",
+        "constraint_ineligible_ids": [],
+        "no_match_expected": false,
+        "complete": false
+      },
+      "baseline": {
+        "ranked_ids": [],
+        "top_5_ids": [],
+        "known_positive_returned_ids": [],
+        "known_positive_hit_at_5": false,
+        "known_positive_reciprocal_rank_at_5": 0.0,
+        "judged_distractor_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "recommendation": {
+        "ranked_ids": [
+          46188,
+          8793,
+          188652,
+          491,
+          11438,
+          153,
+          11495,
+          240762,
+          11841,
+          246730,
+          181429,
+          11611,
+          135119,
+          9047,
+          4252,
+          7869
+        ],
+        "top_5_ids": [
+          46188,
+          8793,
+          188652,
+          491,
+          11438
+        ],
+        "known_positive_returned_ids": [
+          46188,
+          8793,
+          491
+        ],
+        "known_positive_hit_at_5": true,
+        "known_positive_reciprocal_rank_at_5": 1.0,
+        "judged_distractor_ids": [],
+        "unjudged_returned_ids": [
+          188652,
+          11438
+        ]
+      }
+    },
+    {
+      "id": "live-geocode",
+      "q": "convert a street address into latitude and longitude",
+      "requirements": {},
+      "judgments": {
+        "relevant_ids": [
+          9128,
+          9147,
+          11258,
+          11426,
+          11919
+        ],
+        "unacceptable_ids": [],
+        "rationale": "Known positives explicitly advertise street/address geocoding, rather than only a city lookup or route calculation.",
+        "constraint_ineligible_ids": [],
+        "no_match_expected": false,
+        "complete": false
+      },
+      "baseline": {
+        "ranked_ids": [],
+        "top_5_ids": [],
+        "known_positive_returned_ids": [],
+        "known_positive_hit_at_5": false,
+        "known_positive_reciprocal_rank_at_5": 0.0,
+        "judged_distractor_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "recommendation": {
+        "ranked_ids": [
+          11426,
+          195,
+          12212,
+          11919,
+          9147,
+          12234,
+          12161,
+          11258,
+          9128,
+          8868,
+          147698,
+          46215,
+          12126,
+          83756,
+          11923,
+          83759,
+          11801,
+          12129,
+          9138,
+          46405,
+          228308
+        ],
+        "top_5_ids": [
+          11426,
+          195,
+          12212,
+          11919,
+          9147
+        ],
+        "known_positive_returned_ids": [
+          11426,
+          11919,
+          9147
+        ],
+        "known_positive_hit_at_5": true,
+        "known_positive_reciprocal_rank_at_5": 1.0,
+        "judged_distractor_ids": [],
+        "unjudged_returned_ids": [
+          195,
+          12212
+        ]
+      }
+    },
+    {
+      "id": "live-translation",
+      "q": "translate text between languages",
+      "requirements": {},
+      "judgments": {
+        "relevant_ids": [
+          190,
+          195,
+          2091,
+          8820
+        ],
+        "unacceptable_ids": [],
+        "rationale": "Known positives declare text translation. Language coverage differs and is not exhaustively evaluated by this broad request.",
+        "constraint_ineligible_ids": [],
+        "no_match_expected": false,
+        "complete": false
+      },
+      "baseline": {
+        "ranked_ids": [],
+        "top_5_ids": [],
+        "known_positive_returned_ids": [],
+        "known_positive_hit_at_5": false,
+        "known_positive_reciprocal_rank_at_5": 0.0,
+        "judged_distractor_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "recommendation": {
+        "ranked_ids": [
+          46188,
+          216023,
+          188652,
+          11949,
+          195,
+          174845,
+          10997,
+          188413,
+          46399,
+          83756,
+          9309,
+          2091,
+          9495,
+          12316,
+          11884,
+          11805,
+          11592,
+          8820,
+          196,
+          12011,
+          974,
+          11619,
+          11439,
+          490,
+          38530,
+          12073,
+          11377,
+          11295,
+          8081,
+          12297,
+          11988,
+          10834,
+          398,
+          11615,
+          190,
+          147720,
+          2093
+        ],
+        "top_5_ids": [
+          46188,
+          216023,
+          188652,
+          11949,
+          195
+        ],
+        "known_positive_returned_ids": [
+          195
+        ],
+        "known_positive_hit_at_5": true,
+        "known_positive_reciprocal_rank_at_5": 0.2,
+        "judged_distractor_ids": [],
+        "unjudged_returned_ids": [
+          46188,
+          216023,
+          188652,
+          11949
+        ]
+      }
+    }
+  ]
+}

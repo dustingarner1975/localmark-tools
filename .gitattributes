@@ -1,0 +1,2 @@
+# Benchmark reports record hashes of raw inputs. Preserve their published bytes.
+benchmark/* -text

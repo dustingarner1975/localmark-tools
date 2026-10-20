@@ -1,0 +1,474 @@
+{
+  "schema_version": "1",
+  "metadata": {
+    "captured_at": "2026-10-20T05:40:04+00:00",
+    "candidate_count": 2164,
+    "candidate_snapshot_sha256": "0ea55a36a4b084630296877bba9c2d2e357ff8e402aca43e1b40437747806f1c",
+    "ranking_module_sha256": "1a569a211f4859c109e2a8c01888a0c209f388602a1b08a352dc31e232a794ac",
+    "selection_method": "Eight manually chosen natural-language task requests and known positive skill declarations, authored before examining these rankings. This subset focuses on longer requests, not representative keyword-search traffic. Not a random or exhaustive sample.",
+    "judgments_complete": false,
+    "scope": "One-time observed search sample using public stored declarations. Not a task test, independent assessment, competitor comparison, or exhaustive relevance assessment.",
+    "replay_limit": "Ranked ID captures and scoring can be replayed offline. Full candidate text is not redistributed; exact live reranking requires the original snapshot. Current listings can change.",
+    "rights": "Publisher names and card URLs are public source references; no license to third-party content is granted. Full descriptions and Agent Cards are omitted."
+  },
+  "cases": [
+    {
+      "id": "live-pdf-create",
+      "q": "generate PDF documents",
+      "requirements": {},
+      "judgments": {
+        "relevant_ids": [
+          195,
+          4632,
+          9022,
+          9142,
+          11261,
+          11463,
+          46188,
+          147699
+        ],
+        "unacceptable_ids": [
+          3146
+        ],
+        "rationale": "Known positive cards declare PDF creation or rendering. Paperknife declares extraction, not document creation.",
+        "constraint_ineligible_ids": [],
+        "no_match_expected": false,
+        "complete": false
+      }
+    },
+    {
+      "id": "live-pdf-fill",
+      "q": "fill the fields in an existing PDF form",
+      "requirements": {},
+      "judgments": {
+        "relevant_ids": [
+          11260
+        ],
+        "unacceptable_ids": [
+          3146,
+          147699
+        ],
+        "rationale": "Emboss explicitly declares filling a PDF form from supplied data. Extraction and page rendering do not establish form filling.",
+        "constraint_ineligible_ids": [],
+        "no_match_expected": false,
+        "complete": false
+      }
+    },
+    {
+      "id": "live-pdf-extract",
+      "q": "extract text from a PDF document",
+      "requirements": {},
+      "judgments": {
+        "relevant_ids": [
+          4,
+          3146,
+          11909,
+          11963,
+          46399
+        ],
+        "unacceptable_ids": [
+          11463
+        ],
+        "rationale": "Known positives declare PDF extraction or PDF-to-text/Markdown. Template-based PDF generation is a different operation.",
+        "constraint_ineligible_ids": [],
+        "no_match_expected": false,
+        "complete": false
+      }
+    },
+    {
+      "id": "live-weather",
+      "q": "weather forecast for tomorrow",
+      "requirements": {},
+      "judgments": {
+        "relevant_ids": [
+          195,
+          490,
+          8868,
+          11805,
+          11834,
+          12011,
+          12150,
+          46252
+        ],
+        "unacceptable_ids": [],
+        "rationale": "Known positives declare forecasts. Some have geographic or marine limits; no particular location is required by this query.",
+        "constraint_ineligible_ids": [],
+        "no_match_expected": false,
+        "complete": false
+      }
+    },
+    {
+      "id": "live-email-verify",
+      "q": "validate an email address without sending email",
+      "requirements": {},
+      "judgments": {
+        "relevant_ids": [
+          195,
+          628,
+          9147,
+          11350,
+          12011
+        ],
+        "unacceptable_ids": [
+          491,
+          8793,
+          11495,
+          240762
+        ],
+        "rationale": "Known positives declare address validation. A mail-sending skill is not sufficient for this request, and the request excludes sending a message.",
+        "constraint_ineligible_ids": [],
+        "no_match_expected": false,
+        "complete": false
+      }
+    },
+    {
+      "id": "live-email-send",
+      "q": "send an email message",
+      "requirements": {},
+      "judgments": {
+        "relevant_ids": [
+          491,
+          8793,
+          11495,
+          240762,
+          46188
+        ],
+        "unacceptable_ids": [
+          628,
+          11350
+        ],
+        "rationale": "Known positives declare sending mail; address-checking-only services are different.",
+        "constraint_ineligible_ids": [],
+        "no_match_expected": false,
+        "complete": false
+      }
+    },
+    {
+      "id": "live-geocode",
+      "q": "convert a street address into latitude and longitude",
+      "requirements": {},
+      "judgments": {
+        "relevant_ids": [
+          9128,
+          9147,
+          11258,
+          11426,
+          11919
+        ],
+        "unacceptable_ids": [],
+        "rationale": "Known positives explicitly advertise street/address geocoding, rather than only a city lookup or route calculation.",
+        "constraint_ineligible_ids": [],
+        "no_match_expected": false,
+        "complete": false
+      }
+    },
+    {
+      "id": "live-translation",
+      "q": "translate text between languages",
+      "requirements": {},
+      "judgments": {
+        "relevant_ids": [
+          190,
+          195,
+          2091,
+          8820
+        ],
+        "unacceptable_ids": [],
+        "rationale": "Known positives declare text translation. Language coverage differs and is not exhaustively evaluated by this broad request.",
+        "constraint_ineligible_ids": [],
+        "no_match_expected": false,
+        "complete": false
+      }
+    }
+  ],
+  "public_listing_references": [
+    {
+      "id": 4,
+      "name": "Claix",
+      "card_url": "https://www.claix.dev/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/4"
+    },
+    {
+      "id": 190,
+      "name": "Ni Biashara Shelves",
+      "card_url": "https://agents.nibiashara.biz/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/190"
+    },
+    {
+      "id": 195,
+      "name": "agentsvc.io",
+      "card_url": "https://agentsvc.io/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/195"
+    },
+    {
+      "id": 490,
+      "name": "Macaroon Network",
+      "card_url": "https://api.macaroonnetwork.com/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/490"
+    },
+    {
+      "id": 491,
+      "name": "SendSets Outbound Agent",
+      "card_url": "https://api.sendsetsapi.com/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/491"
+    },
+    {
+      "id": 628,
+      "name": "Attestly",
+      "card_url": "https://attestly.co/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/628"
+    },
+    {
+      "id": 2091,
+      "name": "AI Hub",
+      "card_url": "https://gpt55.558686.xyz/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/2091"
+    },
+    {
+      "id": 3146,
+      "name": "Paperknife PDF Extraction Agent",
+      "card_url": "https://paperknife-api.davidgoparkid369.chatgpt.site/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/3146"
+    },
+    {
+      "id": 4632,
+      "name": "Anokha Web Tools",
+      "card_url": "https://tools.anokha.space/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/4632"
+    },
+    {
+      "id": 8793,
+      "name": "Cooper Email",
+      "card_url": "https://cooperemail.com/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/8793"
+    },
+    {
+      "id": 8820,
+      "name": "BlindOracle",
+      "card_url": "https://craigmbrown.com/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/8820"
+    },
+    {
+      "id": 8868,
+      "name": "Nausika",
+      "card_url": "https://mcp.nausika.app/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/8868"
+    },
+    {
+      "id": 9022,
+      "name": "StudioMeyer GEO",
+      "card_url": "https://geo.studiomeyer.io/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/9022"
+    },
+    {
+      "id": 9128,
+      "name": "Afterwren by CyberMax",
+      "card_url": "https://afterwren.cybermaxtools.com/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/9128"
+    },
+    {
+      "id": 9142,
+      "name": "agent-web",
+      "card_url": "https://agent-web.foomworks.workers.dev/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/9142"
+    },
+    {
+      "id": 9147,
+      "name": "MAD Synapse",
+      "card_url": "https://agent.maddegen.art/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/9147"
+    },
+    {
+      "id": 10928,
+      "name": "EUCompliance.tools — Agent Decision & Evidence Layer",
+      "card_url": "https://eucompliance.tools/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/10928"
+    },
+    {
+      "id": 11258,
+      "name": "thinair-geo",
+      "card_url": "https://geo.thinair.co/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/11258"
+    },
+    {
+      "id": 11260,
+      "name": "Emboss",
+      "card_url": "https://getemboss.ai/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/11260"
+    },
+    {
+      "id": 11261,
+      "name": "Magnus - Super intelligence",
+      "card_url": "https://getmagnus.co/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/11261"
+    },
+    {
+      "id": 11350,
+      "name": "Mailvett by CyberMax",
+      "card_url": "https://mailvett.cybermaxtools.com/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/11350"
+    },
+    {
+      "id": 11426,
+      "name": "Pinloft by CyberMax",
+      "card_url": "https://pinloft.cybermaxtools.com/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/11426"
+    },
+    {
+      "id": 11438,
+      "name": "Postari",
+      "card_url": "https://postari.io/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/11438"
+    },
+    {
+      "id": 11463,
+      "name": "Re:port Flow",
+      "card_url": "https://re-port-flow.com/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/11463"
+    },
+    {
+      "id": 11495,
+      "name": "Sendmux A2A",
+      "card_url": "https://sendmux.ai/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/11495"
+    },
+    {
+      "id": 11805,
+      "name": "TravelPulse",
+      "card_url": "https://travelpulse.theaslangroupllc.com/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/11805"
+    },
+    {
+      "id": 11834,
+      "name": "BizIntel API",
+      "card_url": "https://bizintel-api.hahavoid0.workers.dev/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/11834"
+    },
+    {
+      "id": 11909,
+      "name": "AgentReader",
+      "card_url": "https://agent-reader.agent-reader.workers.dev/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/11909"
+    },
+    {
+      "id": 11919,
+      "name": "Tollmint",
+      "card_url": "https://api.tollmint.com/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/11919"
+    },
+    {
+      "id": 11949,
+      "name": "HALOWERK medwerk",
+      "card_url": "https://med.halowerk.com/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/11949"
+    },
+    {
+      "id": 11963,
+      "name": "Busker",
+      "card_url": "https://workbot1.oddsys.org/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/11963"
+    },
+    {
+      "id": 11988,
+      "name": "TariffMonkee",
+      "card_url": "https://tariffmonkee.com/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/11988"
+    },
+    {
+      "id": 12008,
+      "name": "Document Extraction Hub",
+      "card_url": "https://doc.halowerk.com/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/12008"
+    },
+    {
+      "id": 12011,
+      "name": "HubVibe",
+      "card_url": "https://hubvibe-io.com/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/12011"
+    },
+    {
+      "id": 12129,
+      "name": "x402-farm",
+      "card_url": "https://api.x-402.online/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/12129"
+    },
+    {
+      "id": 12150,
+      "name": "FiatDock",
+      "card_url": "https://fiatdock.com/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/12150"
+    },
+    {
+      "id": 12212,
+      "name": "Routavo",
+      "card_url": "https://routavo.com/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/12212"
+    },
+    {
+      "id": 46179,
+      "name": "Virohana Agora Labor",
+      "card_url": "https://labor.virohanalife.com/.well-known/agent.json",
+      "profile_url": "https://localmark.ai/agents/46179"
+    },
+    {
+      "id": 46188,
+      "name": "AmanChain Agent Marketplace",
+      "card_url": "https://amanchain-relay.gitajhd.workers.dev/.well-known/agent.json",
+      "profile_url": "https://localmark.ai/agents/46188"
+    },
+    {
+      "id": 46252,
+      "name": "Korean Public Data Agent",
+      "card_url": "https://publicdata-agent.songt50.us/.well-known/agent.json",
+      "profile_url": "https://localmark.ai/agents/46252"
+    },
+    {
+      "id": 46399,
+      "name": "AgentFeed",
+      "card_url": "https://x402.ochinimus.app/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/46399"
+    },
+    {
+      "id": 83760,
+      "name": "x402 Agent Data API",
+      "card_url": "https://x402-trends-server.onrender.com/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/83760"
+    },
+    {
+      "id": 147699,
+      "name": "Microlink",
+      "card_url": "https://microlink-io.vercel.app/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/147699"
+    },
+    {
+      "id": 181429,
+      "name": "broke2built Data & Intelligence Skills",
+      "card_url": "https://broke2builtai.com/.well-known/agent.json",
+      "profile_url": "https://localmark.ai/agents/181429"
+    },
+    {
+      "id": 188394,
+      "name": "Waltsoft DataPulse",
+      "card_url": "https://datapulse.waltsoft.net/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/188394"
+    },
+    {
+      "id": 188652,
+      "name": "MeshMarket",
+      "card_url": "https://market.meshtool.ai/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/188652"
+    },
+    {
+      "id": 216023,
+      "name": "SYNTHORA Translate",
+      "card_url": "https://translate.hergertsynthora.com/.well-known/agent.json",
+      "profile_url": "https://localmark.ai/agents/216023"
+    },
+    {
+      "id": 240762,
+      "name": "Sendmux A2A",
+      "card_url": "https://a2a.sendmux.ai/.well-known/agent-card.json",
+      "profile_url": "https://localmark.ai/agents/240762"
+    }
+  ]
+}

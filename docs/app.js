@@ -75,6 +75,10 @@ function agentCard(agent) {
   article.append(el('h3', '', agent.name || 'Unnamed agent'));
   const description = agent.description || 'The publisher has not provided a description.';
   article.append(el('p', '', description.length > 240 ? description.slice(0, 237).replace(/\s+\S*$/, '') + '…' : description));
+  if (agent.recommendation) {
+    const matching = agent.recommendation.capability_match === 'related' ? 'Related declaration; the full operation is not explicit. ' : '';
+    article.append(el('p', 'hint', matching + (agent.match_reasons || agent.recommendation.reasons || []).slice(0, 3).join(' ')));
+  }
   const meta = el('div', 'meta');
   meta.append(pill(`Card checked: ${dateLabel(agent.last_verified)}`));
   const probe = agent.read_only_a2a_probe;
@@ -112,7 +116,10 @@ searchForm.addEventListener('submit', async event => {
     shown = items.length;
     resultCount.textContent = `${shown} shown`;
     loadMore.hidden = items.length < 20;
-    if (!items.length) showNotice(results, 'No matching agents found with these evidence filters. Try a broader term or turn off a filter.');
+    if (data.status === 'needs_clarification') {
+      const issues = (data.interpreted_query?.unsupported_constraints || []).map(v => `${v.constraint}: ${v.reason}`).join(' ');
+      showNotice(results, `Please clarify the requested conditions. ${issues} Use LocalMark’s Find by task page to choose explicit evidence and payment filters.`);
+    } else if (!items.length) showNotice(results, 'No matching agents found with these evidence filters. Try a broader term or turn off a filter.');
     else results.replaceChildren(...items.map(agentCard));
   } catch (error) {
     showNotice(results, `Search unavailable: ${error.message}`);
