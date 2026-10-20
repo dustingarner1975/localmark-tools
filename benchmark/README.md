@@ -32,6 +32,9 @@ python -m unittest discover -s benchmark -p test_benchmark.py
 ```
 
 The report includes SHA-256 digests of the exact fixture file and ranking module.
+Report JSON uses UTF-8 and LF line endings on every platform. Input checksums
+refer to the raw distributed bytes; the repository preserves benchmark artifact
+bytes on checkout rather than silently converting their line endings.
 The fixture clock is fixed at `2026-10-20T12:00:00+00:00`; relative freshness
 requirements are evaluated at that time, even when the exercise is replayed later.
 Generation time, wall-clock speed and external network behaviour cannot affect

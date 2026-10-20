@@ -1,7 +1,9 @@
 """Tests for benchmark scoring mistakes, independent from search ranking."""
 import unittest
+import tempfile
+from pathlib import Path
 
-from run_benchmark import evaluate_live_rankings, evaluate_rankings, score_case
+from run_benchmark import evaluate_live_rankings, evaluate_rankings, score_case, write_json
 
 
 class BenchmarkScoringTests(unittest.TestCase):
@@ -52,6 +54,13 @@ class BenchmarkScoringTests(unittest.TestCase):
         self.assertNotIn("macro_precision_at_5", summary)
         self.assertNotIn("recall_at_5", scored["queries"][0]["recommendation"])
         self.assertEqual(scored["queries"][0]["recommendation"]["unjudged_returned_ids"], [9])
+
+    def test_report_serialization_uses_lf_on_every_platform(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            target = Path(temporary) / "report.json"
+            write_json(target, {"example": [1, 2]})
+            self.assertTrue(target.read_bytes().endswith(b"\n"))
+            self.assertNotIn(b"\r\n", target.read_bytes())
 
 
 if __name__ == "__main__":

@@ -12,7 +12,7 @@ import json
 from datetime import datetime, timezone
 from pathlib import Path
 
-from run_benchmark import baseline_rank, load_engine, result_ids, sha256, evaluate_live_rankings
+from run_benchmark import baseline_rank, load_engine, result_ids, sha256, evaluate_live_rankings, write_json
 
 ROOT = Path(__file__).resolve().parent
 CASES = [
@@ -79,14 +79,14 @@ def main():
         "rights": "Publisher names and card URLs are public source references; no license to third-party content is granted. Full descriptions and Agent Cards are omitted."},
         "cases": CASES, "baseline_results": baseline, "recommendation_results": recommendations,
         "public_listing_references": provenance}
-    (ROOT / "live-capture.json").write_text(json.dumps(capture, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    write_json(ROOT / "live-capture.json", capture)
     cases_only = {"schema_version": "1", "metadata": capture["metadata"], "cases": CASES,
                   "public_listing_references": provenance}
-    (ROOT / "live-cases.json").write_text(json.dumps(cases_only, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    write_json(ROOT / "live-cases.json", cases_only)
     report = {"schema_version": "1", "synthetic": False, "metadata": capture["metadata"],
               "public_listing_references": provenance,
               **evaluate_live_rankings(CASES, baseline, recommendations)}
-    (ROOT / "live-report.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    write_json(ROOT / "live-report.json", report)
     print(json.dumps(report["summaries"], indent=2))
 
 

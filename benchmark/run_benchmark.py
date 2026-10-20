@@ -18,6 +18,11 @@ def read_json(path):
     return json.loads(Path(path).read_text(encoding="utf-8"))
 
 
+def write_json(path, value):
+    """Use explicit LF so report bytes are reproducible on Windows and Linux."""
+    Path(path).write_text(json.dumps(value, ensure_ascii=False, indent=2, default=str) + "\n", encoding="utf-8", newline="\n")
+
+
 def sha256(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
@@ -266,7 +271,7 @@ def main():
                   **evaluator(capture["cases"], capture["baseline_results"], capture["recommendation_results"])}
     else:
         report = run_fixture(args.fixtures, args.engine)
-    args.output.write_text(json.dumps(report, ensure_ascii=False, indent=2, default=str) + "\n", encoding="utf-8")
+    write_json(args.output, report)
     print(json.dumps(report["summaries"], indent=2))
 
 
