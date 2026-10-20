@@ -78,7 +78,7 @@ def main(argv=None):
                                  signature=args.signature)
         else:
             result = client.health()
-        print(json.dumps(result, indent=2, ensure_ascii=False))
+        print(json.dumps(result, indent=2, ensure_ascii=True))
         return 2 if args.command == "gate" and not result["passed"] else 0
     except (LocalMarkError, ValueError) as exc:
         print(f"localmark: {exc}", file=sys.stderr)

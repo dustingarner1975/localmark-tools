@@ -3,5 +3,5 @@
 from .client import LocalMarkClient, LocalMarkError
 from .policy import load_policy, validate_policy
 
-__version__ = "0.4.0"
+__version__ = "0.4.1"
 __all__ = ["LocalMarkClient", "LocalMarkError", "load_policy", "validate_policy"]

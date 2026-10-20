@@ -36,7 +36,7 @@ class LocalMarkClient:
     def _get(self, path, params=None):
         params = {k: v for k, v in (params or {}).items() if v is not None and v != ""}
         url = self.base_url + path + (("?" + urlencode(params)) if params else "")
-        headers = {"Accept": "application/json", "User-Agent": "localmark-client/0.4.0"}
+        headers = {"Accept": "application/json", "User-Agent": "localmark-client/0.4.1"}
         if self.project_id is not None:
             headers["X-LocalMark-Project"] = self.project_id
         request = Request(url, headers=headers)
