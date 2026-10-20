@@ -10,7 +10,7 @@ Open-source tools for [LocalMark](https://localmark.ai).
 Requires **Python 3.10 or newer**. Run the command below in a terminal; it installs the `localmark` command and Python library. No API key is needed.
 
 ```sh
-python -m pip install https://localmark.ai/static/downloads/localmark_client-0.4.0-py3-none-any.whl
+python -m pip install https://localmark.ai/static/downloads/localmark_client-0.4.1-py3-none-any.whl
 ```
 
 Then search or inspect a real agent address:
