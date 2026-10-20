@@ -4,6 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Find A2A agents using LocalMark's recent card, TLS, and read-only protocol evidence.">
+  <link rel="canonical" href="https://dustingarner1975.github.io/localmark-tools/">
+  <meta property="og:title" content="LocalMark tools — Agent Finder and Python client">
+  <meta property="og:description" content="Search A2A agents, inspect LocalMark’s stored checks, or install the Python client for your own project.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dustingarner1975.github.io/localmark-tools/">
+  <meta property="og:image" content="https://localmark.ai/static/og.png">
+  <meta name="twitter:card" content="summary_large_image">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src https://localmark.ai; img-src 'self' data:; style-src 'self'; script-src 'self'; base-uri 'none'; object-src 'none'">
   <title>Agent Finder · LocalMark</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -11,15 +18,20 @@
   <script src="app.js" defer></script>
 </head>
 <body>
+  <a class="skip" href="#main">Skip to content</a>
   <header class="site-header"><div class="wrap header-inner"><a class="brand" href="https://localmark.ai/" rel="noopener noreferrer"><span class="mark">LM</span><span>LocalMark<span class="brand-muted"> / tools</span></span></a><nav aria-label="Main navigation"><a href="https://localmark.ai/">Directory</a><a href="https://localmark.ai/for-agents">API guide</a><a href="https://localmark.ai/data">Open data</a></nav></div></header>
-  <main class="wrap">
-    <section class="hero"><p class="eyebrow">Live directory evidence</p><h1>Find agents that answer.</h1><p>Search public A2A Agent Cards, narrow results by recent checks, then inspect what LocalMark actually observed before you connect.</p></section>
+  <main id="main" class="wrap">
+    <section class="hero"><p class="eyebrow">Tools for the LocalMark directory</p><h1>Find agents. Inspect the evidence.</h1><p>Search LocalMark’s current directory and read its stored card, TLS and A2A checks before connecting. Cards are scheduled for a fresh check every two hours; each result shows when the evidence was recorded.</p><div class="links hero-links"><a href="#search-heading">Search in your browser ↓</a><a href="#developer-tools">Install the developer tool ↓</a><a href="https://github.com/dustingarner1975/localmark-tools" target="_blank" rel="noopener noreferrer">Source on GitHub ↗</a></div></section>
     <div class="grid">
       <section class="panel" aria-labelledby="search-heading"><h2 id="search-heading">Search agents</h2><form id="search-form"><label for="query">What do you need?</label><div class="search-row"><input id="query" name="query" type="search" placeholder="Weather, PDF, payments…" maxlength="200" required><button type="submit">Search</button></div><fieldset><legend>Show recent evidence</legend><label class="check"><input id="recent-card" type="checkbox" checked> Card checked in 24 hours</label><label class="check"><input id="recent-a2a" type="checkbox"> A2A response in 24 hours</label><label class="check"><input id="tls" type="checkbox"> Endpoint TLS reached</label></fieldset></form><p class="hint">A read-only A2A response confirms protocol behaviour. LocalMark does not run the agent’s task.</p></section>
       <section class="panel" aria-labelledby="verify-heading"><h2 id="verify-heading">Check before connecting</h2><p class="subtle">Enter a card URL, endpoint URL, or domain to see LocalMark’s stored evidence.</p><form id="verify-form"><label for="target">Agent address</label><input id="target" name="target" type="text" inputmode="url" placeholder="agent.example.com/a2a" maxlength="2048" required><button type="submit">Verify address</button></form><p class="hint">An unseen address is reported as “not seen”; that alone does not mean it is unsafe.</p></section>
     </div>
-    <section id="results-section" class="results" aria-labelledby="results-heading"><div class="section-head"><div><p class="eyebrow">Search results</p><h2 id="results-heading">Start with a search</h2></div><span id="result-count" class="count"></span></div><div id="results" aria-live="polite"></div></section>
+    <section id="results-section" class="results" aria-labelledby="results-heading"><div class="section-head"><div><p class="eyebrow">Search results</p><h2 id="results-heading">Start with a search</h2></div><span id="result-count" class="count"></span></div><div id="results" aria-live="polite"></div><button id="load-more" type="button" hidden>Load more agents</button></section>
     <section id="verify-section" class="results" aria-labelledby="verify-result-heading" hidden><div class="section-head"><div><p class="eyebrow">Stored evidence</p><h2 id="verify-result-heading">Address check</h2></div></div><div id="verify-result" aria-live="polite"></div></section>
+    <section id="developer-tools" class="panel developer-tools" aria-labelledby="developer-heading"><p class="eyebrow">Use LocalMark in your own project</p><h2 id="developer-heading">Install the Python client</h2><p>With Python 3.10 or newer installed, run this command in your terminal. It installs the <code>localmark</code> command and Python library. No API key is required.</p><pre><code>python -m pip install https://localmark.ai/static/downloads/localmark_client-0.2.0-py3-none-any.whl</code></pre><p>Search using recent evidence, or check an address before your script connects:</p><pre><code>localmark search weather --card-hours 24 --a2a-hours 24 --tls
+localmark verify agent.example.com/a2a
+localmark gate agent.example.com/a2a --card-hours 24 --a2a-hours 24 --tls</code></pre><p><code>agent.example.com</code> is a placeholder: replace it with an agent’s real address. <code>gate</code> exits 0 when the requested stored evidence passes, 2 when it does not, and 1 on a request or input error. It does not execute a publisher’s task.</p><p class="links"><a href="https://github.com/dustingarner1975/localmark-tools" target="_blank" rel="noopener noreferrer">Documentation and source ↗</a><a href="https://localmark.ai/for-agents#developer-tools">LocalMark developer guide ↗</a></p></section>
+    <noscript><p class="notice">Search and address lookup need JavaScript. You can also <a href="https://localmark.ai/">browse the directory on LocalMark</a>.</p></noscript>
   </main>
   <footer><div class="wrap"><p>Powered by <a href="https://localmark.ai/">LocalMark’s live API</a>. Publisher claims and card content belong to their publishers. LocalMark reports observations, not endorsements.</p><p><a href="https://localmark.ai/terms">Terms</a> · <a href="https://localmark.ai/privacy">Privacy</a> · <a href="https://localmark.ai/for-agents">Build with LocalMark</a></p></div></footer>
 </body>

@@ -6,6 +6,9 @@ const resultTitle = document.querySelector('#results-heading');
 const resultCount = document.querySelector('#result-count');
 const verifySection = document.querySelector('#verify-section');
 const verifyResult = document.querySelector('#verify-result');
+const loadMore = document.querySelector('#load-more');
+let searchParams = null;
+let shown = 0;
 
 function el(tag, className, value) {
   const node = document.createElement(tag);
@@ -31,7 +34,14 @@ function safeLink(label, url) {
 function dateLabel(value) {
   if (!value) return 'No recent observation';
   const date = new Date(value);
-  return Number.isNaN(date.getTime()) ? 'Time unavailable' : date.toLocaleString(undefined, {dateStyle:'medium', timeStyle:'short'});
+  return Number.isNaN(date.getTime()) ? 'Time unavailable' : date.toLocaleString('en-GB', {dateStyle:'medium', timeStyle:'short', timeZone:'UTC'}) + ' UTC';
+}
+
+function probeLabel(probe) {
+  return ({a2a_response:'A2A response confirmed', auth_required:'Requires authentication',
+    jsonrpc_no_task_lookup:'JSON-RPC answered; task lookup not supported',
+    not_supported:'Transport not tested', unsupported_transport:'Transport not tested',
+    unconfirmed:'A2A response not confirmed'})[probe?.state] || 'A2A response not confirmed';
 }
 
 function pill(text, warning = false) {
@@ -39,14 +49,21 @@ function pill(text, warning = false) {
 }
 
 async function getJson(url) {
-  const response = await fetch(url, {headers: {'Accept': 'application/json'}});
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 20000);
+  try {
+  const response = await fetch(url, {headers: {'Accept': 'application/json'}, signal:controller.signal, credentials:'omit', referrerPolicy:'no-referrer'});
   if (!response.ok) {
     let detail = `LocalMark returned ${response.status}`;
     try { detail = (await response.json()).detail || detail; } catch { /* Keep status. */ }
     if (response.status === 429) detail = 'Please wait before trying again. LocalMark is rate limiting this request.';
     throw new Error(typeof detail === 'string' ? detail : JSON.stringify(detail));
   }
-  return response.json();
+  return await response.json();
+  } catch (error) {
+    if (error.name === 'AbortError') throw new Error('The request timed out. Please try again.');
+    throw error;
+  } finally { clearTimeout(timer); }
 }
 
 function showNotice(container, message) {
@@ -62,7 +79,7 @@ function agentCard(agent) {
   meta.append(pill(`Card checked: ${dateLabel(agent.last_verified)}`));
   const probe = agent.read_only_a2a_probe;
   if (probe?.state === 'a2a_response') meta.append(pill(`A2A answered: ${dateLabel(probe.checked_at)}`));
-  else meta.append(pill('A2A response not confirmed', true));
+  else meta.append(pill(probeLabel(probe), true));
   if (agent.endpoint_tls?.reachable === true) meta.append(pill('Endpoint TLS reached'));
   if (agent.signature_status === 'verified') meta.append(pill('Signature verified'));
   article.append(meta);
@@ -81,18 +98,43 @@ searchForm.addEventListener('submit', async event => {
   if (document.querySelector('#recent-card').checked) params.set('checked_within_hours', '24');
   if (document.querySelector('#recent-a2a').checked) params.set('a2a_response_within_hours', '24');
   if (document.querySelector('#tls').checked) params.set('tls_reachable', 'true');
+  searchParams = params;
+  shown = 0;
+  loadMore.hidden = true;
   resultTitle.textContent = `Agents for “${query}”`;
   resultCount.textContent = '';
   showNotice(results, 'Searching LocalMark…');
+  searchForm.querySelector('button').disabled = true;
+  results.setAttribute('aria-busy', 'true');
   try {
     const data = await getJson(`${API}/search?${params}`);
     const items = Array.isArray(data.items) ? data.items : [];
-    resultCount.textContent = `${items.length} shown`;
+    shown = items.length;
+    resultCount.textContent = `${shown} shown`;
+    loadMore.hidden = items.length < 20;
     if (!items.length) showNotice(results, 'No matching agents found with these evidence filters. Try a broader term or turn off a filter.');
     else results.replaceChildren(...items.map(agentCard));
   } catch (error) {
     showNotice(results, `Search unavailable: ${error.message}`);
-  }
+  } finally { searchForm.querySelector('button').disabled = false; results.removeAttribute('aria-busy'); }
+});
+
+loadMore.addEventListener('click', async () => {
+  if (!searchParams) return;
+  loadMore.disabled = true;
+  searchForm.querySelector('button').disabled = true;
+  const params = new URLSearchParams(searchParams);
+  params.set('offset', String(shown));
+  try {
+    const data = await getJson(`${API}/search?${params}`);
+    const items = Array.isArray(data.items) ? data.items : [];
+    results.append(...items.map(agentCard));
+    shown += items.length;
+    resultCount.textContent = `${shown} shown`;
+    loadMore.hidden = items.length < 20;
+    loadMore.textContent = 'Load more agents';
+  } catch (error) { loadMore.textContent = `Retry loading more: ${error.message}`; }
+  finally { loadMore.disabled = false; searchForm.querySelector('button').disabled = false; }
 });
 
 function detailRow(list, label, value) {
@@ -105,6 +147,21 @@ function detailRow(list, label, value) {
 function renderVerify(data) {
   const box = el('div', 'card');
   const status = data.listing_status || 'unknown';
+  if (data.matched_by === 'publisher_domain') {
+    box.append(el('h3', '', data.publisher_domain || 'Publisher listings'));
+    box.append(el('p', '', `${data.total_matches || data.matches?.length || 0} public agents grouped under this publisher domain. Grouping does not verify ownership or the behaviour of any individual endpoint.`));
+    const list = el('ul', 'publisher-matches');
+    for (const match of data.matches || []) {
+      const item = el('li');
+      item.append(safeLink(`${match.name || 'Unnamed agent'} — evidence profile ↗`, `https://localmark.ai/agents/${encodeURIComponent(match.agent_id)}`));
+      list.append(item);
+    }
+    box.append(list);
+    if (data.all_matches_url) box.append(safeLink(`All ${data.total_matches} listings (JSON) ↗`, data.all_matches_url));
+    if (data.root_card_review) box.append(el('p', 'hint', `Separate root-card status: ${data.root_card_review.status?.replaceAll('_',' ') || 'unknown'} (${data.root_card_review.reason_category?.replaceAll('_',' ') || 'no category'}). This applies to that card, not every agent from the publisher.`));
+    verifyResult.replaceChildren(box);
+    return;
+  }
   box.append(el('h3', '', data.name || (status === 'not_seen' ? 'Address not seen by LocalMark' : 'Listing evidence')));
   box.append(el('p', '', status === 'listed'
     ? 'LocalMark has stored observations for this listing. Check the evidence below before connecting.'
@@ -120,10 +177,10 @@ function renderVerify(data) {
   detailRow(details, 'Matched by', data.matched_by?.replaceAll('_', ' '));
   detailRow(details, 'Intake status', data.review_status?.replaceAll('_', ' '));
   detailRow(details, 'Review category', data.reason_category?.replaceAll('_', ' '));
-  detailRow(details, 'Card last checked', dateLabel(data.card_reachability?.latest?.checked_at));
+  if (data.card_reachability?.latest?.checked_at) detailRow(details, 'Card last checked', dateLabel(data.card_reachability.latest.checked_at));
   detailRow(details, 'Endpoint TLS', data.endpoint_tls?.success === true ? 'Reached' : data.endpoint_tls?.success === false ? 'Not reached' : null);
-  detailRow(details, 'A2A probe', data.read_only_a2a_probe?.state?.replaceAll('_', ' '));
-  detailRow(details, 'First listed', dateLabel(data.first_listed_at));
+  if (data.read_only_a2a_probe) detailRow(details, 'A2A probe', probeLabel(data.read_only_a2a_probe));
+  if (data.first_listed_at) detailRow(details, 'First listed', dateLabel(data.first_listed_at));
   if (details.children.length) box.append(details);
   const lookalikes = data.domain_lookalike_assessment?.possible_lookalikes;
   if (Array.isArray(lookalikes) && lookalikes.length) {
@@ -142,11 +199,13 @@ verifyForm.addEventListener('submit', async event => {
   if (!target) return;
   verifySection.hidden = false;
   showNotice(verifyResult, 'Checking LocalMark’s stored evidence…');
+  verifyForm.querySelector('button').disabled = true;
+  verifyResult.setAttribute('aria-busy', 'true');
   try {
     const params = new URLSearchParams({card_url: target});
     renderVerify(await getJson(`${API}/verify?${params}`));
   } catch (error) {
     showNotice(verifyResult, `Verification lookup unavailable: ${error.message}`);
-  }
+  } finally { verifyForm.querySelector('button').disabled = false; verifyResult.removeAttribute('aria-busy'); }
   verifySection.scrollIntoView({behavior:'smooth', block:'start'});
 });
