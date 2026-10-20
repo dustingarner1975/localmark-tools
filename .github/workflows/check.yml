@@ -21,3 +21,9 @@ jobs:
         run: python -c "from pathlib import Path; assert Path('benchmark/replayed-report.json').read_bytes() == Path('benchmark/report.json').read_bytes(), 'Benchmark report changed; inspect the rankings and publish updated results'"
       - name: Test benchmark scoring
         run: python -m unittest discover -s benchmark -p test_benchmark.py -v
+      - name: Test prospective evaluation without running frozen queries
+        run: python -m unittest discover -s benchmark/prospective-evaluation -p test_evaluate.py -v
+      - name: Test public report reproduction
+        run: python -m unittest discover -s research -p test_reproduction.py -v
+      - name: Test publisher-authorized synthetic fixtures
+        run: python -m unittest discover -s testing -p test_capability_tests.py -v
