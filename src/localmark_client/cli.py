@@ -10,6 +10,7 @@ from .client import LocalMarkClient, LocalMarkError
 def main(argv=None):
     parser = argparse.ArgumentParser(prog="localmark", description="Inspect public A2A Agent Card evidence")
     parser.add_argument("--base-url", default="https://localmark.ai", help="LocalMark API origin")
+    parser.add_argument("--project-id", help="Optional random UUIDv4 for aggregate project-use metrics; never a secret")
     commands = parser.add_subparsers(dest="command", required=True)
     search = commands.add_parser("search", help="Search with optional evidence filters")
     search.add_argument("query", nargs="?", default="")
@@ -20,18 +21,21 @@ def main(argv=None):
     search.add_argument("--limit", type=int, default=20)
     search.add_argument("--offset", type=int, default=0)
     recommend = commands.add_parser("recommend", help="Find a capability shortlist with matching reasons and caveats")
-    recommend.add_argument("query", help="The capability or job you need, up to 200 characters")
+    recommend.add_argument("query", nargs="?", help="The capability or job you need, up to 200 characters")
+    recommend.add_argument("--policy", help="Saved JSON requirement file; explicit flags override it")
     recommend.add_argument("--auth", choices=("none", "declared"), help="Authentication declared by the publisher")
     recommend.add_argument("--signature", choices=("verified",))
     recommend.add_argument("--protocol", choices=("JSONRPC", "HTTP+JSON", "GRPC"))
     recommend.add_argument("--card-hours", type=int, dest="checked_within_hours")
     recommend.add_argument("--a2a-hours", type=int, dest="a2a_response_within_hours")
-    recommend.add_argument("--tls", action="store_true")
+    recommend.add_argument("--tls", action=argparse.BooleanOptionalAction, default=None)
     recommend.add_argument("--network", help="Payment network, such as eip155:8453")
     recommend.add_argument("--asset", help="Payment asset identifier, such as a token contract")
     recommend.add_argument("--max-amount", help="Maximum price in asset units (e.g. 0.05 USDC); requires --network and --asset")
-    recommend.add_argument("--limit", type=int, default=10)
-    recommend.add_argument("--offset", type=int, default=0)
+    recommend.add_argument("--limit", type=int)
+    recommend.add_argument("--offset", type=int)
+    plan = commands.add_parser("plan", help="Read connection instructions without invoking the agent")
+    plan.add_argument("target", help="LocalMark agent ID, card URL, endpoint URL or domain")
     commands.add_parser("health", help="Check LocalMark availability")
     verify = commands.add_parser("verify", help="Inspect known evidence for a card, endpoint, or domain")
     verify.add_argument("target")
@@ -46,20 +50,22 @@ def main(argv=None):
     gate.add_argument("--tls", action="store_true")
     gate.add_argument("--signature", action="store_true")
     args = parser.parse_args(argv)
-    client = LocalMarkClient(args.base_url)
     try:
+        client = LocalMarkClient(args.base_url, project_id=args.project_id)
         if args.command == "search":
             result = client.search(args.query, skill=args.skill,
                 checked_within_hours=args.checked_within_hours,
                 a2a_response_within_hours=args.a2a_response_within_hours,
                 tls_reachable=True if args.tls else None, limit=args.limit, offset=args.offset)
         elif args.command == "recommend":
-            result = client.recommend(args.query, auth=args.auth, signature=args.signature,
+            result = client.recommend(args.query, policy=args.policy, auth=args.auth, signature=args.signature,
                 protocol=args.protocol, checked_within_hours=args.checked_within_hours,
                 a2a_response_within_hours=args.a2a_response_within_hours,
-                tls_reachable=True if args.tls else None, network=args.network,
+                tls_reachable=args.tls, network=args.network,
                 asset=args.asset, max_amount=args.max_amount, limit=args.limit,
                 offset=args.offset)
+        elif args.command == "plan":
+            result = client.connection_plan(args.target)
         elif args.command == "verify":
             result = client.verify(args.target)
         elif args.command == "agent":
