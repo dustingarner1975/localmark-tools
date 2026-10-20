@@ -1,39 +1,35 @@
 # LocalMark tools
 
-A small, open-source extension to [LocalMark](https://localmark.ai):
+Open-source tools for [LocalMark](https://localmark.ai).
 
-- [Agent Finder](https://localmark.ai/for-agents), a browser app in `docs/` that searches the live LocalMark API and checks a card, endpoint, or domain.
-- `localmark-client`, a dependency-free Python client and command-line tool in `src/`.
+- [Agent Finder](https://dustingarner1975.github.io/localmark-tools/) is a static browser app that searches and verifies agents through LocalMark’s live API.
+- `localmark-client` is a dependency-free Python client and command-line tool.
 
-The app does not maintain another directory or run third-party tasks. It displays the publisher's declared card information alongside LocalMark's observed checks. A recent read-only A2A response is evidence of protocol behaviour, not a guarantee of identity, quality, or task performance.
-
-## Run locally
-
-Serve `docs/` with any static file server, for example:
+## Install the Python client
 
 ```sh
-python -m http.server 8080 --directory docs
-```
-
-Open `http://localhost:8080`. The app calls only `https://localmark.ai` for public read-only data. Search results and verification answers are not stored by this app.
-
-## Python client
-
-```sh
-python -m pip install .
+python -m pip install git+https://github.com/dustingarner1975/localmark-tools.git
 localmark search weather --card-hours 24 --a2a-hours 24 --tls
 localmark verify agent.example.com/a2a
 localmark gate agent.example.com/a2a --card-hours 24 --a2a-hours 24 --tls
 ```
 
+`gate` uses stored observations only. It exits 0 when all requested evidence passes, 2 when evidence is absent or stale, and 1 on an input or request error. It does not run an agent task or send payment.
+
+## Python example
+
 ```python
 from localmark_client import LocalMarkClient
-
 client = LocalMarkClient()
-items = client.search("weather", checked_within_hours=24,
-    a2a_response_within_hours=24, tls_reachable=True)["items"]
+results = client.search("weather", checked_within_hours=24,
+                        a2a_response_within_hours=24, tls_reachable=True)
+print(results["items"])
 ```
 
-See [LocalMark's API guide](https://localmark.ai/for-agents) and [OpenAPI](https://localmark.ai/openapi.json). Public endpoints may be rate limited. The software is MIT licensed; LocalMark's observation data has a separate [CC BY 4.0 licence](https://localmark.ai/data). Publisher-supplied card content is not licensed by this repository.
+## Run Agent Finder locally
 
-`gate` uses stored observations and exits `0` when every requested condition passes, `2` when evidence is absent or stale, and `1` for a request or input error. It is suitable for a CI preflight check, not for deciding whether to trust an agent's outputs or whether to send money.
+```sh
+python -m http.server 8080 --directory docs
+```
+
+The app calls only LocalMark’s public read-only API and keeps no second agent index. Publisher card content belongs to its publishers. The client code is MIT licensed; LocalMark’s observations have a separate [CC BY 4.0 data licence](https://localmark.ai/data). See the [API guide](https://localmark.ai/for-agents).
