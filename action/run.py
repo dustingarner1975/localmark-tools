@@ -64,7 +64,7 @@ def run(environment=None, client=None):
 def main():
     try:
         result = run()
-        print(json.dumps(result, ensure_ascii=False, indent=2))
+        print(json.dumps(result, ensure_ascii=True, indent=2))
         return 0 if result.get("passed") is True else 2
     except (LocalMarkError, ValueError) as exc:
         print(f"LocalMark check failed: {exc}", file=sys.stderr)
