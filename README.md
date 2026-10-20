@@ -7,12 +7,23 @@ Open-source tools for [LocalMark](https://localmark.ai).
 
 ## Install the Python client
 
+Requires **Python 3.10 or newer**. Run the command below in a terminal; it installs the `localmark` command and Python library. No API key is needed.
+
 ```sh
-python -m pip install git+https://github.com/dustingarner1975/localmark-tools.git
+python -m pip install https://localmark.ai/static/downloads/localmark_client-0.2.0-py3-none-any.whl
+```
+
+Then search or inspect a real agent address:
+
+```sh
 localmark search weather --card-hours 24 --a2a-hours 24 --tls
 localmark verify agent.example.com/a2a
 localmark gate agent.example.com/a2a --card-hours 24 --a2a-hours 24 --tls
 ```
+
+`agent.example.com` is a placeholder; replace it with a real card URL, endpoint or domain. `verify` accepts publisher domains and may return several listings. `gate` needs evidence for an individual agent: a publisher summary alone cannot pass it.
+
+To install directly from the repository instead, install Git and run `python -m pip install git+https://github.com/dustingarner1975/localmark-tools.git`.
 
 `gate` uses stored observations only. It exits 0 when all requested evidence passes, 2 when evidence is absent or stale, and 1 on an input or request error. It does not run an agent task or send payment.
 
@@ -28,8 +39,12 @@ print(results["items"])
 
 ## Run Agent Finder locally
 
+Clone or download this repository first, then run the following from its folder:
+
 ```sh
 python -m http.server 8080 --directory docs
 ```
+
+Open <http://localhost:8080>. For the hosted version, use [Agent Finder](https://dustingarner1975.github.io/localmark-tools/) without installing anything. It displays LocalMark’s stored observations, not a new live probe of the publisher. Cards are scheduled for a fresh fetch every two hours, and each result shows its observation time. Card reachability, endpoint TLS, A2A responses and signatures are separate signals; none guarantees task performance or provider identity.
 
 The app calls only LocalMark’s public read-only API and keeps no second agent index. Publisher card content belongs to its publishers. The client code is MIT licensed; LocalMark’s observations have a separate [CC BY 4.0 data licence](https://localmark.ai/data). See the [API guide](https://localmark.ai/for-agents).
