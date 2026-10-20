@@ -1,0 +1,73 @@
+{
+  "fixture_version": "1",
+  "scope": "A publisher-authorized synthetic test of a dedicated free test endpoint. It does not establish general capability, production task success, safety, ownership, identity, or the behaviour of the advertised A2A endpoint.",
+  "fixtures": {
+    "json_transform": {
+      "request": {
+        "fixture_version": "1",
+        "kind": "json_transform",
+        "input": {
+          "rows": [
+            {
+              "id": "LM-001",
+              "quantity": 2
+            },
+            {
+              "id": "LM-002",
+              "quantity": 3
+            }
+          ]
+        },
+        "instruction": "Return ids sorted descending and the sum of quantity as total, in an output object."
+      },
+      "assertion": {
+        "type": "exact_json",
+        "expected": {
+          "output": {
+            "ids": [
+              "LM-002",
+              "LM-001"
+            ],
+            "total": 5
+          }
+        }
+      },
+      "scope": "One fixed two-row JSON sorting and arithmetic example; not a general reasoning test."
+    },
+    "pdf_extraction": {
+      "request": {
+        "fixture_version": "1",
+        "kind": "pdf_extraction",
+        "input": {
+          "media_type": "application/pdf",
+          "pdf_base64": "JVBERi0xLjQKMSAwIG9iago8PCAvVHlwZSAvQ2F0YWxvZyAvUGFnZXMgMiAwIFIgPj4KZW5kb2JqCjIgMCBvYmoKPDwgL1R5cGUgL1BhZ2VzIC9LaWRzIFszIDAgUl0gL0NvdW50IDEgPj4KZW5kb2JqCjMgMCBvYmoKPDwgL1R5cGUgL1BhZ2UgL1BhcmVudCAyIDAgUiAvTWVkaWFCb3ggWzAgMCA1OTUgODQyXSAvUmVzb3VyY2VzIDw8IC9Gb250IDw8IC9GMSA0IDAgUiA+PiA+PiAvQ29udGVudHMgNSAwIFIgPj4KZW5kb2JqCjQgMCBvYmoKPDwgL1R5cGUgL0ZvbnQgL1N1YnR5cGUgL1R5cGUxIC9CYXNlRm9udCAvSGVsdmV0aWNhID4+CmVuZG9iago1IDAgb2JqCjw8IC9MZW5ndGggMTIzID4+CnN0cmVhbQpCVCAvRjEgMTIgVGYgNDAgNzUwIFRkIChMb2NhbE1hcmsgc3ludGhldGljIGludm9pY2UpIFRqIDAgLTE4IFRkIChJbnZvaWNlIExNLVRFU1QtMDA0MikgVGogMCAtMTggVGQgKFRvdGFsIEVVUiAxMi41MCkgVGogRVQKZW5kc3RyZWFtCmVuZG9iagp4cmVmCjAgNgowMDAwMDAwMDAwIDY1NTM1IGYgCjAwMDAwMDAwMDkgMDAwMDAgbiAKMDAwMDAwMDA1OCAwMDAwMCBuIAowMDAwMDAwMTE1IDAwMDAwIG4gCjAwMDAwMDAyNDEgMDAwMDAgbiAKMDAwMDAwMDMxMSAwMDAwMCBuIAp0cmFpbGVyCjw8IC9TaXplIDYgL1Jvb3QgMSAwIFIgPj4Kc3RhcnR4cmVmCjQ4NQolJUVPRgo="
+        },
+        "instruction": "Extract the three text lines in reading order; return only a text property."
+      },
+      "assertion": {
+        "type": "exact_json",
+        "expected": {
+          "text": "LocalMark synthetic invoice\nInvoice LM-TEST-0042\nTotal EUR 12.50"
+        }
+      },
+      "scope": "One synthetic, single-page text PDF; does not test scans, OCR, complex layouts, or real documents."
+    },
+    "geocoding": {
+      "request": {
+        "fixture_version": "1",
+        "kind": "geocoding",
+        "input": {
+          "place": "Lisbon, Portugal"
+        },
+        "instruction": "Return numeric latitude and longitude for the city centre in decimal degrees."
+      },
+      "assertion": {
+        "type": "coordinates",
+        "latitude": 38.7223,
+        "longitude": -9.1393,
+        "tolerance_degrees": 0.15
+      },
+      "scope": "One public city-level place name, with 0.15 degree tolerance; does not test precise or global coverage."
+    }
+  }
+}
