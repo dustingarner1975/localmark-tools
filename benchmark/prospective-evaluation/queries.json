@@ -1,0 +1,155 @@
+{
+  "version": "prospective-2026-10-20-v1",
+  "frozen_at": "2026-10-20T08:13:01Z",
+  "status": "awaiting_external_judgments",
+  "authorship": "Maintainer-authored prospective task queries; these queries have not been used to tune the released ranker. They are not independently authored or externally judged yet.",
+  "queries": [
+    {
+      "id": "prospective-001",
+      "query": "Convert an HTML article into clean Markdown while preserving its links",
+      "requirements": {
+        "checked_within_hours": 24
+      }
+    },
+    {
+      "id": "prospective-002",
+      "query": "Remove duplicate customer rows from a CSV file without changing column order",
+      "requirements": {
+        "checked_within_hours": 24,
+        "tls_reachable": true
+      }
+    },
+    {
+      "id": "prospective-003",
+      "query": "Find a research paper DOI from its title and return bibliographic metadata",
+      "requirements": {
+        "checked_within_hours": 24
+      }
+    },
+    {
+      "id": "prospective-004",
+      "query": "Calculate working hours between two times in different IANA time zones",
+      "requirements": {
+        "checked_within_hours": 24
+      }
+    },
+    {
+      "id": "prospective-005",
+      "query": "Read an iCalendar file and identify overlapping meetings",
+      "requirements": {
+        "checked_within_hours": 24
+      }
+    },
+    {
+      "id": "prospective-006",
+      "query": "Create accessible image descriptions for product photographs",
+      "requirements": {
+        "checked_within_hours": 24,
+        "tls_reachable": true
+      }
+    },
+    {
+      "id": "prospective-007",
+      "query": "Translate subtitle text while keeping the original SRT timing",
+      "requirements": {
+        "checked_within_hours": 24
+      }
+    },
+    {
+      "id": "prospective-008",
+      "query": "Compare two versions of an OpenAPI document and list breaking changes",
+      "requirements": {
+        "checked_within_hours": 24,
+        "a2a_response_within_hours": 24
+      }
+    },
+    {
+      "id": "prospective-009",
+      "query": "Check an RSS feed and summarize only the entries published after a supplied date",
+      "requirements": {
+        "checked_within_hours": 24
+      }
+    },
+    {
+      "id": "prospective-010",
+      "query": "Extract invoice line items and currency into JSON from a scanned document",
+      "requirements": {
+        "checked_within_hours": 24,
+        "tls_reachable": true
+      }
+    },
+    {
+      "id": "prospective-011",
+      "query": "Return DNS TXT records for a public domain without making changes",
+      "requirements": {
+        "checked_within_hours": 24
+      }
+    },
+    {
+      "id": "prospective-012",
+      "query": "Generate a JSON Schema from example records and explain ambiguous fields",
+      "requirements": {
+        "checked_within_hours": 24
+      }
+    },
+    {
+      "id": "prospective-013",
+      "query": "Validate GeoJSON polygons and explain invalid geometry",
+      "requirements": {
+        "checked_within_hours": 24,
+        "protocol": "JSONRPC"
+      }
+    },
+    {
+      "id": "prospective-014",
+      "query": "Look up an open source package licence and its dependency licence notices",
+      "requirements": {
+        "checked_within_hours": 24
+      }
+    },
+    {
+      "id": "prospective-015",
+      "query": "Compare website screenshots and report changed text regions",
+      "requirements": {
+        "checked_within_hours": 24,
+        "tls_reachable": true
+      }
+    },
+    {
+      "id": "prospective-016",
+      "query": "Normalize international postal addresses into separate address fields",
+      "requirements": {
+        "checked_within_hours": 24
+      }
+    },
+    {
+      "id": "prospective-017",
+      "query": "Parse a public transit GTFS timetable and find service dates",
+      "requirements": {
+        "checked_within_hours": 24
+      }
+    },
+    {
+      "id": "prospective-018",
+      "query": "Check whether a URL redirects and return the redirect chain without submitting a form",
+      "requirements": {
+        "checked_within_hours": 24
+      }
+    },
+    {
+      "id": "prospective-019",
+      "query": "Find which public datasets contain a specified scientific variable",
+      "requirements": {
+        "checked_within_hours": 24,
+        "signature": "verified"
+      }
+    },
+    {
+      "id": "prospective-020",
+      "query": "Convert a colour value between HEX and RGB and calculate contrast ratio",
+      "requirements": {
+        "checked_within_hours": 24
+      }
+    }
+  ]
+}

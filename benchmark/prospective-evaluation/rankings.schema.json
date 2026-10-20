@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LocalMark prospective ranking capture",
+  "type": "object",
+  "required": [
+    "system_id",
+    "query_set_version",
+    "captured_at",
+    "queries"
+  ],
+  "properties": {
+    "system_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 80
+    },
+    "query_set_version": {
+      "type": "string"
+    },
+    "captured_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "origin": {
+      "type": "string"
+    },
+    "scope": {
+      "type": "string"
+    },
+    "queries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "query_id",
+          "status",
+          "agent_ids"
+        ],
+        "properties": {
+          "query_id": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "ok",
+              "empty",
+              "needs_clarification",
+              "error"
+            ]
+          },
+          "agent_ids": {
+            "type": "array",
+            "uniqueItems": true,
+            "maxItems": 20,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "candidates": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "agent_id"
+              ],
+              "properties": {
+                "agent_id": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "ranking_version": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "generated_at": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "requirements": {
+            "type": "object"
+          },
+          "error": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

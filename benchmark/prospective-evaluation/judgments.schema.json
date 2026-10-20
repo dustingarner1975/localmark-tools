@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LocalMark external blinded relevance judgments",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "query_set_version",
+    "judge_id",
+    "independent_of_ranker_development",
+    "blind_to_system_rankings",
+    "conflict_disclosure",
+    "queries"
+  ],
+  "properties": {
+    "query_set_version": {
+      "type": "string"
+    },
+    "judge_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 80
+    },
+    "independent_of_ranker_development": {
+      "type": "boolean"
+    },
+    "blind_to_system_rankings": {
+      "type": "boolean"
+    },
+    "conflict_disclosure": {
+      "type": "string",
+      "minLength": 1
+    },
+    "queries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "query_id",
+          "complete_pool",
+          "judgments"
+        ],
+        "properties": {
+          "query_id": {
+            "type": "string"
+          },
+          "complete_pool": {
+            "type": "boolean"
+          },
+          "judgments": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "agent_id",
+                "grade",
+                "reason"
+              ],
+              "properties": {
+                "agent_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "grade": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2
+                },
+                "reason": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "evidence_url": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "claims": "Maintainer-authored prospective task set, not independently authored or judged. No ranking capture or external grades were used to tune the release.",
+  "files": {
+    "README.md": "d88a2373803058e6ee6f958dbefa1c2fed296c8ea3e37785dea3d15825c9eaa0",
+    "capture.py": "05f04640110b0cac0a77388b0119e228789019daf841210c28a975987d5f59d0",
+    "evaluate.py": "88eb4db34e67438953d18b9a8cc96dbae5643e86a08310796ec9347258198e9c",
+    "judgment-template.json": "fc45ccfe8dc5391b36ad1f4aa818ec70b70f8e7f84c32a3e3f8f0cd2bf69cdc9",
+    "judgments.schema.json": "f63188ea5544100d1fac38e4b8c54679e1953aa6277c41a98fafbff815cdcd3c",
+    "queries.json": "ac0cfd48bd6da356aaea2b64155683ebd3cae9349c5253ecd6a9118e12fb62ad",
+    "queries.schema.json": "714a6a034883006312b15b19c6d13313e962dca1668ec361dd9f7ffec8f6504c",
+    "rankings.schema.json": "8d6144147cf136d0a99abff308ef14ebfdf6a750b8846eeeee4e8b4fc501625e",
+    "status.json": "7dc40baa497138e2f7640f69244e63563e103dd4ae1b781024e0aef24cf07470",
+    "test_evaluate.py": "8be37fd88ed60b8f87a4ccfbd482b636527f55007c71046cd13fa6d149a7b73c"
+  },
+  "frozen_at": "2026-10-20T08:13:01Z",
+  "integrity": "SHA-256 of UTF-8 LF files; do not edit frozen queries in place. Freeze a new version for changes.",
+  "query_count": 20,
+  "query_set_version": "prospective-2026-10-20-v1",
+  "ranker_at_freeze": {
+    "ranking_version": "capability-1.0",
+    "sha256": "1a569a211f4859c109e2a8c01888a0c209f388602a1b08a352dc31e232a794ac",
+    "source_url": "https://github.com/dustingarner1975/localmark-tools/blob/main/benchmark/capability_search.py"
+  },
+  "status": "awaiting_external_judgments"
+}

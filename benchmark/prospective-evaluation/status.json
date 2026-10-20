@@ -1,0 +1,7 @@
+{
+  "query_set_version": "prospective-2026-10-20-v1",
+  "status": "awaiting_external_judgments",
+  "independent_judgments_received": 0,
+  "metrics": null,
+  "reason": "No external blinded relevance judgments have been collected. No prospective ranking scores are claimed."
+}
