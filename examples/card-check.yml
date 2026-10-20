@@ -1,0 +1,20 @@
+name: Agent Card check
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '23 7 * * *'
+permissions:
+  contents: read
+jobs:
+  card-check:
+    runs-on: ubuntu-latest
+    steps:
+      # Replace main with a reviewed full commit SHA before production use.
+      - uses: dustingarner1975/localmark-tools@main
+        with:
+          target: https://agent.example.com/.well-known/agent-card.json
+          mode: check-card
+          tls: 'true'
+          # Optional stricter requirements:
+          # a2a-hours: '24'
+          # signature: 'true'
