@@ -72,6 +72,16 @@ class IntegrationTests(unittest.TestCase):
             self.assertEqual(main(["plan", "agent.example/a2a"]), 0)
             constructor.return_value.connection_plan.assert_called_once_with("agent.example/a2a")
 
+    def test_cli_json_is_portable_to_windows_redirected_output(self):
+        raw = io.BytesIO()
+        output = io.TextIOWrapper(raw, encoding="cp1252")
+        result = {"items": [{"name": "Agent ∈ 東京"}]}
+        with patch("localmark_client.cli.LocalMarkClient") as constructor, patch("sys.stdout", output):
+            constructor.return_value.recommend.return_value = result
+            self.assertEqual(main(["recommend", "PDF"]), 0)
+            output.flush()
+            self.assertEqual(json.loads(raw.getvalue().decode("ascii")), result)
+
     def test_project_header_is_opt_in_and_rejects_non_random_identifiers(self):
         response = MagicMock()
         response.__enter__.return_value.read.return_value = b'{}'

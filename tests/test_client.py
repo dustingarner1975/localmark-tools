@@ -52,7 +52,7 @@ class ClientTests(unittest.TestCase):
             "network": ["eip155:8453"], "asset": ["0xUSDC"], "max_amount": ["0.05"],
             "limit": ["5"], "offset": ["10"],
         })
-        self.assertEqual(sent.get_header("User-agent"), "localmark-client/0.4.0")
+        self.assertEqual(sent.get_header("User-agent"), "localmark-client/0.4.1")
 
     def test_recommend_rejects_invalid_requirements_before_request(self):
         client = LocalMarkClient()
