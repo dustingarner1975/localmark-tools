@@ -1,0 +1,109 @@
+{
+  "query_set_version": "prospective-2026-10-20-v1",
+  "judge_id": "replace-with-pseudonymous-judge-code",
+  "independent_of_ranker_development": false,
+  "blind_to_system_rankings": false,
+  "conflict_disclosure": "Replace with your role, any relevant relationship and conflicts; use none if none. Do not include private contact information.",
+  "queries": [
+    {
+      "query_id": "prospective-001",
+      "complete_pool": false,
+      "judgments": []
+    },
+    {
+      "query_id": "prospective-002",
+      "complete_pool": false,
+      "judgments": []
+    },
+    {
+      "query_id": "prospective-003",
+      "complete_pool": false,
+      "judgments": []
+    },
+    {
+      "query_id": "prospective-004",
+      "complete_pool": false,
+      "judgments": []
+    },
+    {
+      "query_id": "prospective-005",
+      "complete_pool": false,
+      "judgments": []
+    },
+    {
+      "query_id": "prospective-006",
+      "complete_pool": false,
+      "judgments": []
+    },
+    {
+      "query_id": "prospective-007",
+      "complete_pool": false,
+      "judgments": []
+    },
+    {
+      "query_id": "prospective-008",
+      "complete_pool": false,
+      "judgments": []
+    },
+    {
+      "query_id": "prospective-009",
+      "complete_pool": false,
+      "judgments": []
+    },
+    {
+      "query_id": "prospective-010",
+      "complete_pool": false,
+      "judgments": []
+    },
+    {
+      "query_id": "prospective-011",
+      "complete_pool": false,
+      "judgments": []
+    },
+    {
+      "query_id": "prospective-012",
+      "complete_pool": false,
+      "judgments": []
+    },
+    {
+      "query_id": "prospective-013",
+      "complete_pool": false,
+      "judgments": []
+    },
+    {
+      "query_id": "prospective-014",
+      "complete_pool": false,
+      "judgments": []
+    },
+    {
+      "query_id": "prospective-015",
+      "complete_pool": false,
+      "judgments": []
+    },
+    {
+      "query_id": "prospective-016",
+      "complete_pool": false,
+      "judgments": []
+    },
+    {
+      "query_id": "prospective-017",
+      "complete_pool": false,
+      "judgments": []
+    },
+    {
+      "query_id": "prospective-018",
+      "complete_pool": false,
+      "judgments": []
+    },
+    {
+      "query_id": "prospective-019",
+      "complete_pool": false,
+      "judgments": []
+    },
+    {
+      "query_id": "prospective-020",
+      "complete_pool": false,
+      "judgments": []
+    }
+  ]
+}

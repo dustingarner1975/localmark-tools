@@ -1,0 +1,7 @@
+{
+  "source": "LocalMark server app/research_reports.py",
+  "code_license": "MIT",
+  "sha256": "1a36d7a8759e520a9f1a3071a0493f07480eb296f1d4b6ad1bc8b6c73f992a2e",
+  "copied_at": "2026-10-20",
+  "scope": "Exact aggregation module; CLI wrapper invokes generate_reports on downloaded public snapshots."
+}

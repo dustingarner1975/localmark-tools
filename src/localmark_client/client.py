@@ -1,12 +1,13 @@
 """Small dependency-free client for LocalMark's public API."""
 
 import json
-import re
 from datetime import datetime, timedelta, timezone
-from decimal import Decimal, InvalidOperation
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
+from uuid import UUID
+
+from .policy import load_policy, validate_policy
 
 
 class LocalMarkError(Exception):
@@ -17,22 +18,37 @@ class LocalMarkError(Exception):
 
 
 class LocalMarkClient:
-    def __init__(self, base_url="https://localmark.ai", timeout=10):
+    def __init__(self, base_url="https://localmark.ai", timeout=10, *, project_id=None):
         if not base_url.startswith(("https://", "http://")):
             raise ValueError("base_url must be an HTTP(S) URL")
         self.base_url = base_url.rstrip("/")
         self.timeout = timeout
+        self.project_id = None
+        if project_id is not None:
+            try:
+                identifier = UUID(str(project_id))
+            except (ValueError, AttributeError, TypeError) as exc:
+                raise ValueError("project_id must be a random UUIDv4, never a secret or user identifier") from exc
+            if identifier.version != 4:
+                raise ValueError("project_id must be a random UUIDv4, never a secret or user identifier")
+            self.project_id = str(identifier)
 
     def _get(self, path, params=None):
         params = {k: v for k, v in (params or {}).items() if v is not None and v != ""}
         url = self.base_url + path + (("?" + urlencode(params)) if params else "")
-        request = Request(url, headers={"Accept": "application/json", "User-Agent": "localmark-client/0.3.0"})
+        headers = {"Accept": "application/json", "User-Agent": "localmark-client/0.4.1"}
+        if self.project_id is not None:
+            headers["X-LocalMark-Project"] = self.project_id
+        request = Request(url, headers=headers)
         try:
             with urlopen(request, timeout=self.timeout) as response:
                 raw = response.read(4_000_001)
                 if len(raw) > 4_000_000:
                     raise LocalMarkError("Response exceeds 4 MB")
-                return json.loads(raw)
+                result = json.loads(raw)
+                if not isinstance(result, dict):
+                    raise LocalMarkError("LocalMark returned a JSON value instead of an object")
+                return result
         except HTTPError as exc:
             detail = f"LocalMark returned HTTP {exc.code}"
             try:
@@ -62,60 +78,47 @@ class LocalMarkClient:
     def verify(self, card_url_or_endpoint_or_domain):
         return self._get("/api/v1/verify", {"card_url": card_url_or_endpoint_or_domain})
 
-    def recommend(self, q, *, auth=None, signature=None, protocol=None,
+    def recommend(self, q=None, *, policy=None, auth=None, signature=None, protocol=None,
                   checked_within_hours=None, a2a_response_within_hours=None,
                   tls_reachable=None, network=None, asset=None, max_amount=None,
-                  limit=10, offset=0):
-        """Return LocalMark's shared capability ranking and evidence explanations.
+                  limit=None, offset=None):
+        """Return shared capability rankings, optionally using a saved JSON policy.
 
-        Requirements narrow results; an empty shortlist is a valid response.
-        Price limits use human-readable asset units (0.05 means 0.05 USDC,
-        not atomic units) and require both a network and a known asset.
-        This reads stored observations and never invokes a publisher's task.
+        Explicit non-None arguments override saved requirements. A policy may
+        be a mapping or local JSON path. Requirements never authorize a task,
+        a payment, credential sharing, or an automatic connection.
         """
-        q = q.strip() if isinstance(q, str) else ""
-        if not q or len(q) > 200:
-            raise ValueError("q must contain 1..200 characters")
-        for name, value, choices in (
-            ("auth", auth, (None, "", "none", "declared")),
-            ("signature", signature, (None, "", "verified")),
-            ("protocol", protocol, (None, "", "JSONRPC", "HTTP+JSON", "GRPC")),
-        ):
-            if value not in choices:
-                raise ValueError(f"Invalid {name}: {value}")
-        for name, value, low, high in (
-            ("checked_within_hours", checked_within_hours, 1, 168),
-            ("a2a_response_within_hours", a2a_response_within_hours, 1, 168),
-            ("limit", limit, 1, 20), ("offset", offset, 0, None),
-        ):
-            if value is None and name not in ("limit", "offset"):
-                continue
-            if isinstance(value, bool) or not isinstance(value, int) or value < low or (high is not None and value > high):
-                bounds = f"{low}..{high}" if high is not None else f">= {low}"
-                raise ValueError(f"{name} must be an integer {bounds}")
-        if tls_reachable is not None and not isinstance(tls_reachable, bool):
-            raise ValueError("tls_reachable must be a boolean or None")
-        if max_amount is not None:
-            if not network or not asset:
-                raise ValueError("max_amount requires both network and asset")
-            amount_text = str(max_amount)
-            if len(amount_text) > 100 or not re.fullmatch(r"[0-9]+(?:\.[0-9]+)?", amount_text):
-                raise ValueError("max_amount must be a non-negative decimal without exponent notation (up to 100 characters)")
-            try:
-                amount = Decimal(amount_text)
-            except InvalidOperation as exc:
-                raise ValueError("max_amount must be a non-negative decimal") from exc
-            if not amount.is_finite() or amount < 0:
-                raise ValueError("max_amount must be a non-negative decimal")
-            max_amount = format(amount, "f")
-        return self._get("/api/v1/recommend", {
+        params = (load_policy(policy) if isinstance(policy, str) or hasattr(policy, "__fspath__")
+                  else validate_policy(policy)) if policy is not None else {}
+        supplied = {
             "q": q, "auth": auth, "signature": signature, "protocol": protocol,
             "checked_within_hours": checked_within_hours,
             "a2a_response_within_hours": a2a_response_within_hours,
-            "tls_reachable": str(tls_reachable).lower() if tls_reachable is not None else None,
-            "network": network, "asset": asset, "max_amount": max_amount,
-            "limit": limit, "offset": offset,
-        })
+            "tls_reachable": tls_reachable, "network": network, "asset": asset,
+            "max_amount": max_amount, "limit": limit, "offset": offset,
+        }
+        params.update({key: value for key, value in supplied.items() if value is not None})
+        # Legacy optional blank strings are equivalent to absent requirements.
+        params = {key: value for key, value in params.items() if value != ""}
+        params = validate_policy(params)
+        if not params.get("q"):
+            raise ValueError("q must contain 1..200 characters (supply a query or policy q)")
+        params.setdefault("limit", 10)
+        params.setdefault("offset", 0)
+        if "tls_reachable" in params:
+            params["tls_reachable"] = str(params["tls_reachable"]).lower()
+        return self._get("/api/v1/recommend", params)
+
+    def connection_plan(self, target):
+        """Read public connection metadata; never connect to or invoke the agent.
+
+        target is a LocalMark numeric agent ID, card URL, endpoint URL or domain.
+        The plan may describe required authentication but never contains keys.
+        """
+        target = str(target).strip()
+        if not target or len(target) > 2048 or any(ord(c) < 32 for c in target):
+            raise ValueError("target must contain 1..2048 characters without control characters")
+        return self._get("/api/v1/connection-plan", {"target": target})
 
     def agent(self, agent_id):
         agent_id = int(agent_id)
@@ -131,10 +134,12 @@ class LocalMarkClient:
 
     def gate(self, target, *, card_hours=24, a2a_hours=None, tls=False, signature=False):
         """Check stored evidence only; never invoke the publisher's endpoint."""
-        if card_hours is not None and not 1 <= card_hours <= 8760:
+        if card_hours is not None and (isinstance(card_hours, bool) or not isinstance(card_hours, int) or not 1 <= card_hours <= 8760):
             raise ValueError("card_hours must be 1..8760 or None")
-        if a2a_hours is not None and not 1 <= a2a_hours <= 8760:
+        if a2a_hours is not None and (isinstance(a2a_hours, bool) or not isinstance(a2a_hours, int) or not 1 <= a2a_hours <= 8760):
             raise ValueError("a2a_hours must be 1..8760 or None")
+        if not isinstance(tls, bool) or not isinstance(signature, bool):
+            raise ValueError("tls and signature must be booleans")
         evidence = self.verify(target)
         checks = {}
         checks["listed"] = evidence.get("listing_status") == "listed"
@@ -148,7 +153,10 @@ class LocalMarkClient:
                 probe.get("state") == "a2a_response" and _recent(probe.get("checked_at"), a2a_hours)
             )
         if tls:
-            checks["endpoint_tls_reachable"] = (evidence.get("endpoint_tls") or {}).get("success") is True
+            endpoint_tls = evidence.get("endpoint_tls") or {}
+            checks["endpoint_tls_reachable"] = endpoint_tls.get("success") is True
+            if card_hours is not None:
+                checks["endpoint_tls_recent"] = _recent(endpoint_tls.get("checked_at"), card_hours)
         if signature:
             checks["signature_verified"] = (evidence.get("signature") or {}).get("status") == "verified"
         return {"target": target, "passed": all(checks.values()), "checks": checks,
@@ -157,7 +165,7 @@ class LocalMarkClient:
 
 
 def _recent(value, hours):
-    if not value:
+    if not isinstance(value, str) or not value:
         return False
     try:
         observed = datetime.fromisoformat(value.replace("Z", "+00:00"))

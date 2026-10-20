@@ -17,7 +17,7 @@ class ClientTests(unittest.TestCase):
         evidence = {"listing_status": "listed",
                     "card_reachability": {"latest": {"success": True, "checked_at": now}},
                     "read_only_a2a_probe": {"state": "a2a_response", "checked_at": now},
-                    "endpoint_tls": {"success": True}}
+                    "endpoint_tls": {"success": True, "checked_at": now}}
         client = LocalMarkClient()
         with patch.object(client, "verify", return_value=evidence):
             self.assertTrue(client.gate("agent.example", a2a_hours=24, tls=True)["passed"])
@@ -52,7 +52,7 @@ class ClientTests(unittest.TestCase):
             "network": ["eip155:8453"], "asset": ["0xUSDC"], "max_amount": ["0.05"],
             "limit": ["5"], "offset": ["10"],
         })
-        self.assertEqual(sent.get_header("User-agent"), "localmark-client/0.3.0")
+        self.assertEqual(sent.get_header("User-agent"), "localmark-client/0.4.1")
 
     def test_recommend_rejects_invalid_requirements_before_request(self):
         client = LocalMarkClient()
@@ -88,7 +88,7 @@ class ClientTests(unittest.TestCase):
                          "--protocol", "JSONRPC", "--card-hours", "24", "--a2a-hours", "12",
                          "--tls", "--network", "eip155:8453", "--asset", "USDC",
                          "--max-amount", "0.05", "--limit", "3", "--offset", "6"])
-            constructor.return_value.recommend.assert_called_once_with("PDF forms", auth="none",
+            constructor.return_value.recommend.assert_called_once_with("PDF forms", policy=None, auth="none",
                 signature="verified", protocol="JSONRPC", checked_within_hours=24,
                 a2a_response_within_hours=12, tls_reachable=True, network="eip155:8453",
                 asset="USDC", max_amount="0.05", limit=3, offset=6)
