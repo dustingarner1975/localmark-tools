@@ -1,0 +1,2072 @@
+{
+  "schema_version": "1",
+  "benchmark_version": "2026-10-20.1",
+  "fixed_now": "2026-10-20T12:00:00+00:00",
+  "title": "LocalMark synthetic capability search regression benchmark",
+  "synthetic": true,
+  "scope": "Manually authored synthetic cards and relevance judgments. No live endpoints, task execution, competitor comparison, or independent quality rating.",
+  "license": "MIT",
+  "corpus_size": 34,
+  "snapshot_hashes": {
+    "fixtures_sha256": "24b02ec123088061f969aa946bd199d72ff6636a04402cef49116c09b573579f",
+    "ranking_module_sha256": "1a569a211f4859c109e2a8c01888a0c209f388602a1b08a352dc31e232a794ac"
+  },
+  "metrics": {
+    "precision_at_5": "Relevant retrieved in the first five divided by 5, even if fewer results were returned.",
+    "precision_retrieved_at_5": "Relevant retrieved divided by the number actually returned up to five; zero for an empty positive query.",
+    "recall_at_5": "Relevant retrieved in the first five divided by all manually judged relevant fixture agents.",
+    "reciprocal_rank_at_5": "1 / first relevant result position within five, or zero if none.",
+    "no_match_accuracy": "Fraction of designated no-match queries returning no candidates; excluded from relevance averages.",
+    "constraint_violations": "Count of returned top-five IDs manually annotated as failing a required evidence/authentication/transport constraint.",
+    "caveat": "A small maintainer-authored fixture regression exercise; results do not establish live task quality, independent assessment, or superiority to other directories."
+  },
+  "k": 5,
+  "summaries": {
+    "baseline": {
+      "query_count": 24,
+      "positive_query_count": 21,
+      "no_match_query_count": 3,
+      "macro_precision_at_5": 0.209524,
+      "macro_precision_retrieved_at_5": 0.285714,
+      "macro_recall_at_5": 0.256236,
+      "mean_reciprocal_rank_at_5": 0.285714,
+      "mean_result_fill_rate_at_5": 0.209524,
+      "no_match_correct_count": 3,
+      "no_match_accuracy": 1.0,
+      "top_5_constraint_violations": 0,
+      "top_5_targeted_distractors": 0
+    },
+    "recommendation": {
+      "query_count": 24,
+      "positive_query_count": 21,
+      "no_match_query_count": 3,
+      "macro_precision_at_5": 0.447619,
+      "macro_precision_retrieved_at_5": 1.0,
+      "macro_recall_at_5": 0.953061,
+      "mean_reciprocal_rank_at_5": 1.0,
+      "mean_result_fill_rate_at_5": 0.447619,
+      "no_match_correct_count": 3,
+      "no_match_accuracy": 1.0,
+      "top_5_constraint_violations": 0,
+      "top_5_targeted_distractors": 0
+    }
+  },
+  "queries": [
+    {
+      "id": "pdf-create",
+      "q": "agents that generate pdf documents",
+      "requirements": {},
+      "judgments": {
+        "relevant_ids": [
+          101,
+          125,
+          134
+        ],
+        "unacceptable_ids": [
+          102,
+          103,
+          104,
+          121,
+          131
+        ],
+        "no_match_expected": false,
+        "rationale": "Creates a new PDF. Filling an existing form, extracting text, and drawing images are different operations.",
+        "constraint_ineligible_ids": []
+      },
+      "notes": "",
+      "expected_requirements": {},
+      "baseline": {
+        "ranked_ids": [],
+        "top_5_ids": [],
+        "relevant_returned_ids": [],
+        "precision_at_5": 0.0,
+        "precision_retrieved_at_5": 0.0,
+        "recall_at_5": 0.0,
+        "reciprocal_rank_at_5": 0.0,
+        "result_fill_rate_at_5": 0.0,
+        "no_match_correct": null,
+        "targeted_distractor_ids": [],
+        "constraint_violation_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "recommendation": {
+        "ranked_ids": [
+          125,
+          101,
+          134
+        ],
+        "top_5_ids": [
+          125,
+          101,
+          134
+        ],
+        "relevant_returned_ids": [
+          125,
+          101,
+          134
+        ],
+        "precision_at_5": 0.6,
+        "precision_retrieved_at_5": 1.0,
+        "recall_at_5": 1.0,
+        "reciprocal_rank_at_5": 1.0,
+        "result_fill_rate_at_5": 0.6,
+        "no_match_correct": null,
+        "targeted_distractor_ids": [],
+        "constraint_violation_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "interpreted_query": {
+        "original": "agents that generate pdf documents",
+        "normalized": "agents that generate pdf document",
+        "capability_query": "agents that generate pdf documents",
+        "concepts": [
+          {
+            "id": "pdf_generation",
+            "label": "PDF document generation",
+            "operation": "generate"
+          }
+        ],
+        "meaningful_terms": [
+          "generate",
+          "pdf",
+          "document"
+        ],
+        "requirements": {},
+        "unsupported_constraints": [],
+        "conflicts": [],
+        "excluded_concepts": []
+      },
+      "applied_requirements": {}
+    },
+    {
+      "id": "pdf-fill",
+      "q": "fill an existing PDF form",
+      "requirements": {},
+      "judgments": {
+        "relevant_ids": [
+          102
+        ],
+        "unacceptable_ids": [
+          101,
+          103,
+          125,
+          131,
+          134
+        ],
+        "no_match_expected": false,
+        "rationale": "Requires filling existing fields.",
+        "constraint_ineligible_ids": []
+      },
+      "notes": "",
+      "expected_requirements": {},
+      "baseline": {
+        "ranked_ids": [],
+        "top_5_ids": [],
+        "relevant_returned_ids": [],
+        "precision_at_5": 0.0,
+        "precision_retrieved_at_5": 0.0,
+        "recall_at_5": 0.0,
+        "reciprocal_rank_at_5": 0.0,
+        "result_fill_rate_at_5": 0.0,
+        "no_match_correct": null,
+        "targeted_distractor_ids": [],
+        "constraint_violation_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "recommendation": {
+        "ranked_ids": [
+          102
+        ],
+        "top_5_ids": [
+          102
+        ],
+        "relevant_returned_ids": [
+          102
+        ],
+        "precision_at_5": 0.2,
+        "precision_retrieved_at_5": 1.0,
+        "recall_at_5": 1.0,
+        "reciprocal_rank_at_5": 1.0,
+        "result_fill_rate_at_5": 0.2,
+        "no_match_correct": null,
+        "targeted_distractor_ids": [],
+        "constraint_violation_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "interpreted_query": {
+        "original": "fill an existing PDF form",
+        "normalized": "fill an existing pdf form",
+        "capability_query": "fill an existing PDF form",
+        "concepts": [
+          {
+            "id": "pdf_filling",
+            "label": "PDF form filling",
+            "operation": "fill"
+          }
+        ],
+        "meaningful_terms": [
+          "fill",
+          "existing",
+          "pdf",
+          "form"
+        ],
+        "requirements": {},
+        "unsupported_constraints": [],
+        "conflicts": [],
+        "excluded_concepts": []
+      },
+      "applied_requirements": {}
+    },
+    {
+      "id": "pdf-extract",
+      "q": "extract text from PDF invoices",
+      "requirements": {},
+      "judgments": {
+        "relevant_ids": [
+          103,
+          121
+        ],
+        "unacceptable_ids": [
+          101,
+          102,
+          104,
+          125,
+          131,
+          134
+        ],
+        "no_match_expected": false,
+        "rationale": "Extracts document content; InvoiceParse is the narrower fit.",
+        "constraint_ineligible_ids": []
+      },
+      "notes": "",
+      "expected_requirements": {},
+      "baseline": {
+        "ranked_ids": [],
+        "top_5_ids": [],
+        "relevant_returned_ids": [],
+        "precision_at_5": 0.0,
+        "precision_retrieved_at_5": 0.0,
+        "recall_at_5": 0.0,
+        "reciprocal_rank_at_5": 0.0,
+        "result_fill_rate_at_5": 0.0,
+        "no_match_correct": null,
+        "targeted_distractor_ids": [],
+        "constraint_violation_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "recommendation": {
+        "ranked_ids": [
+          121,
+          103
+        ],
+        "top_5_ids": [
+          121,
+          103
+        ],
+        "relevant_returned_ids": [
+          121,
+          103
+        ],
+        "precision_at_5": 0.4,
+        "precision_retrieved_at_5": 1.0,
+        "recall_at_5": 1.0,
+        "reciprocal_rank_at_5": 1.0,
+        "result_fill_rate_at_5": 0.4,
+        "no_match_correct": null,
+        "targeted_distractor_ids": [],
+        "constraint_violation_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "interpreted_query": {
+        "original": "extract text from PDF invoices",
+        "normalized": "extract text from pdf invoice",
+        "capability_query": "extract text from PDF invoices",
+        "concepts": [
+          {
+            "id": "pdf_extraction",
+            "label": "PDF text and data extraction",
+            "operation": "extract"
+          }
+        ],
+        "meaningful_terms": [
+          "extract",
+          "pdf",
+          "invoice"
+        ],
+        "requirements": {},
+        "unsupported_constraints": [],
+        "conflicts": [],
+        "excluded_concepts": []
+      },
+      "applied_requirements": {}
+    },
+    {
+      "id": "pdf-paraphrase",
+      "q": "turn HTML into a PDF",
+      "requirements": {},
+      "judgments": {
+        "relevant_ids": [
+          101,
+          125,
+          134
+        ],
+        "unacceptable_ids": [
+          102,
+          103,
+          131
+        ],
+        "no_match_expected": false,
+        "rationale": "HTML to PDF rendering, irrespective of the wording used in the skill title.",
+        "constraint_ineligible_ids": []
+      },
+      "notes": "",
+      "expected_requirements": {},
+      "baseline": {
+        "ranked_ids": [],
+        "top_5_ids": [],
+        "relevant_returned_ids": [],
+        "precision_at_5": 0.0,
+        "precision_retrieved_at_5": 0.0,
+        "recall_at_5": 0.0,
+        "reciprocal_rank_at_5": 0.0,
+        "result_fill_rate_at_5": 0.0,
+        "no_match_correct": null,
+        "targeted_distractor_ids": [],
+        "constraint_violation_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "recommendation": {
+        "ranked_ids": [
+          125,
+          101,
+          134
+        ],
+        "top_5_ids": [
+          125,
+          101,
+          134
+        ],
+        "relevant_returned_ids": [
+          125,
+          101,
+          134
+        ],
+        "precision_at_5": 0.6,
+        "precision_retrieved_at_5": 1.0,
+        "recall_at_5": 1.0,
+        "reciprocal_rank_at_5": 1.0,
+        "result_fill_rate_at_5": 0.6,
+        "no_match_correct": null,
+        "targeted_distractor_ids": [],
+        "constraint_violation_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "interpreted_query": {
+        "original": "turn HTML into a PDF",
+        "normalized": "turn html into a pdf",
+        "capability_query": "turn HTML into a PDF",
+        "concepts": [
+          {
+            "id": "pdf_generation",
+            "label": "PDF document generation",
+            "operation": "generate"
+          }
+        ],
+        "meaningful_terms": [
+          "turn",
+          "html",
+          "into",
+          "pdf"
+        ],
+        "requirements": {},
+        "unsupported_constraints": [],
+        "conflicts": [],
+        "excluded_concepts": []
+      },
+      "applied_requirements": {}
+    },
+    {
+      "id": "weather",
+      "q": "weather",
+      "requirements": {},
+      "judgments": {
+        "relevant_ids": [
+          105,
+          106,
+          126,
+          127,
+          128,
+          129,
+          130
+        ],
+        "unacceptable_ids": [],
+        "no_match_expected": false,
+        "rationale": "Broad weather request permits forecast and historical weather services.",
+        "constraint_ineligible_ids": []
+      },
+      "notes": "",
+      "expected_requirements": {},
+      "baseline": {
+        "ranked_ids": [
+          129,
+          130,
+          128,
+          127,
+          126,
+          105,
+          106
+        ],
+        "top_5_ids": [
+          129,
+          130,
+          128,
+          127,
+          126
+        ],
+        "relevant_returned_ids": [
+          129,
+          130,
+          128,
+          127,
+          126
+        ],
+        "precision_at_5": 1.0,
+        "precision_retrieved_at_5": 1.0,
+        "recall_at_5": 0.714286,
+        "reciprocal_rank_at_5": 1.0,
+        "result_fill_rate_at_5": 1.0,
+        "no_match_correct": null,
+        "targeted_distractor_ids": [],
+        "constraint_violation_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "recommendation": {
+        "ranked_ids": [
+          129,
+          105,
+          127,
+          128,
+          130,
+          126
+        ],
+        "top_5_ids": [
+          129,
+          105,
+          127,
+          128,
+          130
+        ],
+        "relevant_returned_ids": [
+          129,
+          105,
+          127,
+          128,
+          130
+        ],
+        "precision_at_5": 1.0,
+        "precision_retrieved_at_5": 1.0,
+        "recall_at_5": 0.714286,
+        "reciprocal_rank_at_5": 1.0,
+        "result_fill_rate_at_5": 1.0,
+        "no_match_correct": null,
+        "targeted_distractor_ids": [],
+        "constraint_violation_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "interpreted_query": {
+        "original": "weather",
+        "normalized": "weather",
+        "capability_query": "weather",
+        "concepts": [
+          {
+            "id": "weather",
+            "label": "Weather and forecasts",
+            "operation": ""
+          }
+        ],
+        "meaningful_terms": [
+          "weather"
+        ],
+        "requirements": {},
+        "unsupported_constraints": [],
+        "conflicts": [],
+        "excluded_concepts": []
+      },
+      "applied_requirements": {}
+    },
+    {
+      "id": "weather-future",
+      "q": "weather forecast for tomorrow",
+      "requirements": {},
+      "judgments": {
+        "relevant_ids": [
+          105,
+          126,
+          127,
+          128,
+          129,
+          130
+        ],
+        "unacceptable_ids": [
+          106
+        ],
+        "no_match_expected": false,
+        "rationale": "Tomorrow needs a forecast. Historical observations alone cannot answer it.",
+        "constraint_ineligible_ids": []
+      },
+      "notes": "",
+      "expected_requirements": {},
+      "baseline": {
+        "ranked_ids": [],
+        "top_5_ids": [],
+        "relevant_returned_ids": [],
+        "precision_at_5": 0.0,
+        "precision_retrieved_at_5": 0.0,
+        "recall_at_5": 0.0,
+        "reciprocal_rank_at_5": 0.0,
+        "result_fill_rate_at_5": 0.0,
+        "no_match_correct": null,
+        "targeted_distractor_ids": [],
+        "constraint_violation_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "recommendation": {
+        "ranked_ids": [
+          129,
+          105,
+          127,
+          128,
+          130,
+          126
+        ],
+        "top_5_ids": [
+          129,
+          105,
+          127,
+          128,
+          130
+        ],
+        "relevant_returned_ids": [
+          129,
+          105,
+          127,
+          128,
+          130
+        ],
+        "precision_at_5": 1.0,
+        "precision_retrieved_at_5": 1.0,
+        "recall_at_5": 0.833333,
+        "reciprocal_rank_at_5": 1.0,
+        "result_fill_rate_at_5": 1.0,
+        "no_match_correct": null,
+        "targeted_distractor_ids": [],
+        "constraint_violation_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "interpreted_query": {
+        "original": "weather forecast for tomorrow",
+        "normalized": "weather forecast for tomorrow",
+        "capability_query": "weather forecast for tomorrow",
+        "concepts": [
+          {
+            "id": "weather_forecast",
+            "label": "Future weather forecasts",
+            "operation": "forecast"
+          }
+        ],
+        "meaningful_terms": [
+          "weather",
+          "forecast",
+          "tomorrow"
+        ],
+        "requirements": {},
+        "unsupported_constraints": [],
+        "conflicts": [],
+        "excluded_concepts": []
+      },
+      "applied_requirements": {}
+    },
+    {
+      "id": "geocode",
+      "q": "convert a street address to coordinates",
+      "requirements": {},
+      "judgments": {
+        "relevant_ids": [
+          107
+        ],
+        "unacceptable_ids": [
+          108
+        ],
+        "no_match_expected": false,
+        "rationale": "Geocoding, not route calculation.",
+        "constraint_ineligible_ids": []
+      },
+      "notes": "",
+      "expected_requirements": {},
+      "baseline": {
+        "ranked_ids": [],
+        "top_5_ids": [],
+        "relevant_returned_ids": [],
+        "precision_at_5": 0.0,
+        "precision_retrieved_at_5": 0.0,
+        "recall_at_5": 0.0,
+        "reciprocal_rank_at_5": 0.0,
+        "result_fill_rate_at_5": 0.0,
+        "no_match_correct": null,
+        "targeted_distractor_ids": [],
+        "constraint_violation_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "recommendation": {
+        "ranked_ids": [
+          107
+        ],
+        "top_5_ids": [
+          107
+        ],
+        "relevant_returned_ids": [
+          107
+        ],
+        "precision_at_5": 0.2,
+        "precision_retrieved_at_5": 1.0,
+        "recall_at_5": 1.0,
+        "reciprocal_rank_at_5": 1.0,
+        "result_fill_rate_at_5": 0.2,
+        "no_match_correct": null,
+        "targeted_distractor_ids": [],
+        "constraint_violation_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "interpreted_query": {
+        "original": "convert a street address to coordinates",
+        "normalized": "convert a street address to coordinate",
+        "capability_query": "convert a street address to coordinates",
+        "concepts": [
+          {
+            "id": "geocoding",
+            "label": "Address and coordinate geocoding",
+            "operation": ""
+          }
+        ],
+        "meaningful_terms": [
+          "convert",
+          "street",
+          "address",
+          "coordinate"
+        ],
+        "requirements": {},
+        "unsupported_constraints": [],
+        "conflicts": [],
+        "excluded_concepts": []
+      },
+      "applied_requirements": {}
+    },
+    {
+      "id": "web-pages",
+      "q": "find current web pages with sources",
+      "requirements": {},
+      "judgments": {
+        "relevant_ids": [
+          109
+        ],
+        "unacceptable_ids": [
+          110,
+          111
+        ],
+        "no_match_expected": false,
+        "rationale": "Web search with source links.",
+        "constraint_ineligible_ids": []
+      },
+      "notes": "",
+      "expected_requirements": {},
+      "baseline": {
+        "ranked_ids": [],
+        "top_5_ids": [],
+        "relevant_returned_ids": [],
+        "precision_at_5": 0.0,
+        "precision_retrieved_at_5": 0.0,
+        "recall_at_5": 0.0,
+        "reciprocal_rank_at_5": 0.0,
+        "result_fill_rate_at_5": 0.0,
+        "no_match_correct": null,
+        "targeted_distractor_ids": [],
+        "constraint_violation_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "recommendation": {
+        "ranked_ids": [
+          109
+        ],
+        "top_5_ids": [
+          109
+        ],
+        "relevant_returned_ids": [
+          109
+        ],
+        "precision_at_5": 0.2,
+        "precision_retrieved_at_5": 1.0,
+        "recall_at_5": 1.0,
+        "reciprocal_rank_at_5": 1.0,
+        "result_fill_rate_at_5": 0.2,
+        "no_match_correct": null,
+        "targeted_distractor_ids": [],
+        "constraint_violation_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "interpreted_query": {
+        "original": "find current web pages with sources",
+        "normalized": "find current web pages with sources",
+        "capability_query": "find current web pages with sources",
+        "concepts": [],
+        "meaningful_terms": [
+          "current",
+          "web",
+          "pages",
+          "sources"
+        ],
+        "requirements": {},
+        "unsupported_constraints": [],
+        "conflicts": [],
+        "excluded_concepts": []
+      },
+      "applied_requirements": {}
+    },
+    {
+      "id": "company",
+      "q": "look up company registration details",
+      "requirements": {},
+      "judgments": {
+        "relevant_ids": [
+          111
+        ],
+        "unacceptable_ids": [
+          110
+        ],
+        "no_match_expected": false,
+        "rationale": "Company records rather than stock quotes.",
+        "constraint_ineligible_ids": []
+      },
+      "notes": "",
+      "expected_requirements": {},
+      "baseline": {
+        "ranked_ids": [],
+        "top_5_ids": [],
+        "relevant_returned_ids": [],
+        "precision_at_5": 0.0,
+        "precision_retrieved_at_5": 0.0,
+        "recall_at_5": 0.0,
+        "reciprocal_rank_at_5": 0.0,
+        "result_fill_rate_at_5": 0.0,
+        "no_match_correct": null,
+        "targeted_distractor_ids": [],
+        "constraint_violation_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "recommendation": {
+        "ranked_ids": [
+          111
+        ],
+        "top_5_ids": [
+          111
+        ],
+        "relevant_returned_ids": [
+          111
+        ],
+        "precision_at_5": 0.2,
+        "precision_retrieved_at_5": 1.0,
+        "recall_at_5": 1.0,
+        "reciprocal_rank_at_5": 1.0,
+        "result_fill_rate_at_5": 0.2,
+        "no_match_correct": null,
+        "targeted_distractor_ids": [],
+        "constraint_violation_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "interpreted_query": {
+        "original": "look up company registration details",
+        "normalized": "look up company registration details",
+        "capability_query": "look up company registration details",
+        "concepts": [],
+        "meaningful_terms": [
+          "up",
+          "company",
+          "registration",
+          "details"
+        ],
+        "requirements": {},
+        "unsupported_constraints": [],
+        "conflicts": [],
+        "excluded_concepts": []
+      },
+      "applied_requirements": {}
+    },
+    {
+      "id": "translation",
+      "q": "translate a document from English into French",
+      "requirements": {},
+      "judgments": {
+        "relevant_ids": [
+          112,
+          133
+        ],
+        "unacceptable_ids": [],
+        "no_match_expected": false,
+        "rationale": "Both declare supported text translation.",
+        "constraint_ineligible_ids": []
+      },
+      "notes": "",
+      "expected_requirements": {},
+      "baseline": {
+        "ranked_ids": [],
+        "top_5_ids": [],
+        "relevant_returned_ids": [],
+        "precision_at_5": 0.0,
+        "precision_retrieved_at_5": 0.0,
+        "recall_at_5": 0.0,
+        "reciprocal_rank_at_5": 0.0,
+        "result_fill_rate_at_5": 0.0,
+        "no_match_correct": null,
+        "targeted_distractor_ids": [],
+        "constraint_violation_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "recommendation": {
+        "ranked_ids": [
+          112,
+          133
+        ],
+        "top_5_ids": [
+          112,
+          133
+        ],
+        "relevant_returned_ids": [
+          112,
+          133
+        ],
+        "precision_at_5": 0.4,
+        "precision_retrieved_at_5": 1.0,
+        "recall_at_5": 1.0,
+        "reciprocal_rank_at_5": 1.0,
+        "result_fill_rate_at_5": 0.4,
+        "no_match_correct": null,
+        "targeted_distractor_ids": [],
+        "constraint_violation_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "interpreted_query": {
+        "original": "translate a document from English into French",
+        "normalized": "translate a document from english into french",
+        "capability_query": "translate a document from English into French",
+        "concepts": [
+          {
+            "id": "translation",
+            "label": "Language translation",
+            "operation": ""
+          }
+        ],
+        "meaningful_terms": [
+          "translate",
+          "document",
+          "english",
+          "into",
+          "french"
+        ],
+        "requirements": {},
+        "unsupported_constraints": [],
+        "conflicts": [],
+        "excluded_concepts": []
+      },
+      "applied_requirements": {}
+    },
+    {
+      "id": "email-validate",
+      "q": "validate an email address",
+      "requirements": {},
+      "judgments": {
+        "relevant_ids": [
+          113
+        ],
+        "unacceptable_ids": [
+          114
+        ],
+        "no_match_expected": false,
+        "rationale": "Address validation rather than delivery.",
+        "constraint_ineligible_ids": []
+      },
+      "notes": "",
+      "expected_requirements": {},
+      "baseline": {
+        "ranked_ids": [],
+        "top_5_ids": [],
+        "relevant_returned_ids": [],
+        "precision_at_5": 0.0,
+        "precision_retrieved_at_5": 0.0,
+        "recall_at_5": 0.0,
+        "reciprocal_rank_at_5": 0.0,
+        "result_fill_rate_at_5": 0.0,
+        "no_match_correct": null,
+        "targeted_distractor_ids": [],
+        "constraint_violation_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "recommendation": {
+        "ranked_ids": [
+          113
+        ],
+        "top_5_ids": [
+          113
+        ],
+        "relevant_returned_ids": [
+          113
+        ],
+        "precision_at_5": 0.2,
+        "precision_retrieved_at_5": 1.0,
+        "recall_at_5": 1.0,
+        "reciprocal_rank_at_5": 1.0,
+        "result_fill_rate_at_5": 0.2,
+        "no_match_correct": null,
+        "targeted_distractor_ids": [],
+        "constraint_violation_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "interpreted_query": {
+        "original": "validate an email address",
+        "normalized": "validate an email address",
+        "capability_query": "validate an email address",
+        "concepts": [
+          {
+            "id": "email_verification",
+            "label": "Email address verification",
+            "operation": "verify"
+          }
+        ],
+        "meaningful_terms": [
+          "validate",
+          "email",
+          "address"
+        ],
+        "requirements": {},
+        "unsupported_constraints": [],
+        "conflicts": [],
+        "excluded_concepts": []
+      },
+      "applied_requirements": {}
+    },
+    {
+      "id": "payment",
+      "q": "verify an x402 payment receipt",
+      "requirements": {},
+      "judgments": {
+        "relevant_ids": [
+          115
+        ],
+        "unacceptable_ids": [
+          116,
+          132
+        ],
+        "no_match_expected": false,
+        "rationale": "Performs payment receipt verification; explanations of a protocol are insufficient.",
+        "constraint_ineligible_ids": []
+      },
+      "notes": "",
+      "expected_requirements": {},
+      "baseline": {
+        "ranked_ids": [],
+        "top_5_ids": [],
+        "relevant_returned_ids": [],
+        "precision_at_5": 0.0,
+        "precision_retrieved_at_5": 0.0,
+        "recall_at_5": 0.0,
+        "reciprocal_rank_at_5": 0.0,
+        "result_fill_rate_at_5": 0.0,
+        "no_match_correct": null,
+        "targeted_distractor_ids": [],
+        "constraint_violation_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "recommendation": {
+        "ranked_ids": [
+          115
+        ],
+        "top_5_ids": [
+          115
+        ],
+        "relevant_returned_ids": [
+          115
+        ],
+        "precision_at_5": 0.2,
+        "precision_retrieved_at_5": 1.0,
+        "recall_at_5": 1.0,
+        "reciprocal_rank_at_5": 1.0,
+        "result_fill_rate_at_5": 0.2,
+        "no_match_correct": null,
+        "targeted_distractor_ids": [],
+        "constraint_violation_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "interpreted_query": {
+        "original": "verify an x402 payment receipt",
+        "normalized": "verify an x402 payment receipt",
+        "capability_query": "verify an x402 payment receipt",
+        "concepts": [
+          {
+            "id": "payment_verification",
+            "label": "Payment verification",
+            "operation": "verify"
+          }
+        ],
+        "meaningful_terms": [
+          "verify",
+          "x402",
+          "payment",
+          "receipt"
+        ],
+        "requirements": {},
+        "unsupported_constraints": [],
+        "conflicts": [],
+        "excluded_concepts": []
+      },
+      "applied_requirements": {}
+    },
+    {
+      "id": "images",
+      "q": "generate an illustration from a prompt",
+      "requirements": {},
+      "judgments": {
+        "relevant_ids": [
+          104
+        ],
+        "unacceptable_ids": [
+          101,
+          125,
+          134
+        ],
+        "no_match_expected": false,
+        "rationale": "Image generation, rather than PDF document creation.",
+        "constraint_ineligible_ids": []
+      },
+      "notes": "",
+      "expected_requirements": {},
+      "baseline": {
+        "ranked_ids": [],
+        "top_5_ids": [],
+        "relevant_returned_ids": [],
+        "precision_at_5": 0.0,
+        "precision_retrieved_at_5": 0.0,
+        "recall_at_5": 0.0,
+        "reciprocal_rank_at_5": 0.0,
+        "result_fill_rate_at_5": 0.0,
+        "no_match_correct": null,
+        "targeted_distractor_ids": [],
+        "constraint_violation_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "recommendation": {
+        "ranked_ids": [
+          104
+        ],
+        "top_5_ids": [
+          104
+        ],
+        "relevant_returned_ids": [
+          104
+        ],
+        "precision_at_5": 0.2,
+        "precision_retrieved_at_5": 1.0,
+        "recall_at_5": 1.0,
+        "reciprocal_rank_at_5": 1.0,
+        "result_fill_rate_at_5": 0.2,
+        "no_match_correct": null,
+        "targeted_distractor_ids": [],
+        "constraint_violation_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "interpreted_query": {
+        "original": "generate an illustration from a prompt",
+        "normalized": "generate an illustration from a prompt",
+        "capability_query": "generate an illustration from a prompt",
+        "concepts": [],
+        "meaningful_terms": [
+          "generate",
+          "illustration",
+          "prompt"
+        ],
+        "requirements": {},
+        "unsupported_constraints": [],
+        "conflicts": [],
+        "excluded_concepts": []
+      },
+      "applied_requirements": {}
+    },
+    {
+      "id": "code-review",
+      "q": "review Python code for bugs",
+      "requirements": {},
+      "judgments": {
+        "relevant_ids": [
+          117
+        ],
+        "unacceptable_ids": [],
+        "no_match_expected": false,
+        "rationale": "Source-code review and repair suggestions.",
+        "constraint_ineligible_ids": []
+      },
+      "notes": "",
+      "expected_requirements": {},
+      "baseline": {
+        "ranked_ids": [
+          117
+        ],
+        "top_5_ids": [
+          117
+        ],
+        "relevant_returned_ids": [
+          117
+        ],
+        "precision_at_5": 0.2,
+        "precision_retrieved_at_5": 1.0,
+        "recall_at_5": 1.0,
+        "reciprocal_rank_at_5": 1.0,
+        "result_fill_rate_at_5": 0.2,
+        "no_match_correct": null,
+        "targeted_distractor_ids": [],
+        "constraint_violation_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "recommendation": {
+        "ranked_ids": [
+          117
+        ],
+        "top_5_ids": [
+          117
+        ],
+        "relevant_returned_ids": [
+          117
+        ],
+        "precision_at_5": 0.2,
+        "precision_retrieved_at_5": 1.0,
+        "recall_at_5": 1.0,
+        "reciprocal_rank_at_5": 1.0,
+        "result_fill_rate_at_5": 0.2,
+        "no_match_correct": null,
+        "targeted_distractor_ids": [],
+        "constraint_violation_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "interpreted_query": {
+        "original": "review Python code for bugs",
+        "normalized": "review python code for bugs",
+        "capability_query": "review Python code for bugs",
+        "concepts": [],
+        "meaningful_terms": [
+          "review",
+          "python",
+          "code",
+          "bugs"
+        ],
+        "requirements": {},
+        "unsupported_constraints": [],
+        "conflicts": [],
+        "excluded_concepts": []
+      },
+      "applied_requirements": {}
+    },
+    {
+      "id": "legal-draft",
+      "q": "draft a legal contract",
+      "requirements": {},
+      "judgments": {
+        "relevant_ids": [
+          118
+        ],
+        "unacceptable_ids": [],
+        "no_match_expected": false,
+        "rationale": "Drafting a legal agreement.",
+        "constraint_ineligible_ids": []
+      },
+      "notes": "",
+      "expected_requirements": {},
+      "baseline": {
+        "ranked_ids": [],
+        "top_5_ids": [],
+        "relevant_returned_ids": [],
+        "precision_at_5": 0.0,
+        "precision_retrieved_at_5": 0.0,
+        "recall_at_5": 0.0,
+        "reciprocal_rank_at_5": 0.0,
+        "result_fill_rate_at_5": 0.0,
+        "no_match_correct": null,
+        "targeted_distractor_ids": [],
+        "constraint_violation_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "recommendation": {
+        "ranked_ids": [
+          118
+        ],
+        "top_5_ids": [
+          118
+        ],
+        "relevant_returned_ids": [
+          118
+        ],
+        "precision_at_5": 0.2,
+        "precision_retrieved_at_5": 1.0,
+        "recall_at_5": 1.0,
+        "reciprocal_rank_at_5": 1.0,
+        "result_fill_rate_at_5": 0.2,
+        "no_match_correct": null,
+        "targeted_distractor_ids": [],
+        "constraint_violation_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "interpreted_query": {
+        "original": "draft a legal contract",
+        "normalized": "draft a legal contract",
+        "capability_query": "draft a legal contract",
+        "concepts": [
+          {
+            "id": "legal_documents",
+            "label": "Legal documents and contracts",
+            "operation": ""
+          }
+        ],
+        "meaningful_terms": [
+          "draft",
+          "legal",
+          "contract"
+        ],
+        "requirements": {},
+        "unsupported_constraints": [],
+        "conflicts": [],
+        "excluded_concepts": []
+      },
+      "applied_requirements": {}
+    },
+    {
+      "id": "no-key-pdf",
+      "q": "generate pdf documents without an API key",
+      "requirements": {},
+      "judgments": {
+        "relevant_ids": [
+          101,
+          134
+        ],
+        "unacceptable_ids": [
+          125
+        ],
+        "no_match_expected": false,
+        "rationale": "Only fixtures with no declared authentication qualify; this does not certify account-free use.",
+        "constraint_ineligible_ids": [
+          125
+        ]
+      },
+      "notes": "",
+      "expected_requirements": {
+        "auth": "none"
+      },
+      "baseline": {
+        "ranked_ids": [],
+        "top_5_ids": [],
+        "relevant_returned_ids": [],
+        "precision_at_5": 0.0,
+        "precision_retrieved_at_5": 0.0,
+        "recall_at_5": 0.0,
+        "reciprocal_rank_at_5": 0.0,
+        "result_fill_rate_at_5": 0.0,
+        "no_match_correct": null,
+        "targeted_distractor_ids": [],
+        "constraint_violation_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "recommendation": {
+        "ranked_ids": [
+          101,
+          134
+        ],
+        "top_5_ids": [
+          101,
+          134
+        ],
+        "relevant_returned_ids": [
+          101,
+          134
+        ],
+        "precision_at_5": 0.4,
+        "precision_retrieved_at_5": 1.0,
+        "recall_at_5": 1.0,
+        "reciprocal_rank_at_5": 1.0,
+        "result_fill_rate_at_5": 0.4,
+        "no_match_correct": null,
+        "targeted_distractor_ids": [],
+        "constraint_violation_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "interpreted_query": {
+        "original": "generate pdf documents without an API key",
+        "normalized": "generate pdf document",
+        "capability_query": "generate pdf documents",
+        "concepts": [
+          {
+            "id": "pdf_generation",
+            "label": "PDF document generation",
+            "operation": "generate"
+          }
+        ],
+        "meaningful_terms": [
+          "generate",
+          "pdf",
+          "document"
+        ],
+        "requirements": {
+          "auth": "none"
+        },
+        "unsupported_constraints": [],
+        "conflicts": [],
+        "excluded_concepts": []
+      },
+      "applied_requirements": {
+        "auth": "none"
+      }
+    },
+    {
+      "id": "signed-weather",
+      "q": "signed weather agents",
+      "requirements": {},
+      "judgments": {
+        "relevant_ids": [
+          129
+        ],
+        "unacceptable_ids": [
+          105,
+          106,
+          126,
+          127,
+          128,
+          130
+        ],
+        "no_match_expected": false,
+        "rationale": "Signature must be verified, not merely present.",
+        "constraint_ineligible_ids": [
+          105,
+          106,
+          126,
+          127,
+          128,
+          130
+        ]
+      },
+      "notes": "",
+      "expected_requirements": {
+        "signature": "verified"
+      },
+      "baseline": {
+        "ranked_ids": [],
+        "top_5_ids": [],
+        "relevant_returned_ids": [],
+        "precision_at_5": 0.0,
+        "precision_retrieved_at_5": 0.0,
+        "recall_at_5": 0.0,
+        "reciprocal_rank_at_5": 0.0,
+        "result_fill_rate_at_5": 0.0,
+        "no_match_correct": null,
+        "targeted_distractor_ids": [],
+        "constraint_violation_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "recommendation": {
+        "ranked_ids": [
+          129
+        ],
+        "top_5_ids": [
+          129
+        ],
+        "relevant_returned_ids": [
+          129
+        ],
+        "precision_at_5": 0.2,
+        "precision_retrieved_at_5": 1.0,
+        "recall_at_5": 1.0,
+        "reciprocal_rank_at_5": 1.0,
+        "result_fill_rate_at_5": 0.2,
+        "no_match_correct": null,
+        "targeted_distractor_ids": [],
+        "constraint_violation_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "interpreted_query": {
+        "original": "signed weather agents",
+        "normalized": "weather agents",
+        "capability_query": "weather agents",
+        "concepts": [
+          {
+            "id": "weather",
+            "label": "Weather and forecasts",
+            "operation": ""
+          }
+        ],
+        "meaningful_terms": [
+          "weather"
+        ],
+        "requirements": {
+          "signature": "verified"
+        },
+        "unsupported_constraints": [],
+        "conflicts": [],
+        "excluded_concepts": []
+      },
+      "applied_requirements": {
+        "signature": "verified"
+      }
+    },
+    {
+      "id": "recent-card",
+      "q": "weather",
+      "requirements": {
+        "checked_within_hours": 24
+      },
+      "judgments": {
+        "relevant_ids": [
+          105,
+          106,
+          127,
+          128,
+          129,
+          130
+        ],
+        "unacceptable_ids": [
+          126
+        ],
+        "no_match_expected": false,
+        "rationale": "Card checked within the last 24 hours at the fixed benchmark clock.",
+        "constraint_ineligible_ids": [
+          126
+        ]
+      },
+      "notes": "",
+      "expected_requirements": {
+        "checked_within_hours": 24
+      },
+      "baseline": {
+        "ranked_ids": [
+          129,
+          130,
+          128,
+          127,
+          105,
+          106
+        ],
+        "top_5_ids": [
+          129,
+          130,
+          128,
+          127,
+          105
+        ],
+        "relevant_returned_ids": [
+          129,
+          130,
+          128,
+          127,
+          105
+        ],
+        "precision_at_5": 1.0,
+        "precision_retrieved_at_5": 1.0,
+        "recall_at_5": 0.833333,
+        "reciprocal_rank_at_5": 1.0,
+        "result_fill_rate_at_5": 1.0,
+        "no_match_correct": null,
+        "targeted_distractor_ids": [],
+        "constraint_violation_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "recommendation": {
+        "ranked_ids": [
+          129,
+          105,
+          127,
+          128,
+          130
+        ],
+        "top_5_ids": [
+          129,
+          105,
+          127,
+          128,
+          130
+        ],
+        "relevant_returned_ids": [
+          129,
+          105,
+          127,
+          128,
+          130
+        ],
+        "precision_at_5": 1.0,
+        "precision_retrieved_at_5": 1.0,
+        "recall_at_5": 0.833333,
+        "reciprocal_rank_at_5": 1.0,
+        "result_fill_rate_at_5": 1.0,
+        "no_match_correct": null,
+        "targeted_distractor_ids": [],
+        "constraint_violation_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "interpreted_query": {
+        "original": "weather",
+        "normalized": "weather",
+        "capability_query": "weather",
+        "concepts": [
+          {
+            "id": "weather",
+            "label": "Weather and forecasts",
+            "operation": ""
+          }
+        ],
+        "meaningful_terms": [
+          "weather"
+        ],
+        "requirements": {},
+        "unsupported_constraints": [],
+        "conflicts": [],
+        "excluded_concepts": []
+      },
+      "applied_requirements": {
+        "checked_within_hours": 24
+      }
+    },
+    {
+      "id": "recent-response",
+      "q": "weather",
+      "requirements": {
+        "a2a_response_within_hours": 24
+      },
+      "judgments": {
+        "relevant_ids": [
+          105,
+          106,
+          128,
+          129,
+          130
+        ],
+        "unacceptable_ids": [
+          126,
+          127
+        ],
+        "no_match_expected": false,
+        "rationale": "A confirmed recent protocol response is required; a fresh card alone is insufficient.",
+        "constraint_ineligible_ids": [
+          126,
+          127
+        ]
+      },
+      "notes": "",
+      "expected_requirements": {
+        "a2a_response_within_hours": 24
+      },
+      "baseline": {
+        "ranked_ids": [
+          129,
+          130,
+          128,
+          105,
+          106
+        ],
+        "top_5_ids": [
+          129,
+          130,
+          128,
+          105,
+          106
+        ],
+        "relevant_returned_ids": [
+          129,
+          130,
+          128,
+          105,
+          106
+        ],
+        "precision_at_5": 1.0,
+        "precision_retrieved_at_5": 1.0,
+        "recall_at_5": 1.0,
+        "reciprocal_rank_at_5": 1.0,
+        "result_fill_rate_at_5": 1.0,
+        "no_match_correct": null,
+        "targeted_distractor_ids": [],
+        "constraint_violation_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "recommendation": {
+        "ranked_ids": [
+          129,
+          105,
+          128,
+          130
+        ],
+        "top_5_ids": [
+          129,
+          105,
+          128,
+          130
+        ],
+        "relevant_returned_ids": [
+          129,
+          105,
+          128,
+          130
+        ],
+        "precision_at_5": 0.8,
+        "precision_retrieved_at_5": 1.0,
+        "recall_at_5": 0.8,
+        "reciprocal_rank_at_5": 1.0,
+        "result_fill_rate_at_5": 0.8,
+        "no_match_correct": null,
+        "targeted_distractor_ids": [],
+        "constraint_violation_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "interpreted_query": {
+        "original": "weather",
+        "normalized": "weather",
+        "capability_query": "weather",
+        "concepts": [
+          {
+            "id": "weather",
+            "label": "Weather and forecasts",
+            "operation": ""
+          }
+        ],
+        "meaningful_terms": [
+          "weather"
+        ],
+        "requirements": {},
+        "unsupported_constraints": [],
+        "conflicts": [],
+        "excluded_concepts": []
+      },
+      "applied_requirements": {
+        "a2a_response_within_hours": 24
+      }
+    },
+    {
+      "id": "tls",
+      "q": "weather",
+      "requirements": {
+        "tls_reachable": true
+      },
+      "judgments": {
+        "relevant_ids": [
+          105,
+          106,
+          126,
+          127,
+          129,
+          130
+        ],
+        "unacceptable_ids": [
+          128
+        ],
+        "no_match_expected": false,
+        "rationale": "Only a successful latest TLS observation qualifies.",
+        "constraint_ineligible_ids": [
+          128
+        ]
+      },
+      "notes": "",
+      "expected_requirements": {
+        "tls_reachable": true
+      },
+      "baseline": {
+        "ranked_ids": [
+          129,
+          130,
+          127,
+          126,
+          105,
+          106
+        ],
+        "top_5_ids": [
+          129,
+          130,
+          127,
+          126,
+          105
+        ],
+        "relevant_returned_ids": [
+          129,
+          130,
+          127,
+          126,
+          105
+        ],
+        "precision_at_5": 1.0,
+        "precision_retrieved_at_5": 1.0,
+        "recall_at_5": 0.833333,
+        "reciprocal_rank_at_5": 1.0,
+        "result_fill_rate_at_5": 1.0,
+        "no_match_correct": null,
+        "targeted_distractor_ids": [],
+        "constraint_violation_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "recommendation": {
+        "ranked_ids": [
+          129,
+          105,
+          127,
+          130,
+          126
+        ],
+        "top_5_ids": [
+          129,
+          105,
+          127,
+          130,
+          126
+        ],
+        "relevant_returned_ids": [
+          129,
+          105,
+          127,
+          130,
+          126
+        ],
+        "precision_at_5": 1.0,
+        "precision_retrieved_at_5": 1.0,
+        "recall_at_5": 0.833333,
+        "reciprocal_rank_at_5": 1.0,
+        "result_fill_rate_at_5": 1.0,
+        "no_match_correct": null,
+        "targeted_distractor_ids": [],
+        "constraint_violation_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "interpreted_query": {
+        "original": "weather",
+        "normalized": "weather",
+        "capability_query": "weather",
+        "concepts": [
+          {
+            "id": "weather",
+            "label": "Weather and forecasts",
+            "operation": ""
+          }
+        ],
+        "meaningful_terms": [
+          "weather"
+        ],
+        "requirements": {},
+        "unsupported_constraints": [],
+        "conflicts": [],
+        "excluded_concepts": []
+      },
+      "applied_requirements": {
+        "tls_reachable": true
+      }
+    },
+    {
+      "id": "grpc",
+      "q": "translate text",
+      "requirements": {
+        "protocol": "GRPC"
+      },
+      "judgments": {
+        "relevant_ids": [
+          133
+        ],
+        "unacceptable_ids": [
+          112
+        ],
+        "no_match_expected": false,
+        "rationale": "Transport requirement is independent of capability.",
+        "constraint_ineligible_ids": [
+          112
+        ]
+      },
+      "notes": "",
+      "expected_requirements": {
+        "protocol": "GRPC"
+      },
+      "baseline": {
+        "ranked_ids": [
+          133
+        ],
+        "top_5_ids": [
+          133
+        ],
+        "relevant_returned_ids": [
+          133
+        ],
+        "precision_at_5": 0.2,
+        "precision_retrieved_at_5": 1.0,
+        "recall_at_5": 1.0,
+        "reciprocal_rank_at_5": 1.0,
+        "result_fill_rate_at_5": 0.2,
+        "no_match_correct": null,
+        "targeted_distractor_ids": [],
+        "constraint_violation_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "recommendation": {
+        "ranked_ids": [
+          133
+        ],
+        "top_5_ids": [
+          133
+        ],
+        "relevant_returned_ids": [
+          133
+        ],
+        "precision_at_5": 0.2,
+        "precision_retrieved_at_5": 1.0,
+        "recall_at_5": 1.0,
+        "reciprocal_rank_at_5": 1.0,
+        "result_fill_rate_at_5": 0.2,
+        "no_match_correct": null,
+        "targeted_distractor_ids": [],
+        "constraint_violation_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "interpreted_query": {
+        "original": "translate text",
+        "normalized": "translate text",
+        "capability_query": "translate text",
+        "concepts": [
+          {
+            "id": "translation",
+            "label": "Language translation",
+            "operation": ""
+          }
+        ],
+        "meaningful_terms": [
+          "translate"
+        ],
+        "requirements": {},
+        "unsupported_constraints": [],
+        "conflicts": [],
+        "excluded_concepts": []
+      },
+      "applied_requirements": {
+        "protocol": "GRPC"
+      }
+    },
+    {
+      "id": "no-signed-geocode",
+      "q": "geocode a street address",
+      "requirements": {
+        "signature": "verified"
+      },
+      "judgments": {
+        "relevant_ids": [],
+        "unacceptable_ids": [
+          107
+        ],
+        "no_match_expected": true,
+        "rationale": "The only geocoder has no verified signature.",
+        "constraint_ineligible_ids": [
+          107
+        ]
+      },
+      "notes": "",
+      "expected_requirements": {
+        "signature": "verified"
+      },
+      "baseline": {
+        "ranked_ids": [],
+        "top_5_ids": [],
+        "relevant_returned_ids": [],
+        "precision_at_5": null,
+        "precision_retrieved_at_5": null,
+        "recall_at_5": null,
+        "reciprocal_rank_at_5": null,
+        "result_fill_rate_at_5": 0.0,
+        "no_match_correct": true,
+        "targeted_distractor_ids": [],
+        "constraint_violation_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "recommendation": {
+        "ranked_ids": [],
+        "top_5_ids": [],
+        "relevant_returned_ids": [],
+        "precision_at_5": null,
+        "precision_retrieved_at_5": null,
+        "recall_at_5": null,
+        "reciprocal_rank_at_5": null,
+        "result_fill_rate_at_5": 0.0,
+        "no_match_correct": true,
+        "targeted_distractor_ids": [],
+        "constraint_violation_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "interpreted_query": {
+        "original": "geocode a street address",
+        "normalized": "geocode a street address",
+        "capability_query": "geocode a street address",
+        "concepts": [
+          {
+            "id": "geocoding",
+            "label": "Address and coordinate geocoding",
+            "operation": ""
+          }
+        ],
+        "meaningful_terms": [
+          "geocode",
+          "street",
+          "address"
+        ],
+        "requirements": {},
+        "unsupported_constraints": [],
+        "conflicts": [],
+        "excluded_concepts": []
+      },
+      "applied_requirements": {
+        "signature": "verified"
+      }
+    },
+    {
+      "id": "unavailable",
+      "q": "control a fusion reactor",
+      "requirements": {},
+      "judgments": {
+        "relevant_ids": [],
+        "unacceptable_ids": [
+          101,
+          104,
+          115,
+          117
+        ],
+        "no_match_expected": true,
+        "rationale": "No fixture declares this capability; incidental text must not invent it.",
+        "constraint_ineligible_ids": []
+      },
+      "notes": "",
+      "expected_requirements": {},
+      "baseline": {
+        "ranked_ids": [],
+        "top_5_ids": [],
+        "relevant_returned_ids": [],
+        "precision_at_5": null,
+        "precision_retrieved_at_5": null,
+        "recall_at_5": null,
+        "reciprocal_rank_at_5": null,
+        "result_fill_rate_at_5": 0.0,
+        "no_match_correct": true,
+        "targeted_distractor_ids": [],
+        "constraint_violation_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "recommendation": {
+        "ranked_ids": [],
+        "top_5_ids": [],
+        "relevant_returned_ids": [],
+        "precision_at_5": null,
+        "precision_retrieved_at_5": null,
+        "recall_at_5": null,
+        "reciprocal_rank_at_5": null,
+        "result_fill_rate_at_5": 0.0,
+        "no_match_correct": true,
+        "targeted_distractor_ids": [],
+        "constraint_violation_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "interpreted_query": {
+        "original": "control a fusion reactor",
+        "normalized": "control a fusion reactor",
+        "capability_query": "control a fusion reactor",
+        "concepts": [],
+        "meaningful_terms": [
+          "control",
+          "fusion",
+          "reactor"
+        ],
+        "requirements": {},
+        "unsupported_constraints": [],
+        "conflicts": [],
+        "excluded_concepts": []
+      },
+      "applied_requirements": {}
+    },
+    {
+      "id": "empty-after-constraints",
+      "q": "create PDF documents",
+      "requirements": {
+        "auth": "none",
+        "signature": "verified"
+      },
+      "judgments": {
+        "relevant_ids": [],
+        "unacceptable_ids": [
+          101,
+          125,
+          134
+        ],
+        "no_match_expected": true,
+        "rationale": "No fixture combines generation, verified signature, and no declared authentication.",
+        "constraint_ineligible_ids": [
+          101,
+          125,
+          134
+        ]
+      },
+      "notes": "",
+      "expected_requirements": {
+        "auth": "none",
+        "signature": "verified"
+      },
+      "baseline": {
+        "ranked_ids": [],
+        "top_5_ids": [],
+        "relevant_returned_ids": [],
+        "precision_at_5": null,
+        "precision_retrieved_at_5": null,
+        "recall_at_5": null,
+        "reciprocal_rank_at_5": null,
+        "result_fill_rate_at_5": 0.0,
+        "no_match_correct": true,
+        "targeted_distractor_ids": [],
+        "constraint_violation_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "recommendation": {
+        "ranked_ids": [],
+        "top_5_ids": [],
+        "relevant_returned_ids": [],
+        "precision_at_5": null,
+        "precision_retrieved_at_5": null,
+        "recall_at_5": null,
+        "reciprocal_rank_at_5": null,
+        "result_fill_rate_at_5": 0.0,
+        "no_match_correct": true,
+        "targeted_distractor_ids": [],
+        "constraint_violation_ids": [],
+        "unjudged_returned_ids": []
+      },
+      "interpreted_query": {
+        "original": "create PDF documents",
+        "normalized": "create pdf document",
+        "capability_query": "create PDF documents",
+        "concepts": [
+          {
+            "id": "pdf_generation",
+            "label": "PDF document generation",
+            "operation": "generate"
+          }
+        ],
+        "meaningful_terms": [
+          "create",
+          "pdf",
+          "document"
+        ],
+        "requirements": {},
+        "unsupported_constraints": [],
+        "conflicts": [],
+        "excluded_concepts": []
+      },
+      "applied_requirements": {
+        "auth": "none",
+        "signature": "verified"
+      }
+    }
+  ]
+}

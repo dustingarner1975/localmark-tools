@@ -1,0 +1,1964 @@
+{
+  "schema_version": "1",
+  "benchmark_version": "2026-10-20.1",
+  "fixed_now": "2026-10-20T12:00:00+00:00",
+  "title": "LocalMark synthetic capability search regression benchmark",
+  "license": "MIT",
+  "synthetic": true,
+  "scope": "Manually authored synthetic cards and relevance judgments. No live endpoints, task execution, competitor comparison, or independent quality rating.",
+  "agents": [
+    {
+      "id": 101,
+      "name": "PaperPress",
+      "description": "Render HTML and Markdown documents as downloadable PDF files.",
+      "card_url": "https://p101.example/.well-known/agent-card.json",
+      "endpoint": "https://p101.example/a2a",
+      "publisher_domain": "p101.example",
+      "status": "verified",
+      "first_seen": "2026-10-01T00:00:00+00:00",
+      "last_verified": "2026-10-20T10:00:00+00:00",
+      "signature_status": "unsigned",
+      "capabilities": [
+        {
+          "id": "s101",
+          "name": "PDF creation",
+          "description": "Generate a PDF document from supplied HTML or Markdown.",
+          "tags": [
+            "pdf",
+            "documents",
+            "generate"
+          ]
+        }
+      ],
+      "card": {
+        "supportedInterfaces": [
+          {
+            "url": "https://p101.example/a2a",
+            "protocolBinding": "JSONRPC",
+            "protocolVersion": "0.3.0"
+          }
+        ],
+        "securityRequirements": []
+      },
+      "endpoint_tls": {
+        "reachable": true,
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      },
+      "read_only_a2a_probe": {
+        "state": "a2a_response",
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      }
+    },
+    {
+      "id": 102,
+      "name": "FormFinish",
+      "description": "Complete existing PDF forms using a field-value mapping.",
+      "card_url": "https://p102.example/.well-known/agent-card.json",
+      "endpoint": "https://p102.example/a2a",
+      "publisher_domain": "p102.example",
+      "status": "verified",
+      "first_seen": "2026-10-01T00:00:00+00:00",
+      "last_verified": "2026-10-20T10:00:00+00:00",
+      "signature_status": "unsigned",
+      "capabilities": [
+        {
+          "id": "s102",
+          "name": "PDF form filling",
+          "description": "Fill the fields of an existing PDF form. Does not create documents from HTML.",
+          "tags": [
+            "pdf",
+            "forms",
+            "fill"
+          ]
+        }
+      ],
+      "card": {
+        "supportedInterfaces": [
+          {
+            "url": "https://p102.example/a2a",
+            "protocolBinding": "JSONRPC",
+            "protocolVersion": "0.3.0"
+          }
+        ],
+        "securityRequirements": []
+      },
+      "endpoint_tls": {
+        "reachable": true,
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      },
+      "read_only_a2a_probe": {
+        "state": "a2a_response",
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      }
+    },
+    {
+      "id": 103,
+      "name": "ScanLedger",
+      "description": "Read searchable and scanned PDFs and return structured text.",
+      "card_url": "https://p103.example/.well-known/agent-card.json",
+      "endpoint": "https://p103.example/a2a",
+      "publisher_domain": "p103.example",
+      "status": "verified",
+      "first_seen": "2026-10-01T00:00:00+00:00",
+      "last_verified": "2026-10-20T10:00:00+00:00",
+      "signature_status": "unsigned",
+      "capabilities": [
+        {
+          "id": "s103",
+          "name": "PDF text extraction",
+          "description": "Extract text and tables from PDF files, using OCR for scans.",
+          "tags": [
+            "pdf",
+            "extract",
+            "ocr"
+          ]
+        }
+      ],
+      "card": {
+        "supportedInterfaces": [
+          {
+            "url": "https://p103.example/a2a",
+            "protocolBinding": "JSONRPC",
+            "protocolVersion": "0.3.0"
+          }
+        ],
+        "securityRequirements": []
+      },
+      "endpoint_tls": {
+        "reachable": true,
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      },
+      "read_only_a2a_probe": {
+        "state": "a2a_response",
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      }
+    },
+    {
+      "id": 104,
+      "name": "PixelWorks",
+      "description": "Make illustrations from a natural language prompt.",
+      "card_url": "https://p104.example/.well-known/agent-card.json",
+      "endpoint": "https://p104.example/a2a",
+      "publisher_domain": "p104.example",
+      "status": "verified",
+      "first_seen": "2026-10-01T00:00:00+00:00",
+      "last_verified": "2026-10-20T10:00:00+00:00",
+      "signature_status": "unsigned",
+      "capabilities": [
+        {
+          "id": "s104",
+          "name": "Image generation",
+          "description": "Generate PNG images and illustrations.",
+          "tags": [
+            "image",
+            "generate"
+          ]
+        }
+      ],
+      "card": {
+        "supportedInterfaces": [
+          {
+            "url": "https://p104.example/a2a",
+            "protocolBinding": "JSONRPC",
+            "protocolVersion": "0.3.0"
+          }
+        ],
+        "securityRequirements": []
+      },
+      "endpoint_tls": {
+        "reachable": true,
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      },
+      "read_only_a2a_probe": {
+        "state": "a2a_response",
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      }
+    },
+    {
+      "id": 105,
+      "name": "WeatherNow",
+      "description": "Local weather forecasts for the next seven days.",
+      "card_url": "https://forecast.example/.well-known/agent-card.json",
+      "endpoint": "https://forecast.example/a2a",
+      "publisher_domain": "forecast.example",
+      "status": "verified",
+      "first_seen": "2026-10-01T00:00:00+00:00",
+      "last_verified": "2026-10-20T10:00:00+00:00",
+      "signature_status": "unsigned",
+      "capabilities": [
+        {
+          "id": "s105",
+          "name": "Weather forecast",
+          "description": "Get future weather, temperatures, rain probability and wind by city.",
+          "tags": [
+            "weather",
+            "forecast"
+          ]
+        }
+      ],
+      "card": {
+        "supportedInterfaces": [
+          {
+            "url": "https://forecast.example/a2a",
+            "protocolBinding": "JSONRPC",
+            "protocolVersion": "0.3.0"
+          }
+        ],
+        "securityRequirements": []
+      },
+      "endpoint_tls": {
+        "reachable": true,
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      },
+      "read_only_a2a_probe": {
+        "state": "a2a_response",
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      }
+    },
+    {
+      "id": 106,
+      "name": "StormArchive",
+      "description": "Historical observed weather records, with no future forecasts.",
+      "card_url": "https://p106.example/.well-known/agent-card.json",
+      "endpoint": "https://p106.example/a2a",
+      "publisher_domain": "p106.example",
+      "status": "verified",
+      "first_seen": "2026-10-01T00:00:00+00:00",
+      "last_verified": "2026-10-20T10:00:00+00:00",
+      "signature_status": "unsigned",
+      "capabilities": [
+        {
+          "id": "s106",
+          "name": "Historical weather",
+          "description": "Retrieve past daily weather observations by date and location.",
+          "tags": [
+            "weather",
+            "historical"
+          ]
+        }
+      ],
+      "card": {
+        "supportedInterfaces": [
+          {
+            "url": "https://p106.example/a2a",
+            "protocolBinding": "JSONRPC",
+            "protocolVersion": "0.3.0"
+          }
+        ],
+        "securityRequirements": []
+      },
+      "endpoint_tls": {
+        "reachable": true,
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      },
+      "read_only_a2a_probe": {
+        "state": "a2a_response",
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      }
+    },
+    {
+      "id": 107,
+      "name": "PlacePin",
+      "description": "Convert street addresses into latitude and longitude.",
+      "card_url": "https://p107.example/.well-known/agent-card.json",
+      "endpoint": "https://p107.example/a2a",
+      "publisher_domain": "p107.example",
+      "status": "verified",
+      "first_seen": "2026-10-01T00:00:00+00:00",
+      "last_verified": "2026-10-20T10:00:00+00:00",
+      "signature_status": "unsigned",
+      "capabilities": [
+        {
+          "id": "s107",
+          "name": "Geocoding",
+          "description": "Geocode an address or reverse-geocode coordinates to a place.",
+          "tags": [
+            "geocoding",
+            "address"
+          ]
+        }
+      ],
+      "card": {
+        "supportedInterfaces": [
+          {
+            "url": "https://p107.example/a2a",
+            "protocolBinding": "JSONRPC",
+            "protocolVersion": "0.3.0"
+          }
+        ],
+        "securityRequirements": []
+      },
+      "endpoint_tls": {
+        "reachable": true,
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      },
+      "read_only_a2a_probe": {
+        "state": "a2a_response",
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      }
+    },
+    {
+      "id": 108,
+      "name": "PathMath",
+      "description": "Calculate a driving route between two supplied coordinate pairs.",
+      "card_url": "https://p108.example/.well-known/agent-card.json",
+      "endpoint": "https://p108.example/a2a",
+      "publisher_domain": "p108.example",
+      "status": "verified",
+      "first_seen": "2026-10-01T00:00:00+00:00",
+      "last_verified": "2026-10-20T10:00:00+00:00",
+      "signature_status": "unsigned",
+      "capabilities": [
+        {
+          "id": "s108",
+          "name": "Driving route",
+          "description": "Find travel time and route geometry from coordinates. No address lookup.",
+          "tags": [
+            "routing",
+            "directions"
+          ]
+        }
+      ],
+      "card": {
+        "supportedInterfaces": [
+          {
+            "url": "https://p108.example/a2a",
+            "protocolBinding": "JSONRPC",
+            "protocolVersion": "0.3.0"
+          }
+        ],
+        "securityRequirements": []
+      },
+      "endpoint_tls": {
+        "reachable": true,
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      },
+      "read_only_a2a_probe": {
+        "state": "a2a_response",
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      }
+    },
+    {
+      "id": 109,
+      "name": "SearchLens",
+      "description": "Search the public web and return current pages with source links.",
+      "card_url": "https://p109.example/.well-known/agent-card.json",
+      "endpoint": "https://p109.example/a2a",
+      "publisher_domain": "p109.example",
+      "status": "verified",
+      "first_seen": "2026-10-01T00:00:00+00:00",
+      "last_verified": "2026-10-20T10:00:00+00:00",
+      "signature_status": "unsigned",
+      "capabilities": [
+        {
+          "id": "s109",
+          "name": "Web search",
+          "description": "Find web pages for a question and return excerpts and URLs.",
+          "tags": [
+            "search",
+            "web"
+          ]
+        }
+      ],
+      "card": {
+        "supportedInterfaces": [
+          {
+            "url": "https://p109.example/a2a",
+            "protocolBinding": "JSONRPC",
+            "protocolVersion": "0.3.0"
+          }
+        ],
+        "securityRequirements": []
+      },
+      "endpoint_tls": {
+        "reachable": true,
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      },
+      "read_only_a2a_probe": {
+        "state": "a2a_response",
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      }
+    },
+    {
+      "id": 110,
+      "name": "MarketTicker",
+      "description": "Quote exchange-traded stocks and market indices.",
+      "card_url": "https://p110.example/.well-known/agent-card.json",
+      "endpoint": "https://p110.example/a2a",
+      "publisher_domain": "p110.example",
+      "status": "verified",
+      "first_seen": "2026-10-01T00:00:00+00:00",
+      "last_verified": "2026-10-20T10:00:00+00:00",
+      "signature_status": "unsigned",
+      "capabilities": [
+        {
+          "id": "s110",
+          "name": "Stock quote",
+          "description": "Retrieve recent share prices and index levels by ticker.",
+          "tags": [
+            "finance",
+            "stocks",
+            "quote"
+          ]
+        }
+      ],
+      "card": {
+        "supportedInterfaces": [
+          {
+            "url": "https://p110.example/a2a",
+            "protocolBinding": "JSONRPC",
+            "protocolVersion": "0.3.0"
+          }
+        ],
+        "securityRequirements": []
+      },
+      "endpoint_tls": {
+        "reachable": true,
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      },
+      "read_only_a2a_probe": {
+        "state": "a2a_response",
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      }
+    },
+    {
+      "id": 111,
+      "name": "FirmFacts",
+      "description": "Find company registration records and business profiles.",
+      "card_url": "https://p111.example/.well-known/agent-card.json",
+      "endpoint": "https://p111.example/a2a",
+      "publisher_domain": "p111.example",
+      "status": "verified",
+      "first_seen": "2026-10-01T00:00:00+00:00",
+      "last_verified": "2026-10-20T10:00:00+00:00",
+      "signature_status": "unsigned",
+      "capabilities": [
+        {
+          "id": "s111",
+          "name": "Company lookup",
+          "description": "Retrieve a company profile, registration number and registered office.",
+          "tags": [
+            "company",
+            "business",
+            "lookup"
+          ]
+        }
+      ],
+      "card": {
+        "supportedInterfaces": [
+          {
+            "url": "https://p111.example/a2a",
+            "protocolBinding": "JSONRPC",
+            "protocolVersion": "0.3.0"
+          }
+        ],
+        "securityRequirements": []
+      },
+      "endpoint_tls": {
+        "reachable": true,
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      },
+      "read_only_a2a_probe": {
+        "state": "a2a_response",
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      }
+    },
+    {
+      "id": 112,
+      "name": "WordBridge",
+      "description": "Translate supplied text between English, Spanish and French.",
+      "card_url": "https://p112.example/.well-known/agent-card.json",
+      "endpoint": "https://p112.example/a2a",
+      "publisher_domain": "p112.example",
+      "status": "verified",
+      "first_seen": "2026-10-01T00:00:00+00:00",
+      "last_verified": "2026-10-20T10:00:00+00:00",
+      "signature_status": "unsigned",
+      "capabilities": [
+        {
+          "id": "s112",
+          "name": "Text translation",
+          "description": "Translate a document or short text into a requested supported language.",
+          "tags": [
+            "translation",
+            "languages"
+          ]
+        }
+      ],
+      "card": {
+        "supportedInterfaces": [
+          {
+            "url": "https://p112.example/a2a",
+            "protocolBinding": "JSONRPC",
+            "protocolVersion": "0.3.0"
+          }
+        ],
+        "securityRequirements": []
+      },
+      "endpoint_tls": {
+        "reachable": true,
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      },
+      "read_only_a2a_probe": {
+        "state": "a2a_response",
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      }
+    },
+    {
+      "id": 113,
+      "name": "InboxClean",
+      "description": "Validate the syntax and deliverability signals of email addresses.",
+      "card_url": "https://p113.example/.well-known/agent-card.json",
+      "endpoint": "https://p113.example/a2a",
+      "publisher_domain": "p113.example",
+      "status": "verified",
+      "first_seen": "2026-10-01T00:00:00+00:00",
+      "last_verified": "2026-10-20T10:00:00+00:00",
+      "signature_status": "unsigned",
+      "capabilities": [
+        {
+          "id": "s113",
+          "name": "Email verification",
+          "description": "Verify an email address and flag invalid or disposable mailboxes.",
+          "tags": [
+            "email",
+            "verify",
+            "validation"
+          ]
+        }
+      ],
+      "card": {
+        "supportedInterfaces": [
+          {
+            "url": "https://p113.example/a2a",
+            "protocolBinding": "JSONRPC",
+            "protocolVersion": "0.3.0"
+          }
+        ],
+        "securityRequirements": []
+      },
+      "endpoint_tls": {
+        "reachable": true,
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      },
+      "read_only_a2a_probe": {
+        "state": "a2a_response",
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      }
+    },
+    {
+      "id": 114,
+      "name": "MailRelay",
+      "description": "Send transactional email messages to recipients.",
+      "card_url": "https://p114.example/.well-known/agent-card.json",
+      "endpoint": "https://p114.example/a2a",
+      "publisher_domain": "p114.example",
+      "status": "verified",
+      "first_seen": "2026-10-01T00:00:00+00:00",
+      "last_verified": "2026-10-20T10:00:00+00:00",
+      "signature_status": "unsigned",
+      "capabilities": [
+        {
+          "id": "s114",
+          "name": "Email delivery",
+          "description": "Send an email from a verified sender; this is not mailbox verification.",
+          "tags": [
+            "email",
+            "send"
+          ]
+        }
+      ],
+      "card": {
+        "supportedInterfaces": [
+          {
+            "url": "https://p114.example/a2a",
+            "protocolBinding": "JSONRPC",
+            "protocolVersion": "0.3.0"
+          }
+        ],
+        "securityRequirements": []
+      },
+      "endpoint_tls": {
+        "reachable": true,
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      },
+      "read_only_a2a_probe": {
+        "state": "a2a_response",
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      }
+    },
+    {
+      "id": 115,
+      "name": "PayGuard",
+      "description": "Verify x402 payment receipts and settlement status.",
+      "card_url": "https://p115.example/.well-known/agent-card.json",
+      "endpoint": "https://p115.example/a2a",
+      "publisher_domain": "p115.example",
+      "status": "verified",
+      "first_seen": "2026-10-01T00:00:00+00:00",
+      "last_verified": "2026-10-20T10:00:00+00:00",
+      "signature_status": "unsigned",
+      "capabilities": [
+        {
+          "id": "s115",
+          "name": "Payment verification",
+          "description": "Validate a payment receipt against its transaction and seller requirements.",
+          "tags": [
+            "payment",
+            "verification",
+            "x402"
+          ]
+        }
+      ],
+      "card": {
+        "supportedInterfaces": [
+          {
+            "url": "https://p115.example/a2a",
+            "protocolBinding": "JSONRPC",
+            "protocolVersion": "0.3.0"
+          }
+        ],
+        "securityRequirements": []
+      },
+      "endpoint_tls": {
+        "reachable": true,
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      },
+      "read_only_a2a_probe": {
+        "state": "a2a_response",
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      }
+    },
+    {
+      "id": 116,
+      "name": "CoinGraph",
+      "description": "Summarise cryptocurrency news and token sentiment.",
+      "card_url": "https://p116.example/.well-known/agent-card.json",
+      "endpoint": "https://p116.example/a2a",
+      "publisher_domain": "p116.example",
+      "status": "verified",
+      "first_seen": "2026-10-01T00:00:00+00:00",
+      "last_verified": "2026-10-20T10:00:00+00:00",
+      "signature_status": "unsigned",
+      "capabilities": [
+        {
+          "id": "s116",
+          "name": "Crypto news",
+          "description": "Find market news about digital assets; does not verify payments.",
+          "tags": [
+            "crypto",
+            "news"
+          ]
+        }
+      ],
+      "card": {
+        "supportedInterfaces": [
+          {
+            "url": "https://p116.example/a2a",
+            "protocolBinding": "JSONRPC",
+            "protocolVersion": "0.3.0"
+          }
+        ],
+        "securityRequirements": []
+      },
+      "endpoint_tls": {
+        "reachable": true,
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      },
+      "read_only_a2a_probe": {
+        "state": "a2a_response",
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      }
+    },
+    {
+      "id": 117,
+      "name": "CodePatch",
+      "description": "Inspect a source-code change and suggest a repair.",
+      "card_url": "https://p117.example/.well-known/agent-card.json",
+      "endpoint": "https://p117.example/a2a",
+      "publisher_domain": "p117.example",
+      "status": "verified",
+      "first_seen": "2026-10-01T00:00:00+00:00",
+      "last_verified": "2026-10-20T10:00:00+00:00",
+      "signature_status": "unsigned",
+      "capabilities": [
+        {
+          "id": "s117",
+          "name": "Code review",
+          "description": "Review Python code for bugs and produce proposed fixes.",
+          "tags": [
+            "coding",
+            "review",
+            "python"
+          ]
+        }
+      ],
+      "card": {
+        "supportedInterfaces": [
+          {
+            "url": "https://p117.example/a2a",
+            "protocolBinding": "JSONRPC",
+            "protocolVersion": "0.3.0"
+          }
+        ],
+        "securityRequirements": []
+      },
+      "endpoint_tls": {
+        "reachable": true,
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      },
+      "read_only_a2a_probe": {
+        "state": "a2a_response",
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      }
+    },
+    {
+      "id": 118,
+      "name": "CounselDraft",
+      "description": "Draft a contract from supplied commercial terms.",
+      "card_url": "https://p118.example/.well-known/agent-card.json",
+      "endpoint": "https://p118.example/a2a",
+      "publisher_domain": "p118.example",
+      "status": "verified",
+      "first_seen": "2026-10-01T00:00:00+00:00",
+      "last_verified": "2026-10-20T10:00:00+00:00",
+      "signature_status": "unsigned",
+      "capabilities": [
+        {
+          "id": "s118",
+          "name": "Legal document drafting",
+          "description": "Create a first draft of a legal agreement for human review.",
+          "tags": [
+            "legal",
+            "contract",
+            "draft"
+          ]
+        }
+      ],
+      "card": {
+        "supportedInterfaces": [
+          {
+            "url": "https://p118.example/a2a",
+            "protocolBinding": "JSONRPC",
+            "protocolVersion": "0.3.0"
+          }
+        ],
+        "securityRequirements": []
+      },
+      "endpoint_tls": {
+        "reachable": true,
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      },
+      "read_only_a2a_probe": {
+        "state": "a2a_response",
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      }
+    },
+    {
+      "id": 119,
+      "name": "NoteSummarizer",
+      "description": "Turn supplied meeting transcripts into concise notes.",
+      "card_url": "https://p119.example/.well-known/agent-card.json",
+      "endpoint": "https://p119.example/a2a",
+      "publisher_domain": "p119.example",
+      "status": "verified",
+      "first_seen": "2026-10-01T00:00:00+00:00",
+      "last_verified": "2026-10-20T10:00:00+00:00",
+      "signature_status": "unsigned",
+      "capabilities": [
+        {
+          "id": "s119",
+          "name": "Meeting summary",
+          "description": "Summarize a transcript into decisions and action items.",
+          "tags": [
+            "summary",
+            "meeting"
+          ]
+        }
+      ],
+      "card": {
+        "supportedInterfaces": [
+          {
+            "url": "https://p119.example/a2a",
+            "protocolBinding": "JSONRPC",
+            "protocolVersion": "0.3.0"
+          }
+        ],
+        "securityRequirements": []
+      },
+      "endpoint_tls": {
+        "reachable": true,
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      },
+      "read_only_a2a_probe": {
+        "state": "a2a_response",
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      }
+    },
+    {
+      "id": 120,
+      "name": "MeetingPlanner",
+      "description": "Arrange appointments using calendar availability.",
+      "card_url": "https://p120.example/.well-known/agent-card.json",
+      "endpoint": "https://p120.example/a2a",
+      "publisher_domain": "p120.example",
+      "status": "verified",
+      "first_seen": "2026-10-01T00:00:00+00:00",
+      "last_verified": "2026-10-20T10:00:00+00:00",
+      "signature_status": "unsigned",
+      "capabilities": [
+        {
+          "id": "s120",
+          "name": "Calendar booking",
+          "description": "Schedule a meeting in available calendar slots.",
+          "tags": [
+            "calendar",
+            "booking"
+          ]
+        }
+      ],
+      "card": {
+        "supportedInterfaces": [
+          {
+            "url": "https://p120.example/a2a",
+            "protocolBinding": "JSONRPC",
+            "protocolVersion": "0.3.0"
+          }
+        ],
+        "securityRequirements": []
+      },
+      "endpoint_tls": {
+        "reachable": true,
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      },
+      "read_only_a2a_probe": {
+        "state": "a2a_response",
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      }
+    },
+    {
+      "id": 121,
+      "name": "InvoiceParse",
+      "description": "Turn invoice PDFs into machine-readable line items.",
+      "card_url": "https://p121.example/.well-known/agent-card.json",
+      "endpoint": "https://p121.example/a2a",
+      "publisher_domain": "p121.example",
+      "status": "verified",
+      "first_seen": "2026-10-01T00:00:00+00:00",
+      "last_verified": "2026-10-20T10:00:00+00:00",
+      "signature_status": "unsigned",
+      "capabilities": [
+        {
+          "id": "s121",
+          "name": "Invoice extraction",
+          "description": "Extract invoice numbers, totals and line items from PDF documents.",
+          "tags": [
+            "invoice",
+            "pdf",
+            "extract"
+          ]
+        }
+      ],
+      "card": {
+        "supportedInterfaces": [
+          {
+            "url": "https://p121.example/a2a",
+            "protocolBinding": "JSONRPC",
+            "protocolVersion": "0.3.0"
+          }
+        ],
+        "securityRequirements": []
+      },
+      "endpoint_tls": {
+        "reachable": true,
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      },
+      "read_only_a2a_probe": {
+        "state": "a2a_response",
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      }
+    },
+    {
+      "id": 122,
+      "name": "VoiceScript",
+      "description": "Transcribe recorded speech into text.",
+      "card_url": "https://p122.example/.well-known/agent-card.json",
+      "endpoint": "https://p122.example/a2a",
+      "publisher_domain": "p122.example",
+      "status": "verified",
+      "first_seen": "2026-10-01T00:00:00+00:00",
+      "last_verified": "2026-10-20T10:00:00+00:00",
+      "signature_status": "unsigned",
+      "capabilities": [
+        {
+          "id": "s122",
+          "name": "Audio transcription",
+          "description": "Convert uploaded audio recordings into a text transcript.",
+          "tags": [
+            "audio",
+            "transcription"
+          ]
+        }
+      ],
+      "card": {
+        "supportedInterfaces": [
+          {
+            "url": "https://p122.example/a2a",
+            "protocolBinding": "JSONRPC",
+            "protocolVersion": "0.3.0"
+          }
+        ],
+        "securityRequirements": []
+      },
+      "endpoint_tls": {
+        "reachable": true,
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      },
+      "read_only_a2a_probe": {
+        "state": "a2a_response",
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      }
+    },
+    {
+      "id": 123,
+      "name": "DataTables",
+      "description": "Analyse CSV tables and calculate descriptive statistics.",
+      "card_url": "https://p123.example/.well-known/agent-card.json",
+      "endpoint": "https://p123.example/a2a",
+      "publisher_domain": "p123.example",
+      "status": "verified",
+      "first_seen": "2026-10-01T00:00:00+00:00",
+      "last_verified": "2026-10-20T10:00:00+00:00",
+      "signature_status": "unsigned",
+      "capabilities": [
+        {
+          "id": "s123",
+          "name": "Tabular analysis",
+          "description": "Summarize a CSV dataset with grouped counts, means and distributions.",
+          "tags": [
+            "data",
+            "csv",
+            "analysis"
+          ]
+        }
+      ],
+      "card": {
+        "supportedInterfaces": [
+          {
+            "url": "https://p123.example/a2a",
+            "protocolBinding": "JSONRPC",
+            "protocolVersion": "0.3.0"
+          }
+        ],
+        "securityRequirements": []
+      },
+      "endpoint_tls": {
+        "reachable": true,
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      },
+      "read_only_a2a_probe": {
+        "state": "a2a_response",
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      }
+    },
+    {
+      "id": 124,
+      "name": "MemoryVault",
+      "description": "Store and retrieve application memory entries.",
+      "card_url": "https://p124.example/.well-known/agent-card.json",
+      "endpoint": "https://p124.example/a2a",
+      "publisher_domain": "p124.example",
+      "status": "verified",
+      "first_seen": "2026-10-01T00:00:00+00:00",
+      "last_verified": "2026-10-20T10:00:00+00:00",
+      "signature_status": "unsigned",
+      "capabilities": [
+        {
+          "id": "s124",
+          "name": "Memory storage",
+          "description": "Persist key-value notes and retrieve them by key.",
+          "tags": [
+            "memory",
+            "storage"
+          ]
+        }
+      ],
+      "card": {
+        "supportedInterfaces": [
+          {
+            "url": "https://p124.example/a2a",
+            "protocolBinding": "JSONRPC",
+            "protocolVersion": "0.3.0"
+          }
+        ],
+        "securityRequirements": []
+      },
+      "endpoint_tls": {
+        "reachable": true,
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      },
+      "read_only_a2a_probe": {
+        "state": "a2a_response",
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      }
+    },
+    {
+      "id": 125,
+      "name": "PaperPress Secure",
+      "description": "Render HTML and Markdown documents as downloadable PDF files.",
+      "card_url": "https://p125.example/.well-known/agent-card.json",
+      "endpoint": "https://p125.example/a2a",
+      "publisher_domain": "p125.example",
+      "status": "verified",
+      "first_seen": "2026-10-01T00:00:00+00:00",
+      "last_verified": "2026-10-20T10:00:00+00:00",
+      "signature_status": "verified",
+      "capabilities": [
+        {
+          "id": "s125",
+          "name": "PDF creation",
+          "description": "Generate a PDF document from supplied HTML or Markdown.",
+          "tags": [
+            "pdf",
+            "documents",
+            "generate"
+          ]
+        }
+      ],
+      "card": {
+        "securityRequirements": [
+          {
+            "apiKey": []
+          }
+        ],
+        "supportedInterfaces": [
+          {
+            "protocolBinding": "JSONRPC",
+            "protocolVersion": "1.0"
+          }
+        ]
+      },
+      "endpoint_tls": {
+        "reachable": true,
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      },
+      "read_only_a2a_probe": {
+        "state": "a2a_response",
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      }
+    },
+    {
+      "id": 126,
+      "name": "Weather Dormant",
+      "description": "Local future weather forecasts.",
+      "card_url": "https://p126.example/.well-known/agent-card.json",
+      "endpoint": "https://p126.example/a2a",
+      "publisher_domain": "p126.example",
+      "status": "verified",
+      "first_seen": "2026-10-01T00:00:00+00:00",
+      "last_verified": "2026-10-15T10:00:00+00:00",
+      "signature_status": "unsigned",
+      "capabilities": [
+        {
+          "id": "s126",
+          "name": "Weather forecast",
+          "description": "Get weather forecasts for a city.",
+          "tags": [
+            "weather",
+            "forecast"
+          ]
+        }
+      ],
+      "card": {
+        "supportedInterfaces": [
+          {
+            "url": "https://p126.example/a2a",
+            "protocolBinding": "JSONRPC",
+            "protocolVersion": "0.3.0"
+          }
+        ],
+        "securityRequirements": []
+      },
+      "endpoint_tls": {
+        "reachable": true,
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      },
+      "read_only_a2a_probe": {
+        "state": "a2a_response",
+        "checked_at": "2026-10-15T10:00:00+00:00"
+      }
+    },
+    {
+      "id": 127,
+      "name": "Weather Unconfirmed",
+      "description": "Local future weather forecasts.",
+      "card_url": "https://p127.example/.well-known/agent-card.json",
+      "endpoint": "https://p127.example/a2a",
+      "publisher_domain": "p127.example",
+      "status": "verified",
+      "first_seen": "2026-10-01T00:00:00+00:00",
+      "last_verified": "2026-10-20T10:00:00+00:00",
+      "signature_status": "unsigned",
+      "capabilities": [
+        {
+          "id": "s127",
+          "name": "Weather forecast",
+          "description": "Get weather forecasts for a city.",
+          "tags": [
+            "weather",
+            "forecast"
+          ]
+        }
+      ],
+      "card": {
+        "supportedInterfaces": [
+          {
+            "url": "https://p127.example/a2a",
+            "protocolBinding": "JSONRPC",
+            "protocolVersion": "0.3.0"
+          }
+        ],
+        "securityRequirements": []
+      },
+      "endpoint_tls": {
+        "reachable": true,
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      },
+      "read_only_a2a_probe": {
+        "state": "unconfirmed",
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      }
+    },
+    {
+      "id": 128,
+      "name": "Weather Broken TLS",
+      "description": "Local future weather forecasts.",
+      "card_url": "https://p128.example/.well-known/agent-card.json",
+      "endpoint": "https://p128.example/a2a",
+      "publisher_domain": "p128.example",
+      "status": "verified",
+      "first_seen": "2026-10-01T00:00:00+00:00",
+      "last_verified": "2026-10-20T10:00:00+00:00",
+      "signature_status": "unsigned",
+      "capabilities": [
+        {
+          "id": "s128",
+          "name": "Weather forecast",
+          "description": "Get weather forecasts for a city.",
+          "tags": [
+            "weather",
+            "forecast"
+          ]
+        }
+      ],
+      "card": {
+        "supportedInterfaces": [
+          {
+            "url": "https://p128.example/a2a",
+            "protocolBinding": "JSONRPC",
+            "protocolVersion": "0.3.0"
+          }
+        ],
+        "securityRequirements": []
+      },
+      "endpoint_tls": {
+        "reachable": false,
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      },
+      "read_only_a2a_probe": {
+        "state": "a2a_response",
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      }
+    },
+    {
+      "id": 129,
+      "name": "Weather Signed",
+      "description": "Local future weather forecasts.",
+      "card_url": "https://p129.example/.well-known/agent-card.json",
+      "endpoint": "https://p129.example/a2a",
+      "publisher_domain": "p129.example",
+      "status": "verified",
+      "first_seen": "2026-10-01T00:00:00+00:00",
+      "last_verified": "2026-10-20T10:00:00+00:00",
+      "signature_status": "verified",
+      "capabilities": [
+        {
+          "id": "s129",
+          "name": "Weather forecast",
+          "description": "Get weather forecasts for a city.",
+          "tags": [
+            "weather",
+            "forecast"
+          ]
+        }
+      ],
+      "card": {
+        "supportedInterfaces": [
+          {
+            "url": "https://p129.example/a2a",
+            "protocolBinding": "JSONRPC",
+            "protocolVersion": "0.3.0"
+          }
+        ],
+        "securityRequirements": []
+      },
+      "endpoint_tls": {
+        "reachable": true,
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      },
+      "read_only_a2a_probe": {
+        "state": "a2a_response",
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      }
+    },
+    {
+      "id": 130,
+      "name": "Weather Keyed",
+      "description": "Local future weather forecasts.",
+      "card_url": "https://p130.example/.well-known/agent-card.json",
+      "endpoint": "https://p130.example/a2a",
+      "publisher_domain": "p130.example",
+      "status": "verified",
+      "first_seen": "2026-10-01T00:00:00+00:00",
+      "last_verified": "2026-10-20T10:00:00+00:00",
+      "signature_status": "unsigned",
+      "capabilities": [
+        {
+          "id": "s130",
+          "name": "Weather forecast",
+          "description": "Get weather forecasts for a city.",
+          "tags": [
+            "weather",
+            "forecast"
+          ]
+        }
+      ],
+      "card": {
+        "securityRequirements": [
+          {
+            "apiKey": []
+          }
+        ],
+        "supportedInterfaces": [
+          {
+            "protocolBinding": "HTTP+JSON",
+            "protocolVersion": "1.0"
+          }
+        ]
+      },
+      "endpoint_tls": {
+        "reachable": true,
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      },
+      "read_only_a2a_probe": {
+        "state": "a2a_response",
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      }
+    },
+    {
+      "id": 131,
+      "name": "PDF Viewer",
+      "description": "Display PDF pages. It cannot extract text, fill forms, or generate files.",
+      "card_url": "https://p131.example/.well-known/agent-card.json",
+      "endpoint": "https://p131.example/a2a",
+      "publisher_domain": "p131.example",
+      "status": "verified",
+      "first_seen": "2026-10-01T00:00:00+00:00",
+      "last_verified": "2026-10-20T10:00:00+00:00",
+      "signature_status": "unsigned",
+      "capabilities": [
+        {
+          "id": "s131",
+          "name": "PDF preview",
+          "description": "Display a PDF page as a preview for a person.",
+          "tags": [
+            "pdf",
+            "view"
+          ]
+        }
+      ],
+      "card": {
+        "supportedInterfaces": [
+          {
+            "url": "https://p131.example/a2a",
+            "protocolBinding": "JSONRPC",
+            "protocolVersion": "0.3.0"
+          }
+        ],
+        "securityRequirements": []
+      },
+      "endpoint_tls": {
+        "reachable": true,
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      },
+      "read_only_a2a_probe": {
+        "state": "a2a_response",
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      }
+    },
+    {
+      "id": 132,
+      "name": "Payment Docs",
+      "description": "Documentation explaining payment verification concepts; no verification service.",
+      "card_url": "https://p132.example/.well-known/agent-card.json",
+      "endpoint": "https://p132.example/a2a",
+      "publisher_domain": "p132.example",
+      "status": "verified",
+      "first_seen": "2026-10-01T00:00:00+00:00",
+      "last_verified": "2026-10-20T10:00:00+00:00",
+      "signature_status": "unsigned",
+      "capabilities": [
+        {
+          "id": "s132",
+          "name": "Documentation assistant",
+          "description": "Answer questions about a payment protocol guide.",
+          "tags": [
+            "documentation",
+            "payment"
+          ]
+        }
+      ],
+      "card": {
+        "supportedInterfaces": [
+          {
+            "url": "https://p132.example/a2a",
+            "protocolBinding": "JSONRPC",
+            "protocolVersion": "0.3.0"
+          }
+        ],
+        "securityRequirements": []
+      },
+      "endpoint_tls": {
+        "reachable": true,
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      },
+      "read_only_a2a_probe": {
+        "state": "a2a_response",
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      }
+    },
+    {
+      "id": 133,
+      "name": "Translation Auth",
+      "description": "Translate text between English, Spanish and French.",
+      "card_url": "https://p133.example/.well-known/agent-card.json",
+      "endpoint": "https://p133.example/a2a",
+      "publisher_domain": "p133.example",
+      "status": "verified",
+      "first_seen": "2026-10-01T00:00:00+00:00",
+      "last_verified": "2026-10-20T10:00:00+00:00",
+      "signature_status": "unsigned",
+      "capabilities": [
+        {
+          "id": "s133",
+          "name": "Text translation",
+          "description": "Translate supplied text into a requested supported language.",
+          "tags": [
+            "translation",
+            "languages"
+          ]
+        }
+      ],
+      "card": {
+        "securityRequirements": [
+          {
+            "oauth2": [
+              "translate"
+            ]
+          }
+        ],
+        "supportedInterfaces": [
+          {
+            "protocolBinding": "GRPC",
+            "protocolVersion": "1.0"
+          }
+        ]
+      },
+      "endpoint_tls": {
+        "reachable": true,
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      },
+      "read_only_a2a_probe": {
+        "state": "a2a_response",
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      }
+    },
+    {
+      "id": 134,
+      "name": "PDF Unsigned Fresh",
+      "description": "Render HTML and Markdown as PDF documents.",
+      "card_url": "https://p134.example/.well-known/agent-card.json",
+      "endpoint": "https://p134.example/a2a",
+      "publisher_domain": "p134.example",
+      "status": "verified",
+      "first_seen": "2026-10-01T00:00:00+00:00",
+      "last_verified": "2026-10-20T10:00:00+00:00",
+      "signature_status": "unsigned",
+      "capabilities": [
+        {
+          "id": "s134",
+          "name": "PDF creation",
+          "description": "Generate PDF files from supplied HTML.",
+          "tags": [
+            "pdf",
+            "generate"
+          ]
+        }
+      ],
+      "card": {
+        "supportedInterfaces": [
+          {
+            "url": "https://p134.example/a2a",
+            "protocolBinding": "JSONRPC",
+            "protocolVersion": "0.3.0"
+          }
+        ],
+        "securityRequirements": []
+      },
+      "endpoint_tls": {
+        "reachable": true,
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      },
+      "read_only_a2a_probe": {
+        "state": "jsonrpc_no_task_lookup",
+        "checked_at": "2026-10-20T10:00:00+00:00"
+      }
+    }
+  ],
+  "queries": [
+    {
+      "id": "pdf-create",
+      "q": "agents that generate pdf documents",
+      "requirements": {},
+      "judgments": {
+        "relevant_ids": [
+          101,
+          125,
+          134
+        ],
+        "unacceptable_ids": [
+          102,
+          103,
+          104,
+          121,
+          131
+        ],
+        "no_match_expected": false,
+        "rationale": "Creates a new PDF. Filling an existing form, extracting text, and drawing images are different operations.",
+        "constraint_ineligible_ids": []
+      },
+      "notes": "",
+      "expected_requirements": {}
+    },
+    {
+      "id": "pdf-fill",
+      "q": "fill an existing PDF form",
+      "requirements": {},
+      "judgments": {
+        "relevant_ids": [
+          102
+        ],
+        "unacceptable_ids": [
+          101,
+          103,
+          125,
+          131,
+          134
+        ],
+        "no_match_expected": false,
+        "rationale": "Requires filling existing fields.",
+        "constraint_ineligible_ids": []
+      },
+      "notes": "",
+      "expected_requirements": {}
+    },
+    {
+      "id": "pdf-extract",
+      "q": "extract text from PDF invoices",
+      "requirements": {},
+      "judgments": {
+        "relevant_ids": [
+          103,
+          121
+        ],
+        "unacceptable_ids": [
+          101,
+          102,
+          104,
+          125,
+          131,
+          134
+        ],
+        "no_match_expected": false,
+        "rationale": "Extracts document content; InvoiceParse is the narrower fit.",
+        "constraint_ineligible_ids": []
+      },
+      "notes": "",
+      "expected_requirements": {}
+    },
+    {
+      "id": "pdf-paraphrase",
+      "q": "turn HTML into a PDF",
+      "requirements": {},
+      "judgments": {
+        "relevant_ids": [
+          101,
+          125,
+          134
+        ],
+        "unacceptable_ids": [
+          102,
+          103,
+          131
+        ],
+        "no_match_expected": false,
+        "rationale": "HTML to PDF rendering, irrespective of the wording used in the skill title.",
+        "constraint_ineligible_ids": []
+      },
+      "notes": "",
+      "expected_requirements": {}
+    },
+    {
+      "id": "weather",
+      "q": "weather",
+      "requirements": {},
+      "judgments": {
+        "relevant_ids": [
+          105,
+          106,
+          126,
+          127,
+          128,
+          129,
+          130
+        ],
+        "unacceptable_ids": [],
+        "no_match_expected": false,
+        "rationale": "Broad weather request permits forecast and historical weather services.",
+        "constraint_ineligible_ids": []
+      },
+      "notes": "",
+      "expected_requirements": {}
+    },
+    {
+      "id": "weather-future",
+      "q": "weather forecast for tomorrow",
+      "requirements": {},
+      "judgments": {
+        "relevant_ids": [
+          105,
+          126,
+          127,
+          128,
+          129,
+          130
+        ],
+        "unacceptable_ids": [
+          106
+        ],
+        "no_match_expected": false,
+        "rationale": "Tomorrow needs a forecast. Historical observations alone cannot answer it.",
+        "constraint_ineligible_ids": []
+      },
+      "notes": "",
+      "expected_requirements": {}
+    },
+    {
+      "id": "geocode",
+      "q": "convert a street address to coordinates",
+      "requirements": {},
+      "judgments": {
+        "relevant_ids": [
+          107
+        ],
+        "unacceptable_ids": [
+          108
+        ],
+        "no_match_expected": false,
+        "rationale": "Geocoding, not route calculation.",
+        "constraint_ineligible_ids": []
+      },
+      "notes": "",
+      "expected_requirements": {}
+    },
+    {
+      "id": "web-pages",
+      "q": "find current web pages with sources",
+      "requirements": {},
+      "judgments": {
+        "relevant_ids": [
+          109
+        ],
+        "unacceptable_ids": [
+          110,
+          111
+        ],
+        "no_match_expected": false,
+        "rationale": "Web search with source links.",
+        "constraint_ineligible_ids": []
+      },
+      "notes": "",
+      "expected_requirements": {}
+    },
+    {
+      "id": "company",
+      "q": "look up company registration details",
+      "requirements": {},
+      "judgments": {
+        "relevant_ids": [
+          111
+        ],
+        "unacceptable_ids": [
+          110
+        ],
+        "no_match_expected": false,
+        "rationale": "Company records rather than stock quotes.",
+        "constraint_ineligible_ids": []
+      },
+      "notes": "",
+      "expected_requirements": {}
+    },
+    {
+      "id": "translation",
+      "q": "translate a document from English into French",
+      "requirements": {},
+      "judgments": {
+        "relevant_ids": [
+          112,
+          133
+        ],
+        "unacceptable_ids": [],
+        "no_match_expected": false,
+        "rationale": "Both declare supported text translation.",
+        "constraint_ineligible_ids": []
+      },
+      "notes": "",
+      "expected_requirements": {}
+    },
+    {
+      "id": "email-validate",
+      "q": "validate an email address",
+      "requirements": {},
+      "judgments": {
+        "relevant_ids": [
+          113
+        ],
+        "unacceptable_ids": [
+          114
+        ],
+        "no_match_expected": false,
+        "rationale": "Address validation rather than delivery.",
+        "constraint_ineligible_ids": []
+      },
+      "notes": "",
+      "expected_requirements": {}
+    },
+    {
+      "id": "payment",
+      "q": "verify an x402 payment receipt",
+      "requirements": {},
+      "judgments": {
+        "relevant_ids": [
+          115
+        ],
+        "unacceptable_ids": [
+          116,
+          132
+        ],
+        "no_match_expected": false,
+        "rationale": "Performs payment receipt verification; explanations of a protocol are insufficient.",
+        "constraint_ineligible_ids": []
+      },
+      "notes": "",
+      "expected_requirements": {}
+    },
+    {
+      "id": "images",
+      "q": "generate an illustration from a prompt",
+      "requirements": {},
+      "judgments": {
+        "relevant_ids": [
+          104
+        ],
+        "unacceptable_ids": [
+          101,
+          125,
+          134
+        ],
+        "no_match_expected": false,
+        "rationale": "Image generation, rather than PDF document creation.",
+        "constraint_ineligible_ids": []
+      },
+      "notes": "",
+      "expected_requirements": {}
+    },
+    {
+      "id": "code-review",
+      "q": "review Python code for bugs",
+      "requirements": {},
+      "judgments": {
+        "relevant_ids": [
+          117
+        ],
+        "unacceptable_ids": [],
+        "no_match_expected": false,
+        "rationale": "Source-code review and repair suggestions.",
+        "constraint_ineligible_ids": []
+      },
+      "notes": "",
+      "expected_requirements": {}
+    },
+    {
+      "id": "legal-draft",
+      "q": "draft a legal contract",
+      "requirements": {},
+      "judgments": {
+        "relevant_ids": [
+          118
+        ],
+        "unacceptable_ids": [],
+        "no_match_expected": false,
+        "rationale": "Drafting a legal agreement.",
+        "constraint_ineligible_ids": []
+      },
+      "notes": "",
+      "expected_requirements": {}
+    },
+    {
+      "id": "no-key-pdf",
+      "q": "generate pdf documents without an API key",
+      "requirements": {},
+      "judgments": {
+        "relevant_ids": [
+          101,
+          134
+        ],
+        "unacceptable_ids": [
+          125
+        ],
+        "no_match_expected": false,
+        "rationale": "Only fixtures with no declared authentication qualify; this does not certify account-free use.",
+        "constraint_ineligible_ids": [
+          125
+        ]
+      },
+      "notes": "",
+      "expected_requirements": {
+        "auth": "none"
+      }
+    },
+    {
+      "id": "signed-weather",
+      "q": "signed weather agents",
+      "requirements": {},
+      "judgments": {
+        "relevant_ids": [
+          129
+        ],
+        "unacceptable_ids": [
+          105,
+          106,
+          126,
+          127,
+          128,
+          130
+        ],
+        "no_match_expected": false,
+        "rationale": "Signature must be verified, not merely present.",
+        "constraint_ineligible_ids": [
+          105,
+          106,
+          126,
+          127,
+          128,
+          130
+        ]
+      },
+      "notes": "",
+      "expected_requirements": {
+        "signature": "verified"
+      }
+    },
+    {
+      "id": "recent-card",
+      "q": "weather",
+      "requirements": {
+        "checked_within_hours": 24
+      },
+      "judgments": {
+        "relevant_ids": [
+          105,
+          106,
+          127,
+          128,
+          129,
+          130
+        ],
+        "unacceptable_ids": [
+          126
+        ],
+        "no_match_expected": false,
+        "rationale": "Card checked within the last 24 hours at the fixed benchmark clock.",
+        "constraint_ineligible_ids": [
+          126
+        ]
+      },
+      "notes": "",
+      "expected_requirements": {
+        "checked_within_hours": 24
+      }
+    },
+    {
+      "id": "recent-response",
+      "q": "weather",
+      "requirements": {
+        "a2a_response_within_hours": 24
+      },
+      "judgments": {
+        "relevant_ids": [
+          105,
+          106,
+          128,
+          129,
+          130
+        ],
+        "unacceptable_ids": [
+          126,
+          127
+        ],
+        "no_match_expected": false,
+        "rationale": "A confirmed recent protocol response is required; a fresh card alone is insufficient.",
+        "constraint_ineligible_ids": [
+          126,
+          127
+        ]
+      },
+      "notes": "",
+      "expected_requirements": {
+        "a2a_response_within_hours": 24
+      }
+    },
+    {
+      "id": "tls",
+      "q": "weather",
+      "requirements": {
+        "tls_reachable": true
+      },
+      "judgments": {
+        "relevant_ids": [
+          105,
+          106,
+          126,
+          127,
+          129,
+          130
+        ],
+        "unacceptable_ids": [
+          128
+        ],
+        "no_match_expected": false,
+        "rationale": "Only a successful latest TLS observation qualifies.",
+        "constraint_ineligible_ids": [
+          128
+        ]
+      },
+      "notes": "",
+      "expected_requirements": {
+        "tls_reachable": true
+      }
+    },
+    {
+      "id": "grpc",
+      "q": "translate text",
+      "requirements": {
+        "protocol": "GRPC"
+      },
+      "judgments": {
+        "relevant_ids": [
+          133
+        ],
+        "unacceptable_ids": [
+          112
+        ],
+        "no_match_expected": false,
+        "rationale": "Transport requirement is independent of capability.",
+        "constraint_ineligible_ids": [
+          112
+        ]
+      },
+      "notes": "",
+      "expected_requirements": {
+        "protocol": "GRPC"
+      }
+    },
+    {
+      "id": "no-signed-geocode",
+      "q": "geocode a street address",
+      "requirements": {
+        "signature": "verified"
+      },
+      "judgments": {
+        "relevant_ids": [],
+        "unacceptable_ids": [
+          107
+        ],
+        "no_match_expected": true,
+        "rationale": "The only geocoder has no verified signature.",
+        "constraint_ineligible_ids": [
+          107
+        ]
+      },
+      "notes": "",
+      "expected_requirements": {
+        "signature": "verified"
+      }
+    },
+    {
+      "id": "unavailable",
+      "q": "control a fusion reactor",
+      "requirements": {},
+      "judgments": {
+        "relevant_ids": [],
+        "unacceptable_ids": [
+          101,
+          104,
+          115,
+          117
+        ],
+        "no_match_expected": true,
+        "rationale": "No fixture declares this capability; incidental text must not invent it.",
+        "constraint_ineligible_ids": []
+      },
+      "notes": "",
+      "expected_requirements": {}
+    },
+    {
+      "id": "empty-after-constraints",
+      "q": "create PDF documents",
+      "requirements": {
+        "auth": "none",
+        "signature": "verified"
+      },
+      "judgments": {
+        "relevant_ids": [],
+        "unacceptable_ids": [
+          101,
+          125,
+          134
+        ],
+        "no_match_expected": true,
+        "rationale": "No fixture combines generation, verified signature, and no declared authentication.",
+        "constraint_ineligible_ids": [
+          101,
+          125,
+          134
+        ]
+      },
+      "notes": "",
+      "expected_requirements": {
+        "auth": "none",
+        "signature": "verified"
+      }
+    }
+  ]
+}
