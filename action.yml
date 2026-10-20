@@ -1,0 +1,39 @@
+name: LocalMark evidence gate
+description: Check Agent Card structure or require fresh stored evidence without running an agent task.
+author: LocalMark
+branding:
+  icon: check-circle
+  color: green
+inputs:
+  target:
+    description: Individual card URL, endpoint or domain; check-card mode requires the full public card URL.
+    required: true
+  mode:
+    description: stored checks LocalMark observations; check-card performs a bounded read-only publisher preflight.
+    default: stored
+  card-hours:
+    description: Maximum card observation age in hours (1–8760).
+    default: '24'
+  a2a-hours:
+    description: Optional maximum age of a confirmed A2A response in hours (1–8760).
+    default: ''
+  tls:
+    description: Require successful endpoint TLS evidence (true or false).
+    default: 'true'
+  signature:
+    description: Require a verified card signature (true or false).
+    default: 'false'
+runs:
+  using: composite
+  steps:
+    - name: Check LocalMark evidence
+      shell: bash
+      env:
+        LOCALMARK_ACTION_PATH: ${{ github.action_path }}
+        LOCALMARK_TARGET: ${{ inputs.target }}
+        LOCALMARK_MODE: ${{ inputs.mode }}
+        LOCALMARK_CARD_HOURS: ${{ inputs.card-hours }}
+        LOCALMARK_A2A_HOURS: ${{ inputs.a2a-hours }}
+        LOCALMARK_TLS: ${{ inputs.tls }}
+        LOCALMARK_SIGNATURE: ${{ inputs.signature }}
+      run: python "$LOCALMARK_ACTION_PATH/action/run.py"
