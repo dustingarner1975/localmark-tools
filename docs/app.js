@@ -89,6 +89,8 @@ function agentCard(agent) {
   article.append(meta);
   const links = el('div', 'links');
   links.append(safeLink('Evidence profile ↗', `https://localmark.ai/agents/${encodeURIComponent(agent.id)}`));
+  links.append(safeLink('Connection metadata (JSON) ↗', `${API}/connection-plan?target=${encodeURIComponent(agent.id)}`));
+  links.append(safeLink('Watch changes ↗', `https://localmark.ai/watch?agent_id=${encodeURIComponent(agent.id)}`));
   if (agent.card_url) links.append(safeLink('Publisher Agent Card ↗', agent.card_url));
   article.append(links);
   return article;
